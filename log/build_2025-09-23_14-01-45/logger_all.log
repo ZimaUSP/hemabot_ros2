@@ -1,0 +1,807 @@
+[0.061s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.061s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x77fd5df96c20>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x77fd5df96590>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x77fd5df96590>>, mixin_verb=('build',))
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.135s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/zima/d_hospital'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extensions ['ignore', 'ignore_ament_install']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'ignore'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'ignore_ament_install'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extensions ['colcon_pkg']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'colcon_pkg'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extensions ['colcon_meta']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'colcon_meta'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extensions ['ros']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'ros'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extensions ['cmake', 'python']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'cmake'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'python'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extensions ['python_setup_py']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi) by extension 'python_setup_py'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extensions ['ignore', 'ignore_ament_install']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'ignore'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'ignore_ament_install'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extensions ['colcon_pkg']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'colcon_pkg'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extensions ['colcon_meta']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'colcon_meta'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extensions ['ros']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'ros'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extensions ['cmake', 'python']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'cmake'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'python'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extensions ['python_setup_py']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian) by extension 'python_setup_py'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extensions ['ignore', 'ignore_ament_install']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'ignore'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'ignore_ament_install'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extensions ['colcon_pkg']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'colcon_pkg'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extensions ['colcon_meta']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'colcon_meta'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extensions ['ros']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'ros'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extensions ['cmake', 'python']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'cmake'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'python'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extensions ['python_setup_py']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template) by extension 'python_setup_py'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extensions ['ignore', 'ignore_ament_install']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'ignore'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'ignore_ament_install'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extensions ['colcon_pkg']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'colcon_pkg'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extensions ['colcon_meta']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'colcon_meta'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extensions ['ros']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'ros'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extensions ['cmake', 'python']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'cmake'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'python'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extensions ['python_setup_py']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi) by extension 'python_setup_py'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extensions ['ignore', 'ignore_ament_install']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'ignore'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'ignore_ament_install'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extensions ['colcon_pkg']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'colcon_pkg'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extensions ['colcon_meta']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'colcon_meta'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extensions ['ros']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'ros'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extensions ['cmake', 'python']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'cmake'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'python'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extensions ['python_setup_py']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/debian-template/wiringPi/DEBIAN) by extension 'python_setup_py'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extensions ['ignore', 'ignore_ament_install']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'ignore'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'ignore_ament_install'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extensions ['colcon_pkg']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'colcon_pkg'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extensions ['colcon_meta']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'colcon_meta'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extensions ['ros']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'ros'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extensions ['cmake', 'python']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'cmake'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'python'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extensions ['python_setup_py']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/devLib) by extension 'python_setup_py'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extensions ['ignore', 'ignore_ament_install']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'ignore'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'ignore_ament_install'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extensions ['colcon_pkg']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'colcon_pkg'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extensions ['colcon_meta']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'colcon_meta'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extensions ['ros']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'ros'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extensions ['cmake', 'python']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'cmake'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'python'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extensions ['python_setup_py']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples) by extension 'python_setup_py'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extensions ['ignore', 'ignore_ament_install']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'colcon_meta'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extensions ['ros']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'ros'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extensions ['cmake', 'python']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'cmake'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'python'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extensions ['python_setup_py']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/Gertboard) by extension 'python_setup_py'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extensions ['ignore', 'ignore_ament_install']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'colcon_meta'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extensions ['ros']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'ros'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extensions ['cmake', 'python']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'cmake'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'python'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extensions ['python_setup_py']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiFace) by extension 'python_setup_py'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extensions ['ignore', 'ignore_ament_install']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'colcon_meta'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extensions ['ros']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'ros'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extensions ['cmake', 'python']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'cmake'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'python'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extensions ['python_setup_py']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/PiGlow) by extension 'python_setup_py'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extensions ['ignore', 'ignore_ament_install']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'ignore'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'ignore_ament_install'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extensions ['colcon_pkg']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'colcon_pkg'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extensions ['colcon_meta']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'colcon_meta'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extensions ['ros']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'ros'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extensions ['cmake', 'python']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'cmake'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'python'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extensions ['python_setup_py']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/q2w) by extension 'python_setup_py'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extensions ['ignore', 'ignore_ament_install']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'ignore'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'ignore_ament_install'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extensions ['colcon_pkg']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'colcon_pkg'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extensions ['colcon_meta']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'colcon_meta'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extensions ['ros']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'ros'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extensions ['cmake', 'python']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'cmake'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'python'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extensions ['python_setup_py']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/examples/scrollPhat) by extension 'python_setup_py'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extensions ['ignore', 'ignore_ament_install']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'ignore'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'ignore_ament_install'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extensions ['colcon_pkg']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'colcon_pkg'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extensions ['colcon_meta']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'colcon_meta'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extensions ['ros']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'ros'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extensions ['cmake', 'python']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'cmake'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'python'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extensions ['python_setup_py']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/gpio) by extension 'python_setup_py'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extensions ['ignore', 'ignore_ament_install']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'ignore'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'ignore_ament_install'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extensions ['colcon_pkg']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'colcon_pkg'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extensions ['colcon_meta']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'colcon_meta'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extensions ['ros']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'ros'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extensions ['cmake', 'python']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'cmake'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'python'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extensions ['python_setup_py']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/pins) by extension 'python_setup_py'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extensions ['ignore', 'ignore_ament_install']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'ignore'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'ignore_ament_install'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extensions ['colcon_pkg']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'colcon_pkg'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extensions ['colcon_meta']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'colcon_meta'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extensions ['ros']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'ros'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extensions ['cmake', 'python']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'cmake'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'python'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extensions ['python_setup_py']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPi) by extension 'python_setup_py'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extensions ['ignore', 'ignore_ament_install']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'ignore'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'ignore_ament_install'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extensions ['colcon_pkg']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'colcon_pkg'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extensions ['colcon_meta']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'colcon_meta'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extensions ['ros']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'ros'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extensions ['cmake', 'python']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'cmake'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'python'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extensions ['python_setup_py']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(WiringPi/wiringPiD) by extension 'python_setup_py'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extensions ['ignore', 'ignore_ament_install']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extension 'ignore'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extension 'ignore_ament_install'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extensions ['colcon_pkg']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extension 'colcon_pkg'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extensions ['colcon_meta']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extension 'colcon_meta'
+[0.149s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extensions ['ros']
+[0.149s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_description) by extension 'ros'
+[0.150s] DEBUG:colcon.colcon_core.package_identification:Package 'src/d_hospital_description' with type 'ros.ament_cmake' and name 'd_hospital_description'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extensions ['ignore', 'ignore_ament_install']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extension 'ignore'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extension 'ignore_ament_install'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extensions ['colcon_pkg']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extension 'colcon_pkg'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extensions ['colcon_meta']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extension 'colcon_meta'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extensions ['ros']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gazebo2) by extension 'ros'
+[0.151s] DEBUG:colcon.colcon_core.package_identification:Package 'src/d_hospital_gazebo2' with type 'ros.ament_cmake' and name 'd_hospital_gazebo2'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extensions ['ignore', 'ignore_ament_install']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extension 'ignore'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extension 'ignore_ament_install'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extensions ['colcon_pkg']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extension 'colcon_pkg'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extensions ['colcon_meta']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extension 'colcon_meta'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extensions ['ros']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_gz) by extension 'ros'
+[0.151s] DEBUG:colcon.colcon_core.package_identification:Package 'src/d_hospital_gz' with type 'ros.ament_cmake' and name 'd_hospital_gz'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extensions ['ignore', 'ignore_ament_install']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extension 'ignore'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extension 'ignore_ament_install'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extensions ['colcon_pkg']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extension 'colcon_pkg'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extensions ['colcon_meta']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extension 'colcon_meta'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extensions ['ros']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_navigation2) by extension 'ros'
+[0.152s] DEBUG:colcon.colcon_core.package_identification:Package 'src/d_hospital_navigation2' with type 'ros.ament_cmake' and name 'd_hospital_navigation2'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extensions ['ignore', 'ignore_ament_install']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extension 'ignore'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extension 'ignore_ament_install'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extensions ['colcon_pkg']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extension 'colcon_pkg'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extensions ['colcon_meta']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extension 'colcon_meta'
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extensions ['ros']
+[0.152s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_slam) by extension 'ros'
+[0.153s] DEBUG:colcon.colcon_core.package_identification:Package 'src/d_hospital_slam' with type 'ros.ament_cmake' and name 'd_hospital_slam'
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extension 'ignore'
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extension 'ignore_ament_install'
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extensions ['colcon_pkg']
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extension 'colcon_pkg'
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extensions ['colcon_meta']
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extension 'colcon_meta'
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extensions ['ros']
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/d_hospital_teleop) by extension 'ros'
+[0.153s] DEBUG:colcon.colcon_core.package_identification:Package 'src/d_hospital_teleop' with type 'ros.ament_cmake' and name 'd_hospital_teleop'
+[0.153s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extensions ['ignore', 'ignore_ament_install']
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extension 'ignore'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extension 'ignore_ament_install'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extensions ['colcon_pkg']
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extension 'colcon_pkg'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extensions ['colcon_meta']
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extension 'colcon_meta'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extensions ['ros']
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/firmware_minihema) by extension 'ros'
+[0.154s] DEBUG:colcon.colcon_core.package_identification:Package 'src/firmware_minihema' with type 'ros.ament_cmake' and name 'firmware_minihema'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extensions ['ignore', 'ignore_ament_install']
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extension 'ignore'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extension 'ignore_ament_install'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extensions ['colcon_pkg']
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extension 'colcon_pkg'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extensions ['colcon_meta']
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extension 'colcon_meta'
+[0.154s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extensions ['ros']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(src/minihema_launch) by extension 'ros'
+[0.155s] DEBUG:colcon.colcon_core.package_identification:Package 'src/minihema_launch' with type 'ros.ament_cmake' and name 'minihema_launch'
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'cmake_target' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.168s] DEBUG:colcon.colcon_core.verb:Building package 'd_hospital_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/d_hospital_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/d_hospital_description', 'merge_install': False, 'path': '/home/zima/d_hospital/src/d_hospital_description', 'symlink_install': False, 'test_result_base': None}
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'cmake_target' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'cmake_clean_first' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'cmake_force_configure' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'ament_cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gazebo2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.168s] DEBUG:colcon.colcon_core.verb:Building package 'd_hospital_gazebo2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/d_hospital_gazebo2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/d_hospital_gazebo2', 'merge_install': False, 'path': '/home/zima/d_hospital/src/d_hospital_gazebo2', 'symlink_install': False, 'test_result_base': None}
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'cmake_target' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'cmake_clean_first' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'cmake_force_configure' from command line to 'False'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'ament_cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_navigation2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.168s] DEBUG:colcon.colcon_core.verb:Building package 'd_hospital_navigation2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/d_hospital_navigation2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/d_hospital_navigation2', 'merge_install': False, 'path': '/home/zima/d_hospital/src/d_hospital_navigation2', 'symlink_install': False, 'test_result_base': None}
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'cmake_args' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'cmake_target' from command line to 'None'
+[0.168s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'cmake_clean_cache' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'cmake_clean_first' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'cmake_force_configure' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'ament_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'catkin_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_slam' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.169s] DEBUG:colcon.colcon_core.verb:Building package 'd_hospital_slam' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/d_hospital_slam', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/d_hospital_slam', 'merge_install': False, 'path': '/home/zima/d_hospital/src/d_hospital_slam', 'symlink_install': False, 'test_result_base': None}
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'cmake_target' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'cmake_clean_cache' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'cmake_clean_first' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'cmake_force_configure' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'ament_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'catkin_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_teleop' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.169s] DEBUG:colcon.colcon_core.verb:Building package 'd_hospital_teleop' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/d_hospital_teleop', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/d_hospital_teleop', 'merge_install': False, 'path': '/home/zima/d_hospital/src/d_hospital_teleop', 'symlink_install': False, 'test_result_base': None}
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'cmake_target' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'cmake_clean_cache' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'cmake_clean_first' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'cmake_force_configure' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'ament_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'catkin_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'firmware_minihema' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.169s] DEBUG:colcon.colcon_core.verb:Building package 'firmware_minihema' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/firmware_minihema', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/firmware_minihema', 'merge_install': False, 'path': '/home/zima/d_hospital/src/firmware_minihema', 'symlink_install': False, 'test_result_base': None}
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'cmake_target' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'cmake_clean_cache' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'cmake_clean_first' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'cmake_force_configure' from command line to 'False'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'ament_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'catkin_cmake_args' from command line to 'None'
+[0.169s] Level 5:colcon.colcon_core.verb:set package 'minihema_launch' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.170s] DEBUG:colcon.colcon_core.verb:Building package 'minihema_launch' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/minihema_launch', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/minihema_launch', 'merge_install': False, 'path': '/home/zima/d_hospital/src/minihema_launch', 'symlink_install': False, 'test_result_base': None}
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'cmake_args' from command line to 'None'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'cmake_target' from command line to 'None'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'cmake_clean_cache' from command line to 'False'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'cmake_clean_first' from command line to 'False'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'cmake_force_configure' from command line to 'False'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'ament_cmake_args' from command line to 'None'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'catkin_cmake_args' from command line to 'None'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'd_hospital_gz' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.170s] DEBUG:colcon.colcon_core.verb:Building package 'd_hospital_gz' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zima/d_hospital/build/d_hospital_gz', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zima/d_hospital/install/d_hospital_gz', 'merge_install': False, 'path': '/home/zima/d_hospital/src/d_hospital_gz', 'symlink_install': False, 'test_result_base': None}
+[0.170s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.171s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.171s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/d_hospital_description' with build type 'ament_cmake'
+[0.171s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/d_hospital_description'
+[0.172s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.173s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.173s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.177s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/d_hospital_gazebo2' with build type 'ament_cmake'
+[0.177s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/d_hospital_gazebo2'
+[0.178s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.178s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.181s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/d_hospital_navigation2' with build type 'ament_cmake'
+[0.182s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/d_hospital_navigation2'
+[0.182s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.182s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.185s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/d_hospital_slam' with build type 'ament_cmake'
+[0.185s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/d_hospital_slam'
+[0.185s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.185s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.188s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/d_hospital_teleop' with build type 'ament_cmake'
+[0.188s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/d_hospital_teleop'
+[0.188s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.188s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.191s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/firmware_minihema' with build type 'ament_cmake'
+[0.191s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/firmware_minihema'
+[0.191s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.191s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.194s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/minihema_launch' with build type 'ament_cmake'
+[0.194s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/minihema_launch'
+[0.194s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.194s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.202s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_description -- -j16 -l16
+[0.205s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_gazebo2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_gazebo2 -- -j16 -l16
+[0.206s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_navigation2 -- -j16 -l16
+[0.209s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_slam -- -j16 -l16
+[0.211s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_teleop -- -j16 -l16
+[0.214s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/firmware_minihema': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/firmware_minihema -- -j16 -l16
+[0.218s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/minihema_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/minihema_launch -- -j16 -l16
+[0.236s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_description -- -j16 -l16
+[0.244s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_description
+[0.245s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_gazebo2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_gazebo2 -- -j16 -l16
+[0.247s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_gazebo2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_gazebo2
+[0.249s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_teleop' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_teleop -- -j16 -l16
+[0.251s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_teleop
+[0.255s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_slam -- -j16 -l16
+[0.261s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_slam
+[0.263s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_description)
+[0.264s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_description
+[0.268s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description' for CMake module files
+[0.269s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description' for CMake config files
+[0.269s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_description', 'cmake_prefix_path')
+[0.269s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/hook/cmake_prefix_path.ps1'
+[0.270s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/hook/cmake_prefix_path.dsv'
+[0.270s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/hook/cmake_prefix_path.sh'
+[0.271s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/bin'
+[0.271s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/lib/pkgconfig/d_hospital_description.pc'
+[0.273s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/lib/python3.10/site-packages'
+[0.273s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/bin'
+[0.273s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.ps1'
+[0.274s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.dsv'
+[0.274s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.sh'
+[0.276s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.bash'
+[0.277s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.zsh'
+[0.277s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_description/share/colcon-core/packages/d_hospital_description)
+[0.278s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_description)
+[0.278s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description' for CMake module files
+[0.278s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description' for CMake config files
+[0.279s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_description', 'cmake_prefix_path')
+[0.279s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/hook/cmake_prefix_path.ps1'
+[0.279s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/hook/cmake_prefix_path.dsv'
+[0.279s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/hook/cmake_prefix_path.sh'
+[0.280s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/bin'
+[0.280s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/lib/pkgconfig/d_hospital_description.pc'
+[0.280s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/lib/python3.10/site-packages'
+[0.280s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_description/bin'
+[0.280s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.ps1'
+[0.280s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.dsv'
+[0.281s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.sh'
+[0.281s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.bash'
+[0.281s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_description/share/d_hospital_description/package.zsh'
+[0.282s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_description/share/colcon-core/packages/d_hospital_description)
+[0.282s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_gazebo2)
+[0.282s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2' for CMake module files
+[0.283s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2' for CMake config files
+[0.283s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_gazebo2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_gazebo2
+[0.284s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_gazebo2', 'cmake_prefix_path')
+[0.284s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/hook/cmake_prefix_path.ps1'
+[0.284s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/hook/cmake_prefix_path.dsv'
+[0.285s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/hook/cmake_prefix_path.sh'
+[0.285s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/bin'
+[0.285s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/lib/pkgconfig/d_hospital_gazebo2.pc'
+[0.285s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/lib/python3.10/site-packages'
+[0.286s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/bin'
+[0.286s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.ps1'
+[0.286s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.dsv'
+[0.286s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.sh'
+[0.287s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.bash'
+[0.287s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.zsh'
+[0.287s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_gazebo2/share/colcon-core/packages/d_hospital_gazebo2)
+[0.287s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_gazebo2)
+[0.288s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2' for CMake module files
+[0.288s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2' for CMake config files
+[0.288s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_gazebo2', 'cmake_prefix_path')
+[0.288s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/hook/cmake_prefix_path.ps1'
+[0.288s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/hook/cmake_prefix_path.dsv'
+[0.289s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/hook/cmake_prefix_path.sh'
+[0.289s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/bin'
+[0.289s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/lib/pkgconfig/d_hospital_gazebo2.pc'
+[0.289s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/lib/python3.10/site-packages'
+[0.289s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gazebo2/bin'
+[0.290s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.ps1'
+[0.290s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.dsv'
+[0.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.sh'
+[0.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.bash'
+[0.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gazebo2/share/d_hospital_gazebo2/package.zsh'
+[0.292s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_gazebo2/share/colcon-core/packages/d_hospital_gazebo2)
+[0.292s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zima/d_hospital/src/d_hospital_gz' with build type 'ament_cmake'
+[0.292s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zima/d_hospital/src/d_hospital_gz'
+[0.293s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.293s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.296s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_teleop)
+[0.296s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop' for CMake module files
+[0.297s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_teleop' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_teleop
+[0.297s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop' for CMake config files
+[0.297s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_teleop', 'cmake_prefix_path')
+[0.297s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/hook/cmake_prefix_path.ps1'
+[0.297s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/hook/cmake_prefix_path.dsv'
+[0.298s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/hook/cmake_prefix_path.sh'
+[0.299s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/bin'
+[0.299s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/lib/pkgconfig/d_hospital_teleop.pc'
+[0.299s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/lib/python3.10/site-packages'
+[0.299s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/bin'
+[0.299s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.ps1'
+[0.299s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.dsv'
+[0.300s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.sh'
+[0.300s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.bash'
+[0.300s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.zsh'
+[0.300s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_teleop/share/colcon-core/packages/d_hospital_teleop)
+[0.301s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_teleop)
+[0.301s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop' for CMake module files
+[0.301s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop' for CMake config files
+[0.301s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_teleop', 'cmake_prefix_path')
+[0.302s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/hook/cmake_prefix_path.ps1'
+[0.302s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/hook/cmake_prefix_path.dsv'
+[0.302s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/hook/cmake_prefix_path.sh'
+[0.313s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/bin'
+[0.313s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/lib/pkgconfig/d_hospital_teleop.pc'
+[0.314s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/lib/python3.10/site-packages'
+[0.314s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_teleop/bin'
+[0.314s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.ps1'
+[0.314s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.dsv'
+[0.315s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.sh'
+[0.315s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.bash'
+[0.315s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.zsh'
+[0.316s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_teleop/share/colcon-core/packages/d_hospital_teleop)
+[0.317s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_slam)
+[0.317s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam' for CMake module files
+[0.318s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_slam
+[0.318s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam' for CMake config files
+[0.318s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_slam', 'cmake_prefix_path')
+[0.318s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/hook/cmake_prefix_path.ps1'
+[0.319s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/hook/cmake_prefix_path.dsv'
+[0.319s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/hook/cmake_prefix_path.sh'
+[0.319s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/bin'
+[0.319s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/lib/pkgconfig/d_hospital_slam.pc'
+[0.320s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/lib/python3.10/site-packages'
+[0.320s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/bin'
+[0.320s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.ps1'
+[0.320s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.dsv'
+[0.321s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.sh'
+[0.321s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.bash'
+[0.321s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.zsh'
+[0.321s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_slam/share/colcon-core/packages/d_hospital_slam)
+[0.322s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_slam)
+[0.322s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam' for CMake module files
+[0.322s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam' for CMake config files
+[0.322s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_slam', 'cmake_prefix_path')
+[0.322s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/hook/cmake_prefix_path.ps1'
+[0.323s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/hook/cmake_prefix_path.dsv'
+[0.323s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/hook/cmake_prefix_path.sh'
+[0.323s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/bin'
+[0.324s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/lib/pkgconfig/d_hospital_slam.pc'
+[0.324s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/lib/python3.10/site-packages'
+[0.324s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_slam/bin'
+[0.324s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.ps1'
+[0.325s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.dsv'
+[0.325s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.sh'
+[0.325s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.bash'
+[0.326s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_slam/share/d_hospital_slam/package.zsh'
+[0.326s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_slam/share/colcon-core/packages/d_hospital_slam)
+[0.328s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/firmware_minihema' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/firmware_minihema -- -j16 -l16
+[0.328s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/firmware_minihema': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/firmware_minihema
+[0.329s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/minihema_launch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/minihema_launch -- -j16 -l16
+[0.330s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/minihema_launch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/minihema_launch
+[0.333s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_gz': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_gz -- -j16 -l16
+[0.339s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(firmware_minihema)
+[0.339s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema' for CMake module files
+[0.340s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/firmware_minihema' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/firmware_minihema
+[0.340s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema' for CMake config files
+[0.340s] Level 1:colcon.colcon_core.shell:create_environment_hook('firmware_minihema', 'cmake_prefix_path')
+[0.341s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/cmake_prefix_path.ps1'
+[0.341s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/cmake_prefix_path.dsv'
+[0.341s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/cmake_prefix_path.sh'
+[0.342s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/lib'
+[0.342s] Level 1:colcon.colcon_core.shell:create_environment_hook('firmware_minihema', 'ld_library_path_lib')
+[0.342s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/ld_library_path_lib.ps1'
+[0.342s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/ld_library_path_lib.dsv'
+[0.343s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/ld_library_path_lib.sh'
+[0.343s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/bin'
+[0.343s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/lib/pkgconfig/firmware_minihema.pc'
+[0.343s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/lib/python3.10/site-packages'
+[0.343s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/bin'
+[0.344s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.ps1'
+[0.344s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.dsv'
+[0.344s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.sh'
+[0.345s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.bash'
+[0.345s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.zsh'
+[0.345s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/firmware_minihema/share/colcon-core/packages/firmware_minihema)
+[0.345s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(firmware_minihema)
+[0.346s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema' for CMake module files
+[0.346s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema' for CMake config files
+[0.346s] Level 1:colcon.colcon_core.shell:create_environment_hook('firmware_minihema', 'cmake_prefix_path')
+[0.346s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/cmake_prefix_path.ps1'
+[0.347s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/cmake_prefix_path.dsv'
+[0.347s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/cmake_prefix_path.sh'
+[0.347s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/lib'
+[0.347s] Level 1:colcon.colcon_core.shell:create_environment_hook('firmware_minihema', 'ld_library_path_lib')
+[0.347s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/ld_library_path_lib.ps1'
+[0.348s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/ld_library_path_lib.dsv'
+[0.348s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/hook/ld_library_path_lib.sh'
+[0.348s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/bin'
+[0.348s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/lib/pkgconfig/firmware_minihema.pc'
+[0.348s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/lib/python3.10/site-packages'
+[0.349s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/firmware_minihema/bin'
+[0.349s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.ps1'
+[0.349s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.dsv'
+[0.350s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.sh'
+[0.350s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.bash'
+[0.350s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/firmware_minihema/share/firmware_minihema/package.zsh'
+[0.350s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/firmware_minihema/share/colcon-core/packages/firmware_minihema)
+[0.351s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(minihema_launch)
+[0.352s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/minihema_launch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/minihema_launch
+[0.352s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch' for CMake module files
+[0.353s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch' for CMake config files
+[0.353s] Level 1:colcon.colcon_core.shell:create_environment_hook('minihema_launch', 'cmake_prefix_path')
+[0.354s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/hook/cmake_prefix_path.ps1'
+[0.354s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/hook/cmake_prefix_path.dsv'
+[0.355s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/hook/cmake_prefix_path.sh'
+[0.355s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/lib'
+[0.355s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/bin'
+[0.355s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/lib/pkgconfig/minihema_launch.pc'
+[0.355s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/lib/python3.10/site-packages'
+[0.356s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/bin'
+[0.356s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.ps1'
+[0.357s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.dsv'
+[0.357s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.sh'
+[0.357s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.bash'
+[0.358s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.zsh'
+[0.358s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/minihema_launch/share/colcon-core/packages/minihema_launch)
+[0.358s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(minihema_launch)
+[0.359s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch' for CMake module files
+[0.359s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch' for CMake config files
+[0.359s] Level 1:colcon.colcon_core.shell:create_environment_hook('minihema_launch', 'cmake_prefix_path')
+[0.359s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/hook/cmake_prefix_path.ps1'
+[0.359s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/hook/cmake_prefix_path.dsv'
+[0.360s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/hook/cmake_prefix_path.sh'
+[0.360s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/lib'
+[0.360s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/bin'
+[0.360s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/lib/pkgconfig/minihema_launch.pc'
+[0.360s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/lib/python3.10/site-packages'
+[0.360s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/minihema_launch/bin'
+[0.361s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.ps1'
+[0.361s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.dsv'
+[0.361s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.sh'
+[0.362s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.bash'
+[0.362s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.zsh'
+[0.362s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/minihema_launch/share/colcon-core/packages/minihema_launch)
+[0.368s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_gz' returned '0': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_gz -- -j16 -l16
+[0.370s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_gz': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_gz
+[0.380s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_gz)
+[0.380s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz' for CMake module files
+[0.381s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_gz' returned '0': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_gz
+[0.381s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz' for CMake config files
+[0.381s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_gz', 'cmake_prefix_path')
+[0.381s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/hook/cmake_prefix_path.ps1'
+[0.382s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/hook/cmake_prefix_path.dsv'
+[0.382s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/hook/cmake_prefix_path.sh'
+[0.383s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/bin'
+[0.383s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/lib/pkgconfig/d_hospital_gz.pc'
+[0.383s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/lib/python3.10/site-packages'
+[0.383s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/bin'
+[0.383s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.ps1'
+[0.383s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.dsv'
+[0.384s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.sh'
+[0.384s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.bash'
+[0.384s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.zsh'
+[0.384s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_gz/share/colcon-core/packages/d_hospital_gz)
+[0.385s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_gz)
+[0.385s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz' for CMake module files
+[0.386s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz' for CMake config files
+[0.386s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_gz', 'cmake_prefix_path')
+[0.386s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/hook/cmake_prefix_path.ps1'
+[0.386s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/hook/cmake_prefix_path.dsv'
+[0.386s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/hook/cmake_prefix_path.sh'
+[0.387s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/bin'
+[0.387s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/lib/pkgconfig/d_hospital_gz.pc'
+[0.387s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/lib/python3.10/site-packages'
+[0.387s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_gz/bin'
+[0.387s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.ps1'
+[0.388s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.dsv'
+[0.388s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.sh'
+[0.388s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.bash'
+[0.388s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.zsh'
+[0.389s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_gz/share/colcon-core/packages/d_hospital_gz)
+[0.444s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_navigation2 -- -j16 -l16
+[0.445s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zima/d_hospital/build/d_hospital_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_navigation2
+[0.477s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_navigation2)
+[0.478s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zima/d_hospital/build/d_hospital_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_navigation2
+[0.478s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2' for CMake module files
+[0.478s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2' for CMake config files
+[0.479s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_navigation2', 'cmake_prefix_path')
+[0.479s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/hook/cmake_prefix_path.ps1'
+[0.479s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/hook/cmake_prefix_path.dsv'
+[0.479s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/hook/cmake_prefix_path.sh'
+[0.480s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/lib'
+[0.480s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/bin'
+[0.480s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/lib/pkgconfig/d_hospital_navigation2.pc'
+[0.480s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/lib/python3.10/site-packages'
+[0.480s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/bin'
+[0.480s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.ps1'
+[0.481s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.dsv'
+[0.481s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.sh'
+[0.481s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.bash'
+[0.481s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.zsh'
+[0.482s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_navigation2/share/colcon-core/packages/d_hospital_navigation2)
+[0.482s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(d_hospital_navigation2)
+[0.483s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2' for CMake module files
+[0.483s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2' for CMake config files
+[0.483s] Level 1:colcon.colcon_core.shell:create_environment_hook('d_hospital_navigation2', 'cmake_prefix_path')
+[0.483s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/hook/cmake_prefix_path.ps1'
+[0.484s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/hook/cmake_prefix_path.dsv'
+[0.484s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/hook/cmake_prefix_path.sh'
+[0.484s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/lib'
+[0.484s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/bin'
+[0.484s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/lib/pkgconfig/d_hospital_navigation2.pc'
+[0.484s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/lib/python3.10/site-packages'
+[0.484s] Level 1:colcon.colcon_core.environment:checking '/home/zima/d_hospital/install/d_hospital_navigation2/bin'
+[0.485s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.ps1'
+[0.485s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.dsv'
+[0.485s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.sh'
+[0.485s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.bash'
+[0.486s] INFO:colcon.colcon_core.shell:Creating package script '/home/zima/d_hospital/install/d_hospital_navigation2/share/d_hospital_navigation2/package.zsh'
+[0.486s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zima/d_hospital/install/d_hospital_navigation2/share/colcon-core/packages/d_hospital_navigation2)
+[0.486s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.486s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.486s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[0.486s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.492s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[0.492s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.492s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.492s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.502s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.503s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zima/d_hospital/install/local_setup.ps1'
+[0.504s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zima/d_hospital/install/_local_setup_util_ps1.py'
+[0.505s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zima/d_hospital/install/setup.ps1'
+[0.506s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zima/d_hospital/install/local_setup.sh'
+[0.506s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zima/d_hospital/install/_local_setup_util_sh.py'
+[0.507s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zima/d_hospital/install/setup.sh'
+[0.508s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zima/d_hospital/install/local_setup.bash'
+[0.508s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zima/d_hospital/install/setup.bash'
+[0.509s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zima/d_hospital/install/local_setup.zsh'
+[0.509s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zima/d_hospital/install/setup.zsh'

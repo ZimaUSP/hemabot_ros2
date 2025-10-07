@@ -1,0 +1,38 @@
+[ 33%] Built target mpu6050_covariances
+[ 66%] Built target mpu6050_offsets
+[100%] Built target mpu6050_hardware_interface
+-- Install configuration: ""
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/mpu6050_hardware.xml
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/include/mpu6050_hardware_interface
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/include/mpu6050_hardware_interface/minihema_launch
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/include/mpu6050_hardware_interface/minihema_launch/mpu6050_lib.h
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/include/mpu6050_hardware_interface/minihema_launch/mpu6050_hardware_interface.hpp
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/lib/minihema_launch/libmpu6050_hardware_interface.so
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/config
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/config/gazebo_ros2_ctl_use_sim.yaml
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/config/controllers.yaml
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/launch
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/launch/rplidar_launch.py
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/launch/camera_launch.py
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/launch/minihema_launch.py
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/environment/library_path.sh
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/environment/library_path.dsv
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/lib/minihema_launch/mpu6050_offsets
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/lib/minihema_launch/mpu6050_covariances
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/ament_index/resource_index/package_run_dependencies/minihema_launch
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/ament_index/resource_index/parent_prefix_path/minihema_launch
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/environment/ament_prefix_path.sh
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/environment/path.sh
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/environment/path.dsv
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/local_setup.bash
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/local_setup.sh
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/local_setup.zsh
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/local_setup.dsv
+-- Installing: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.dsv
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/ament_index/resource_index/packages/minihema_launch
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/minihema_launch
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/cmake/minihema_launchConfig.cmake
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/cmake/minihema_launchConfig-version.cmake
+-- Up-to-date: /home/zima/d_hospital/install/minihema_launch/share/minihema_launch/package.xml

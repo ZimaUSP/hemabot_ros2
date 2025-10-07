@@ -1,0 +1,26 @@
+[0.022s] Invoking command in '/home/zima/d_hospital/build/d_hospital_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_teleop -- -j16 -l16
+[0.060s] Invoked command in '/home/zima/d_hospital/build/d_hospital_teleop' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_teleop -- -j16 -l16
+[0.062s] Invoking command in '/home/zima/d_hospital/build/d_hospital_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_teleop
+[0.073s] -- Install configuration: ""
+[0.073s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/config
+[0.073s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/config/joystick.yaml
+[0.073s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/config/twist_mux.yaml
+[0.073s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/launch
+[0.073s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/launch/keyboard_launch.py
+[0.073s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/launch/joystick_launch.py
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/ament_index/resource_index/package_run_dependencies/d_hospital_teleop
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/ament_index/resource_index/parent_prefix_path/d_hospital_teleop
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/environment/ament_prefix_path.sh
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/environment/ament_prefix_path.dsv
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/environment/path.sh
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/environment/path.dsv
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/local_setup.bash
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/local_setup.sh
+[0.074s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/local_setup.zsh
+[0.075s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/local_setup.dsv
+[0.075s] -- Installing: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.dsv
+[0.075s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/ament_index/resource_index/packages/d_hospital_teleop
+[0.075s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/cmake/d_hospital_teleopConfig.cmake
+[0.075s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/cmake/d_hospital_teleopConfig-version.cmake
+[0.075s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_teleop/share/d_hospital_teleop/package.xml
+[0.108s] Invoked command in '/home/zima/d_hospital/build/d_hospital_teleop' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_teleop
