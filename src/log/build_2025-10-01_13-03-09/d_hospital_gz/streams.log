@@ -1,0 +1,52 @@
+[0.043s] Invoking command in '/home/zima/d_hospital/build/d_hospital_gz': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_gz -- -j16 -l16
+[0.081s] Invoked command in '/home/zima/d_hospital/build/d_hospital_gz' returned '0': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --build /home/zima/d_hospital/build/d_hospital_gz -- -j16 -l16
+[0.082s] Invoking command in '/home/zima/d_hospital/build/d_hospital_gz': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_gz
+[0.088s] -- Install configuration: ""
+[0.088s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/config
+[0.088s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/config/lidarbot_bridge.yaml
+[0.088s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/launch
+[0.088s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/launch/gz_launch.py
+[0.088s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/meshes
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/meshes/construction_cone.dae
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/model.config
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/materials
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/materials/textures
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/materials/textures/Construction_Cone_Diffuse.png
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/model.sdf
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/model-1_4.sdf
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_cone/model-1_3.sdf
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel
+[0.089s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/meshes
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/meshes/construction_barrel.dae
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/model.config
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/materials
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/materials/textures
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/materials/textures/Construction_Barrel_Spec.png
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/materials/textures/Construction_Barrel_Diffuse.png
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/model.sdf
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/model-1_4.sdf
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/models/construction_barrel/model-1_3.sdf
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/urdf
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/urdf/sensors.xacro
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/urdf/d_hospital_gz.urdf.xacro
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/urdf/d_hospital_gz_core.xacro
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/worlds
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/worlds/obstacles.world
+[0.090s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/ament_index/resource_index/package_run_dependencies/d_hospital_gz
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/ament_index/resource_index/parent_prefix_path/d_hospital_gz
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/environment/ament_prefix_path.sh
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/environment/ament_prefix_path.dsv
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/environment/path.sh
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/environment/path.dsv
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/local_setup.bash
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/local_setup.sh
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/local_setup.zsh
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/local_setup.dsv
+[0.091s] -- Installing: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.dsv
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/ament_index/resource_index/packages/d_hospital_gz
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/cmake/d_hospital_gzConfig.cmake
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/cmake/d_hospital_gzConfig-version.cmake
+[0.091s] -- Up-to-date: /home/zima/d_hospital/install/d_hospital_gz/share/d_hospital_gz/package.xml
+[0.093s] Invoked command in '/home/zima/d_hospital/build/d_hospital_gz' returned '0': CMAKE_PREFIX_PATH=/home/zima/d_hospital/install/d_hospital_description:/home/zima/d_hospital/install/minihema_launch:/home/zima/d_hospital/install/firmware_minihema:/home/zima/d_hospital/install/d_hospital_teleop:/home/zima/d_hospital/install/d_hospital_slam:/home/zima/d_hospital/install/d_hospital_navigation2:/home/zima/d_hospital/install/d_hospital_gz:/home/zima/d_hospital/install/d_hospital_gazebo2:/opt/ros/humble PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake --install /home/zima/d_hospital/build/d_hospital_gz
