@@ -19,7 +19,7 @@ A comunicação pode ocorrer de duas formas:
 - **Serial (USB)** – conexão direta com o microcontrolador.  
 - **Wi-Fi (Socket TCP/UDP)** – controle remoto via rede.
 
-O código foi estruturado de forma modular, permitindo adaptação para plataformas como **Arduino**, **ESP32** ou **Raspberry Pi**.
+O código foi estruturado de forma modular, permitindo adaptação para plataformas como **Raspberry PI** e **Jetson Nano**.
 
 ---
 
@@ -60,14 +60,34 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 
 No terminal do linux, digite:
 
-cd d_hospital_new
-no terminal -> ls
-vai aparecer: src
--> concon build (só se alterar o código)
-(estar nesse)~d_hospital_new$
--> ls
--> source install/setup.bash
--> ros2 launch minihema_launch minihema_launch.py 
+ ```bash
+   cd d_hospital_new
+   ```
+- Digite ls
+
+vai aparecer:
+```bash
+   src
+   ```
+Caso tiver alterado o código, use o comando colcon build em d_hospital_new:
+
+```bash
+   concon build
+   ```
+
+- Digite ls
+
+Você verá:
+
+```bash
+   source install/setup.bash
+   ```
+
+- E finalmente, insira o seguinte comando:
+
+```bash
+   ros2 launch minihema_launch minihema_launch.py 
+   ```
 
 Você deverá ver algo como:
 
