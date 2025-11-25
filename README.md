@@ -96,12 +96,11 @@ Você deverá ver algo como:
 
 | Tecla | Ação                     |
 |:------|:--------------------------|
-| **W** | Mover para frente         |
-| **S** | Mover para trás           |
-| **A** | Girar para esquerda       |
-| **D** | Girar para direita        |
-| **Espaço** | Parar                 |
-| **Q** | Desligar conexão / sair   |
+| **I** | Mover para frente         |
+| **<** | Mover para trás           |
+| **J** | Girar para esquerda       |
+| **L** | Girar para direita        |
+
 
 ---
 
