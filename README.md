@@ -43,7 +43,7 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seuusuario/robo-hospitalar.git
+   git clone git@github.com:ZimaUSP/hemabot_ros2.git
    cd robo-hospitalar
    ```
 
@@ -52,13 +52,13 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
    pip install -r requirements.txt
    ```
 
-3. Conecte o robô ao computador via **USB** ou conecte ambos na **mesma rede Wi-Fi**.
+3. Conecte o robô ao computador via **USB** ou conecte ambos na **mesma rede Wi-Fi** através da chave ssh.
 
 ---
 
 ## ▶️ Como Executar
 
-No terminal do linux, digite:
+Para controlar o robô, digite os seguintes comandos no terminal:
 
  ```bash
    cd d_hospital_new
