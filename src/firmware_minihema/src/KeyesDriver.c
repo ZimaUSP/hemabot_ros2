@@ -22,11 +22,10 @@ void Motor_Init(void)
     pinMode(PINO_IN1, OUTPUT);  // Define o pino IN1 como saída
     pinMode(PINO_IN2, OUTPUT);  // Define o pino IN2 como saída
     pinMode(PINO_IN3, OUTPUT);  // Define o pino IN3 como saída
-    pinMode(25, OUTPUT);
-    pinMode(19, OUTPUT);
-    softPwmCreate(25,0,255); 
-    softPwmCreate(19,0,255);  
-    //softPwmCreate(PINO_IN3,0,255); 
+    pinMode(11, OUTPUT);
+    pinMode(7, OUTPUT);
+    softPwmCreate(11,0,255); 
+    softPwmCreate(7,0,255);   
 }
 
 void Motor_Run(UBYTE motor, DIR dir, UWORD speed)
@@ -45,38 +44,37 @@ void Motor_Run(UBYTE motor, DIR dir, UWORD speed)
             DEBUG("Frente..\r\n");
 
             //softPwmWrite(PINO_IN1, pwmSpeed);
-            digitalWrite(PINO_IN1, 1);
+            digitalWrite(PINO_IN1, 0);
             //nalogWrite(PINO_IN0, 0);  
-            digitalWrite(PINO_IN0, 0);
-	    softPwmWrite(25, pwmSpeed);  
+            digitalWrite(PINO_IN0, 1);
+	    softPwmWrite(11, pwmSpeed);  
             ain1_value = 0;
             ain2_value = 1;
         } else {
             DEBUG("Ré...\r\n");
             //softPwmWrite(PINO_IN1, 0); 
-            digitalWrite(PINO_IN1, 0);
+            digitalWrite(PINO_IN1, 1);
 
             //softPwmWrite(PINO_IN0, pwmSpeed);
-            digitalWrite(PINO_IN0, 1);
-	    softPwmWrite(25, pwmSpeed);
+            digitalWrite(PINO_IN0, 0);
+	    softPwmWrite(11, pwmSpeed);
             ain1_value = 1;
             ain2_value = 0;
         }
     } else {
         DEBUG("Velocidade do Motor B = %d\r\n", speed);
         if(dir == FORWARD) {
-            DEBUG("Frente...\r\n");
-            //softPwmWrite(PINO_IN2, pwmSpeed);    
+            DEBUG("Frente...\r\n");;    
             digitalWrite(PINO_IN3, 0);
             digitalWrite(PINO_IN2, 1);
-	    softPwmWrite(19, pwmSpeed);    
+	    softPwmWrite(7, pwmSpeed);    
             bin1_value = 0;
             bin2_value = 1;
         } else {
             DEBUG("Ré...\r\n");
             digitalWrite(PINO_IN3, 1);    
             digitalWrite(PINO_IN2, 0);
-	    softPwmWrite(19, pwmSpeed); 
+	    softPwmWrite(7, pwmSpeed); 
             bin1_value = 1;
             bin2_value = 0;
         }
