@@ -7,11 +7,9 @@ Descrição: Código simples para teste de funcionamento do Driver TCRT500
 
 #ifndef __MOTOR_ENCODER_H__
 #define __MOTOR_ENCODER_H__
-
 #ifdef __cplusplus
-extern "C" {
+extern "C"{
 #endif
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
@@ -19,8 +17,8 @@ extern "C" {
 
 #include "KeyesDriver.h"
 
-#define LEFT_WHL_ENC_D0 11
-#define RIGHT_WHL_ENC_D0 13
+#define LEFT_WHL_ENC_D0 15
+#define RIGHT_WHL_ENC_D0 14
 
 #define LEFT_WHL_ENC_DIR 24
 #define RIGHT_WHL_ENC_DIR 25
@@ -38,11 +36,9 @@ extern int left_wheel_pulse_count;
 extern int right_wheel_pulse_count;
 extern int left_wheel_direction;
 extern int right_wheel_direction;
-
 #ifdef __cplusplus
 }
 #endif
-
 #endif 
 
   
