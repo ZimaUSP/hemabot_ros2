@@ -7,7 +7,7 @@ Descrição: Código simples para teste de funcionamento do Driver TCRT500
 
 #include "firmware_minihema/motor_encoder.h"
 #include <math.h>
-const unsigned long intervaloDebounce = 0; // em milissegundos
+const unsigned long intervaloDebounce = 40; // em milissegundos
 volatile unsigned long ultimoPulso = 0;
 // Initialize pulse counters
 int left_wheel_pulse_count = 0;
@@ -22,30 +22,38 @@ int right_wheel_direction = 1;
 void read_encoder_values(int *left_encoder_value, int *right_encoder_value) {
   *left_encoder_value = left_wheel_pulse_count;
   *right_encoder_value = right_wheel_pulse_count;
+  DEBUG("Encoder esquerda: %d", *left_encoder_value);
+  DEBUG("Encoder direita: %d", *right_encoder_value);
 }
 
 
 void add_left_wheel(){
+  DEBUG("entrou add left: %d", left_wheel_direction);
   unsigned long agora = millis();
   if(left_wheel_direction == FORWARD && (agora - ultimoPulso > intervaloDebounce)){
     left_wheel_pulse_count++;
     ultimoPulso = agora;
+   // DEBUG("Encoder esquerda add1: %d", left_wheel_pulse_count);
   }
   else if (left_wheel_direction == BACKWARD && (agora - ultimoPulso > intervaloDebounce)){
     left_wheel_pulse_count--;
     ultimoPulso = agora;
+    //DEBUG("Encoder esquerda add2: %d", left_wheel_pulse_count);
   }
 }
 
 void add_right_wheel(){
+  //DEBUG("entrou add right: %d", right_wheel_direction); 
   unsigned long agora = millis();
   if(right_wheel_direction == FORWARD && (agora - ultimoPulso > intervaloDebounce)){
     right_wheel_pulse_count++;
     ultimoPulso = agora;
+    //DEBUG("Encoder direita add1: %d", right_wheel_pulse_count);
   }
   else if (right_wheel_direction == BACKWARD && (agora - ultimoPulso > intervaloDebounce)){
     right_wheel_pulse_count--;
     ultimoPulso = agora;
+    //DEBUG("Encoder direita add2: %d", right_wheel_pulse_count);
   }
 }
 

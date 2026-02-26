@@ -3,8 +3,9 @@ extern "C" {
   #include "firmware_minihema/motor_encoder.h"
 }
 int main(int argc, char **argv)
-{
-    int x=0, y=0;
+ { 
+ 	 
+    int x=0, y = 0;
     // Setup GPIO encoder interrupt and direction pins
     wiringPiSetupGpio();
     // Initialize motor driver
@@ -16,18 +17,19 @@ int main(int argc, char **argv)
 
     // Setup pull up resistors on encoder pins
     pullUpDnControl(LEFT_WHL_ENC_D0, PUD_UP);
-    pullUpDnControl(RIGHT_WHL_ENC_D0, PUD_UP);
-
-    // Initialize encoder interrupts for falling signal states
-    wiringPiISR(LEFT_WHL_ENC_D0, INT_EDGE_FALLING,  add_left_wheel);
+    pullUpDnControl(RIGHT_WHL_ENC_D0, PUD_UP); 
+    wiringPiISR(LEFT_WHL_ENC_D0, INT_EDGE_FALLING, add_left_wheel);
     wiringPiISR(RIGHT_WHL_ENC_D0, INT_EDGE_FALLING, add_right_wheel);
+    while(true) {
+    set_motor_speeds(30,30);
+    delay(5000);
 
-    set_motor_speeds(1000, 1000); 
-    
     read_encoder_values(&x, &y);
-    
-    DEBUG("Left encoder: %d \r\n", x);
-    DEBUG("Right encoder: %d \r\n", y);
+    DEBUG("Left encoder: %d\n", x);
+    DEBUG("Right encoder: %d\n", y);
+    set_motor_speeds(0,0);
+    delay(5000);
+    }   
     /*
     // Initialize the rclcpp library
     rclcpp::init(argc, argv);
@@ -45,4 +47,4 @@ s
     rclcpp::spin(node);
     rclcpp::shutdown();
     */
-}
+ }

@@ -16,15 +16,14 @@
 extern "C" {
 #endif
 
-
 #include "DEV_Config.h"
 #include <wiringPi.h>
 
 //  Configurações do GPIO
 #define PINO_IN0        8
-#define PINO_IN1        25
-#define PINO_IN2        21
-#define PINO_IN3        20
+#define PINO_IN1        1
+#define PINO_IN2        7
+#define PINO_IN3        9
 
 #define MOTORA       0
 #define MOTORB       1
@@ -44,9 +43,7 @@ void Motor_Init(void);
 void Motor_Run(UBYTE motor, DIR dir, UWORD speed);
 void Motor_Stop(UBYTE motor);
 UBYTE Motor_Direction(UBYTE motor);
-
 #ifdef __cplusplus
 }
 #endif
-
 #endif

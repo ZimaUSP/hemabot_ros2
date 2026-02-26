@@ -22,10 +22,11 @@ void Motor_Init(void)
     pinMode(PINO_IN1, OUTPUT);  // Define o pino IN1 como saída
     pinMode(PINO_IN2, OUTPUT);  // Define o pino IN2 como saída
     pinMode(PINO_IN3, OUTPUT);  // Define o pino IN3 como saída
-    softPwmCreate(PINO_IN0,0,255); 
-    softPwmCreate(PINO_IN1,0,255); 
-    softPwmCreate(PINO_IN2,0,255); 
-    softPwmCreate(PINO_IN3,0,255); 
+    pinMode(25, OUTPUT);
+    pinMode(19, OUTPUT);
+    softPwmCreate(25,0,255); 
+    softPwmCreate(19,0,255);  
+    //softPwmCreate(PINO_IN3,0,255); 
 }
 
 void Motor_Run(UBYTE motor, DIR dir, UWORD speed)
@@ -44,17 +45,20 @@ void Motor_Run(UBYTE motor, DIR dir, UWORD speed)
             DEBUG("Frente..\r\n");
 
             //softPwmWrite(PINO_IN1, pwmSpeed);
-            softPwmWrite(PINO_IN1, pwmSpeed);
+            digitalWrite(PINO_IN1, 1);
             //nalogWrite(PINO_IN0, 0);  
-            softPwmWrite(PINO_IN0, 0);  
+            digitalWrite(PINO_IN0, 0);
+	    softPwmWrite(25, pwmSpeed);  
             ain1_value = 0;
             ain2_value = 1;
         } else {
             DEBUG("Ré...\r\n");
             //softPwmWrite(PINO_IN1, 0); 
-            softPwmWrite(PINO_IN1, 0);
+            digitalWrite(PINO_IN1, 0);
+
             //softPwmWrite(PINO_IN0, pwmSpeed);
-            softPwmWrite(PINO_IN0, pwmSpeed);
+            digitalWrite(PINO_IN0, 1);
+	    softPwmWrite(25, pwmSpeed);
             ain1_value = 1;
             ain2_value = 0;
         }
@@ -63,14 +67,16 @@ void Motor_Run(UBYTE motor, DIR dir, UWORD speed)
         if(dir == FORWARD) {
             DEBUG("Frente...\r\n");
             //softPwmWrite(PINO_IN2, pwmSpeed);    
-            softPwmWrite(PINO_IN2, pwmSpeed);
-            softPwmWrite(PINO_IN3, 0);    
+            digitalWrite(PINO_IN3, 0);
+            digitalWrite(PINO_IN2, 1);
+	    softPwmWrite(19, pwmSpeed);    
             bin1_value = 0;
             bin2_value = 1;
         } else {
             DEBUG("Ré...\r\n");
-            softPwmWrite(PINO_IN2, 0);    
-            softPwmWrite(PINO_IN3, pwmSpeed);
+            digitalWrite(PINO_IN3, 1);    
+            digitalWrite(PINO_IN2, 0);
+	    softPwmWrite(19, pwmSpeed); 
             bin1_value = 1;
             bin2_value = 0;
         }
@@ -80,12 +86,14 @@ void Motor_Run(UBYTE motor, DIR dir, UWORD speed)
 void Motor_Stop(UBYTE motor)
 {
     if (motor == MOTORA){
+	DEBUG("Parando MOTORA");
         digitalWrite(PINO_IN0, 0);
         digitalWrite(PINO_IN1, 0); 
     }
     else if (motor == MOTORB){
-        softPwmWrite(PINO_IN2, 0);
-        softPwmWrite(PINO_IN3, 0);
+	DEBUG("Parando MOTORB");
+        digitalWrite(PINO_IN2, 0);
+        digitalWrite(PINO_IN3, 0);
     }
 }
 

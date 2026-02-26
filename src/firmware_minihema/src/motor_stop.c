@@ -6,5 +6,6 @@ int main(int argc, char **argv)
     // Setup GPIO encoder interrupt and direction pins
     wiringPiSetupGpio();
     // Initialize motor driver
-    handler(0);
+    Motor_Stop(MOTORA);
+    Motor_Stop(MOTORB);
 }

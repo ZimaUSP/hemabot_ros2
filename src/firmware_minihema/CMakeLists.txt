@@ -84,6 +84,41 @@ install(
     motor_test
   DESTINATION lib/${PROJECT_NAME}
 )
+# ------------------------------------------------------------------------------
+# motor_stop executable
+# ------------------------------------------------------------------------------
+
+add_executable(motor_stop
+  src/motor_stop.c
+  src/motor_encoder.c
+  src/KeyesDriver.c
+)
+
+ament_target_dependencies(motor_stop
+  rclcpp
+  std_srvs
+)
+
+target_link_libraries(motor_stop
+  m
+  wiringPi
+  pthread
+  crypt
+  rt
+)
+
+target_compile_options(motor_stop PRIVATE -w)  # Remove warnings (optional)
+
+# ------------------------------------------------------------------------------
+# Install executables
+# ------------------------------------------------------------------------------
+
+install(
+  TARGETS
+    motor_stop
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 
 # ------------------------------------------------------------------------------
 # Export the library
