@@ -21,9 +21,9 @@ extern "C" {
 
 //  Configurações do GPIO
 #define PINO_IN0        8
-#define PINO_IN1        1
-#define PINO_IN2        7
-#define PINO_IN3        9
+#define PINO_IN1        25 
+#define PINO_IN2        21
+#define PINO_IN3        20
 
 #define MOTORA       0
 #define MOTORB       1
