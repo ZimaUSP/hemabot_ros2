@@ -13,12 +13,12 @@ extern "C"{
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
-// #include <wiringPi.h>
+#include <wiringPi.h>
 
 #include "KeyesDriver.h"
 
-#define LEFT_WHL_ENC_D0 15
-#define RIGHT_WHL_ENC_D0 14
+#define LEFT_WHL_ENC_D0 9
+#define RIGHT_WHL_ENC_D0 6
 
 #define LEFT_WHL_ENC_DIR 24
 #define RIGHT_WHL_ENC_DIR 25
