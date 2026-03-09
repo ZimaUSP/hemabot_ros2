@@ -1,0 +1,63 @@
+#!/bin/bash
+
+echo "================================"
+echo "CALIBRACAO MPU6050"
+echo "================================"
+
+# 1 carregar ambiente ROS
+echo "Carregando ambiente..."
+source install/setup.bash
+
+# 2 executar programa
+echo "Executando calculo de offsets..."
+saida=$(ros2 run minihema_launch mpu6050_offsets)
+
+echo "$saida"
+
+# 3 extrair valores
+
+gx=$(echo "$saida" | grep -A4 "Gyroscope offsets" | grep "X:" | awk '{print $2}')
+gy=$(echo "$saida" | grep -A4 "Gyroscope offsets" | grep "Y:" | awk '{print $2}')
+gz=$(echo "$saida" | grep -A4 "Gyroscope offsets" | grep "Z:" | awk '{print $2}')
+
+ax=$(echo "$saida" | grep -A4 "Accelerometer offsets" | grep "X:" | awk '{print $2}')
+ay=$(echo "$saida" | grep -A4 "Accelerometer offsets" | grep "Y:" | awk '{print $2}')
+az=$(echo "$saida" | grep -A4 "Accelerometer offsets" | grep "Z:" | awk '{print $2}')
+
+gx=$(printf "%.0f" "$gx")
+gy=$(printf "%.0f" "$gy")
+gz=$(printf "%.0f" "$gz")
+
+ax=$(printf "%.0f" "$ax")
+ay=$(printf "%.0f" "$ay")
+az=$(printf "%.0f" "$az")
+
+echo ""
+echo "Offsets encontrados:"
+echo "Gyro: $gx $gy $gz"
+echo "Accel: $ax $ay $az"
+
+# 4 atualizar arquivo .h
+
+arquivo="src/minihema_launch/include/minihema_launch/mpu6050_lib.h"
+
+echo "Atualizando arquivo $arquivo"
+
+sed -i "s/#define G_OFF_X.*/#define G_OFF_X $gx/" $arquivo
+sed -i "s/#define G_OFF_Y.*/#define G_OFF_Y $gy/" $arquivo
+sed -i "s/#define G_OFF_Z.*/#define G_OFF_Z $gz/" $arquivo
+
+sed -i "s/#define A_OFF_X.*/#define A_OFF_X $ax/" $arquivo
+sed -i "s/#define A_OFF_Y.*/#define A_OFF_Y $ay/" $arquivo
+sed -i "s/#define A_OFF_Z.*/#define A_OFF_Z $az/" $arquivo
+
+echo ""
+echo "Arquivo atualizado!"
+
+# 5 recompilar (opcional)
+
+echo "Recompilando projeto..."
+#colcon build
+
+echo ""
+echo "Calibracao finalizada!"
