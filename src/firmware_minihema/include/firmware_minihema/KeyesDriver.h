@@ -16,14 +16,16 @@
 extern "C" {
 #endif
 
+#include "PinPlannerRasp.h"
 #include "DEV_Config.h"
 #include <wiringPi.h>
 
 //  Configurações do GPIO
-#define PINO_IN0        8
-#define PINO_IN1        25 
-#define PINO_IN2        21
-#define PINO_IN3        20
+
+#define PINO_IN0   PIN_MOTOR_IN0
+#define PINO_IN1   PIN_MOTOR_IN1
+#define PINO_IN2   PIN_MOTOR_IN2
+#define PINO_IN3   PIN_MOTOR_IN3
 
 #define MOTORA       0
 #define MOTORB       1

@@ -1,0 +1,66 @@
+================================
+CALIBRACAO MPU6050
+================================
+Carregando ambiente...
+Executando calculo de offsets...
+
+Please keep the MPU6050 module level and still. This may take a few minutes.
+
+Calculating offsets ...
+
+Gyroscope offsets:
+------------------
+X: 33.0493
+Y: 78.8424
+Z: -544.254
+
+Accelerometer offsets:
+----------------------
+X: 24345.8
+Y: 23339.6
+Z: -23033.6
+
+Include the obtained offsets in the respective macros of the mpu6050_lib.h file.
+
+Offsets encontrados:
+Gyro: 33 79 -544
+Accel: 24346 23340 -23034
+Atualizando arquivo src/minihema_launch/include/minihema_launch/mpu6050_lib.h
+
+Arquivo atualizado!
+Recompilando projeto...
+
+Calibracao finalizada!
+Calculando covariancias da IMU...
+
+Please keep the MPU6050 module level and still. 
+Reading and appending 500 sensor data points to respective arrays, it may take a while ... 
+
+Calculating variances ...
+
+static_covariance_orientation: [1.84663e-05, 0.0, 0.0, 6.78032e-05, 0.0, 0.0, 7.10555e-08, 0.0, 0.0]
+static_covariance_angular_velocity: [9.79179e-07, 0.0, 0.0, 3.35352e-05, 0.0, 0.0, 1.96719e-06, 0.0, 0.0]
+static_covariance_linear_acceleration: [0.00673691, 0.0, 0.0, 0.0023763, 0.0, 0.0, 0.0674631, 0.0, 0.0]
+
+Paste covariance arrays in the imu_broadcaster ros__parameters section in minihema_launch/config/controllers.yaml.
+Atualizando src/minihema_launch/config/controllers.yaml
+Covariancias atualizadas!
+Starting >>> d_hospital_description
+Starting >>> d_hospital_gazebo2
+Starting >>> d_hospital_navigation2
+Starting >>> d_hospital_slam
+Finished <<< d_hospital_slam [0.88s]
+Starting >>> d_hospital_teleop
+Finished <<< d_hospital_description [1.11s]
+Finished <<< d_hospital_gazebo2 [1.13s]
+Starting >>> firmware_minihema
+Starting >>> minihema_launch
+Finished <<< d_hospital_teleop [0.64s]
+Starting >>> d_hospital_gz
+Finished <<< d_hospital_gz [0.68s]
+Finished <<< minihema_launch [1.21s]
+Finished <<< firmware_minihema [1.32s]
+Finished <<< d_hospital_navigation2 [2.93s]
+
+Summary: 8 packages finished [5.21s]
+  1 package had stderr output: minihema_launch

@@ -16,15 +16,16 @@ extern "C"{
 #include <wiringPi.h>
 
 #include "KeyesDriver.h"
+#include "pinPlanner.h"
 
-#define LEFT_WHL_ENC_D0 9
-#define RIGHT_WHL_ENC_D0 6
+#define LEFT_WHL_ENC_D0   PIN_LEFT_WHL_ENC_D0
+#define RIGHT_WHL_ENC_D0  PIN_RIGHT_WHL_ENC_D0
 
-#define LEFT_WHL_ENC_DIR 24
-#define RIGHT_WHL_ENC_DIR 25
+#define LEFT_WHL_ENC_DIR  PIN_LEFT_WHL_ENC_DIR
+#define RIGHT_WHL_ENC_DIR PIN_RIGHT_WHL_ENC_DIR
 
-#define LEFT_WHL_ENC_A0 4
-#define RIGHT_WHL_ENC_A0 16
+#define LEFT_WHL_ENC_A0   PIN_LEFT_WHL_ENC_A0
+#define RIGHT_WHL_ENC_A0  PIN_RIGHT_WHL_ENC_A0
 
 void handler(int signo);
 void add_left_wheel();
