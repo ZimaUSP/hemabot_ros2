@@ -26,12 +26,6 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 ## ⚙️ Requisitos
 
 ### 💻 No computador:
-- **Python 3.8 ou superior**
-- Bibliotecas:
-  ```bash
-  pip install pyserial pynput
-  ```
-  *(caso use controle via rede, adicione `pip install socket`)*
 
 ### 🤖 No robô:
 - Microcontrolador compatível (ex: ESP32, Arduino Mega, Raspberry Pi)
@@ -54,30 +48,21 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 
 3. Conecte o robô ao computador via **USB** ou conecte ambos na **mesma rede Wi-Fi** através da chave ssh.
 
----
+ ```bash
+   ssh hemabot@192.168.1.155
+   ```
+4. Digite a senha solicitada.
 
+Obs.: O PC deve estar conectado a rede Zima 5G
 ## ▶️ Como Executar
 
-Para controlar o robô, digite os seguintes comandos no terminal:
+Para controlar o robô, acesse o diretório do hemabot e digite os seguintes comandos no terminal:
 
- ```bash
-   cd d_hospital_new
-   ```
-- Digite ls
-
-vai aparecer:
-```bash
-   src
-   ```
 Caso tiver alterado o código, use o comando colcon build em d_hospital_new:
 
 ```bash
    concon build
    ```
-
-- Digite ls
-
-Você verá:
 
 ```bash
    source install/setup.bash
@@ -89,61 +74,37 @@ Você verá:
    ros2 launch minihema_launch minihema_launch.py 
    ```
 
-Você deverá ver algo como:
+A partir daqui, todos os dados recebidos via sensores passam a ser compartilhados.
 
+## ⌨️ Comandos via Teclado
 
-## ⌨️ Comandos do Teclado
+- Em geral, existem duas maneiras de movimentar o MiniHema por meio do teclado:
 
-| Tecla | Ação                     |
-|:------|:--------------------------|
-| **I** | Mover para frente         |
-| **<** | Mover para trás           |
-| **J** | Girar para esquerda       |
-| **L** | Girar para direita        |
+## Mensagem diretamente no tópico
 
-
----
-
-## 🔌 Conectando ao Robô
-
-### 🔹 Via Serial
-1. Conecte o cabo USB ao robô.  
-2. Descubra a porta serial:
-   - **Windows:** abra o *Gerenciador de Dispositivos* → “Portas (COM e LPT)”.
-   - **Linux/macOS:** use `ls /dev/tty*` e procure algo como `/dev/ttyUSB0`.
-3. Edite o arquivo `config.json`:
-   ```json
-   {
-     "modo": "serial",
-     "porta": "COM3",
-     "baudrate": 9600
-   }
+- Para uma mensagem diretamente através de um tópico do sistema, basta aplicar o seguinte comando:
+  ```bash
+   ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: v}, angular: {z: w}}"
    ```
+Inserindo valores numéricos a v e w, a movimentação será realizada.
 
-### 🔹 Via Wi-Fi
-1. Conecte o robô e o computador na mesma rede.  
-2. Edite o arquivo `config.json`:
-   ```json
-   {
-     "modo": "wifi",
-     "ip": "192.168.0.50",
-     "porta": 8080
-   }
+## Usando o pacote teleop_twist_keyboard 
+
+- O pacote teleop_twist_keyboard permite que haja o envio de comandos de direção por meio do teclado. Para executar, digite:
+  ```bash
+   ros2 run teleop_twist_keyboard teleop_twist_keyboard
    ```
+No terminal serão mostradas todas as teclas de movimentação:
 
-3. Execute o programa e aguarde a mensagem de sucesso na conexão.
+<img width="328" height="289" alt="image" src="https://github.com/user-attachments/assets/0c0c217f-d6a1-4c0f-b5a9-ef426f77b278" />
 
----
+
+
 
 ## 🛑 Desligando com Segurança
 
-1. Pressione **Q** para encerrar a conexão.  
-2. Aguarde a mensagem:
-   ```
-   [INFO] Conexão encerrada com sucesso.
-   ```
-3. Só então desligue o robô ou desconecte o cabo USB.
-
+1. Finalize os terminais abertos.  
+2. Desligue a alimentação do Hema e desconecte o LiDAR:
 ---
 
 ## 🧱 Estrutura do Projeto
@@ -168,9 +129,7 @@ robo-hospitalar/
 
 | Erro | Causa | Solução |
 |------|--------|----------|
-| `Permission denied /dev/ttyUSB0` | Falta de permissão serial | Execute `sudo chmod 666 /dev/ttyUSB0` |
 | `Connection refused` | IP incorreto ou robô desconectado | Verifique o endereço IP no código do robô |
-| Robô não responde | Baudrate incorreto | Ajuste o valor no `config.json` |
 
 ---
 
