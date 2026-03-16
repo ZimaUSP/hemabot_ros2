@@ -61,7 +61,7 @@ Para controlar o robô, acesse o diretório do hemabot e digite os seguintes com
 Caso tiver alterado o código, use o comando colcon build em d_hospital_new:
 
 ```bash
-   concon build
+   colcon build
    ```
 
 ```bash
