@@ -49,7 +49,7 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 3. Conecte o robô ao computador via **USB** ou conecte ambos na **mesma rede Wi-Fi** através da chave ssh.
 
  ```bash
-   ssh hemabot@192.168.1.155
+   ssh -X hemabot@192.168.1.155
    ```
 4. Digite a senha solicitada.
 
