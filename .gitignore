@@ -1,10 +1,10 @@
-# VS Code / C++ cache
+# VS Code
 .vscode/
 *.vc.db
 *.VC.db
 *.ipch
 
-# ROS 2 build artifacts
+# ROS 2
 build/
 install/
 log/
