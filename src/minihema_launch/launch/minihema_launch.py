@@ -153,9 +153,9 @@ def generate_launch_description():
     # Start rplidar node
     start_rplidar_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [os.path.join(pkg_path, "launch", "rplidar_launch.py")]
-        )
-    )
+           [os.path.join(pkg_path, "launch", "rplidar_launch.py")]
+       )
+   )
 
     # Start camera node
     #start_camera_cmd = IncludeLaunchDescription(
@@ -188,7 +188,7 @@ def generate_launch_description():
     ld.add_action(start_delayed_imu_broadcaster_spawner)
     ld.add_action(start_robot_localization_cmd)
     ld.add_action(start_joystick_cmd)
-    ld.add_action(start_rplidar_cmd)
+    #ld.add_action(start_rplidar_cmd)
     #ld.add_action(start_camera_cmd)
     ld.add_action(start_twist_mux_cmd)
 

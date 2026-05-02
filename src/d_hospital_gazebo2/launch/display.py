@@ -18,7 +18,7 @@ def generate_launch_description():
     pkg_gazebo_ros = FindPackageShare(package="gazebo_ros").find("gazebo_ros")
     gazebo_params_file = os.path.join(pkg_path, "config/gazebo_params.yaml")
 
-    world_filename = "hospital.world"
+    world_filename = "turtlebot3_world.world"
     world_path = os.path.join(pkg_path, "worlds", world_filename)
 
     use_sim_time = LaunchConfiguration("use_sim_time")
@@ -40,7 +40,7 @@ def generate_launch_description():
     declare_world_cmd = DeclareLaunchArgument(
         name="world",
         default_value=world_path,
-        description="Full path to the world model to load",
+        description="src/d_hospital_gazebo2/worlds/turtlebot3_world.world",
     )
 
 
@@ -68,7 +68,7 @@ def generate_launch_description():
         package="gazebo_ros",
         executable="spawn_entity.py",
         output="screen",
-        arguments=["-topic", "robot_description", "-entity", "d_hospitalbot"],
+        arguments=["-topic", "robot_description", "-entity", "d_hospitalbot" ,'-x','0.0','-y','0.0','-z','0.01'],
     )
 
     # Spawn joint_state_broadcaser

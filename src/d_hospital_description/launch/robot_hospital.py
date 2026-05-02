@@ -7,6 +7,7 @@ from launch.substitutions import LaunchConfiguration, Command
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
@@ -35,11 +36,9 @@ def generate_launch_description():
         description="Path to the main urdf model",
     )
 
-    robot_description_config = Command(
-        [
-            "xacro ",
-            urdf_path
-        ]
+    robot_description_config = ParameterValue(
+    Command(["xacro ", urdf_path]),
+    value_type=str
     )
 
     # Start robot state publisher node
