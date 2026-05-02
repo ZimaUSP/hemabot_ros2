@@ -1,0 +1,45 @@
+Mapeamento de arquivos STL renomeados
+Total de arquivos STL: 42
+
+mhemapcomp/MHEM_Montagem final_V2 - MHM_Acelerômetro (MPU6050)-2.STL -> acelerometro_mpu6050_2.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Andar superior_V1-1.STL -> andar_superior_v1_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Chassi_V3-1.STL -> chassi_v3_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Driver (Keyes L298N)-1.STL -> driver_l298n_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Encoder acoplador óptico (Lm393)-1.STL -> encoder_optico_lm393_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Encoder acoplador óptico (Lm393)-2.STL -> encoder_optico_lm393_2.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_ESP32-1.STL -> esp32_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Jetson nano-1.STL -> jetson_nano_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Leitor para encoder-3.STL -> leitor_encoder_3.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Leitor para encoder-4.STL -> leitor_encoder_4.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Motor DC 3-6V-1.STL -> motor_dc_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Motor DC 3-6V-2.STL -> motor_dc_2.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-1.STL -> parafuso_m2.5x6_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-10.STL -> parafuso_m2.5x6_10.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-11.STL -> parafuso_m2.5x6_11.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-12.STL -> parafuso_m2.5x6_12.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-13.STL -> parafuso_m2.5x6_13.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-14.STL -> parafuso_m2.5x6_14.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-15.STL -> parafuso_m2.5x6_15.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-16.STL -> parafuso_m2.5x6_16.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-2.STL -> parafuso_m2.5x6_2.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-3.STL -> parafuso_m2.5x6_3.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-4.STL -> parafuso_m2.5x6_4.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-5.STL -> parafuso_m2.5x6_5.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-6.STL -> parafuso_m2.5x6_6.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-7.STL -> parafuso_m2.5x6_7.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-8.STL -> parafuso_m2.5x6_8.stl
+mhemapcomp/MHEM_Montagem final_V2 - M2.5 x 6 Screw head-9.STL -> parafuso_m2.5x6_9.stl
+mhemapcomp/MHEM_Montagem final_V2 - powerbank-1.STL -> powerbank_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Protetor do eixo_V1-1.STL -> protetor_eixo_v1_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Protetor do eixo_V1-2.STL -> protetor_eixo_v1_2.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHM_Regulador de tensão (XL4015)-1.STL -> regulador_xl4015_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Roda-1.STL -> roda_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Roda-2.STL -> roda_2.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Roda Boba Esfera-1.STL -> roda_boba_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_RPLIDARA1 (1)-1.STL -> rplidar_a1_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - suportemhm-1.STL -> suporte_mhm_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Suporte do motor-1.STL -> suporte_motor_1.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Suporte do motor-2.STL -> suporte_motor_2.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Suporte do motor-3.STL -> suporte_motor_3.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Suporte do motor-4.STL -> suporte_motor_4.stl
+mhemapcomp/MHEM_Montagem final_V2 - MHEM_Traseira_V1-1.STL -> traseira_v1_1.stl

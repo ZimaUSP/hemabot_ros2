@@ -68,7 +68,7 @@ def generate_launch_description():
         package="gazebo_ros",
         executable="spawn_entity.py",
         output="screen",
-        arguments=["-topic", "robot_description", "-entity", "d_hospitalbot" ,'-x','0.0','-y','0.0','-z','0.01'],
+        arguments=["-topic", "robot_description", "-entity", "d_hospitalbot" ,'-x','1.0','-y','4.0','-z','0.0'],
     )
 
     # Spawn joint_state_broadcaser

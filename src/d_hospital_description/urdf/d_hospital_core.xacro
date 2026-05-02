@@ -1,8 +1,8 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <robot name="d_hospital" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!--
-    Arquivo gerado a partir dos STLs exportados da montagem SolidWorks.
+    Arquivo gerado a partir dos STLs exportados da montagem SolidWorks, usando os nomes simplificados dos arquivos.
 
     Convenção adotada:
       - STLs em milímetros: mesh_scale = 0.001.
@@ -13,11 +13,37 @@
       - base_footprint fica no solo, abaixo de base_link.
 
     Coloque as malhas renomeadas em:
-      d_hospital_description/meshes/mhemapcomp_clean/
+      d_hospital_description/mhemapcomp/mhemapcomp/
+    Os arquivos STL foram renomeados para nomes simples, minúsculos e sem espaços.
   -->
 
-  <xacro:property name="mesh_dir" value="package://d_hospital_description/meshes/mhemapcomp_clean"/>
+	<xacro:property name="mesh_dir" value="package://d_hospital_description/mhemapcomp/mhemapcomp"/>
   <xacro:property name="mesh_scale" value="0.001"/>
+
+  <!-- Materiais do robô -->
+<material name="roxo_chassi">
+  <color rgba="0.45 0.00 0.80 1.0"/>
+</material>
+
+<material name="preto">
+  <color rgba="0.01 0.01 0.01 1.0"/>
+</material>
+
+<material name="amarelo_roda">
+  <color rgba="1.00 0.75 0.00 1.0"/>
+</material>
+
+<material name="vermelho_ponte_h">
+  <color rgba="0.85 0.00 0.00 1.0"/>
+</material>
+
+<material name="verde_raspberry">
+  <color rgba="0.00 0.55 0.15 1.0"/>
+</material>
+
+<material name="cinza_metalico">
+  <color rgba="0.45 0.45 0.45 1.0"/>
+</material>
 
   <!-- Origem da montagem SolidWorks, em metros, usada para alinhar todas as peças ao base_link. -->
   <xacro:property name="sw_origin_x" value="0.127772"/>
@@ -40,24 +66,26 @@
   <xacro:property name="wheel_separation" value="0.1648"/>
 
   <!-- Transforma uma malha exportada em coordenadas globais do SolidWorks para o frame base_link. -->
-  <xacro:macro name="solidworks_base_visual" params="visual_name mesh_file">
-    <visual name="${visual_name}">
-      <origin xyz="${sw_tx} ${sw_ty} ${sw_tz}" rpy="${pi/2} 0 0"/>
-      <geometry>
-        <mesh filename="${mesh_dir}/${mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
-      </geometry>
-    </visual>
-  </xacro:macro>
+<xacro:macro name="solidworks_base_visual" params="visual_name mesh_file material_name:=cinza_metalico">
+  <visual name="${visual_name}">
+    <origin xyz="${sw_tx} ${sw_ty} ${sw_tz}" rpy="${pi/2} 0 0"/>
+    <geometry>
+      <mesh filename="${mesh_dir}/${mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+    </geometry>
+    <material name="${material_name}"/>
+  </visual>
+</xacro:macro>
 
   <!-- Visual de uma malha cujo link está no centro da própria peça. -->
-  <xacro:macro name="solidworks_centered_visual" params="mesh_file ox oy oz">
-    <visual>
-      <origin xyz="${ox} ${oy} ${oz}" rpy="${pi/2} 0 0"/>
-      <geometry>
-        <mesh filename="${mesh_dir}/${mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
-      </geometry>
-    </visual>
-  </xacro:macro>
+<xacro:macro name="solidworks_centered_visual" params="mesh_file ox oy oz material_name:=cinza_metalico">
+  <visual>
+    <origin xyz="${ox} ${oy} ${oz}" rpy="${pi/2} 0 0"/>
+    <geometry>
+      <mesh filename="${mesh_dir}/${mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+    </geometry>
+    <material name="${material_name}"/>
+  </visual>
+</xacro:macro>
 
   <link name="base_footprint"/>
 
@@ -68,125 +96,162 @@
   </joint>
 
   <link name="base_link">
-    <xacro:solidworks_base_visual visual_name="chassis_visual" mesh_file="chassis.stl"/>
-    <xacro:solidworks_base_visual visual_name="upper_deck_visual" mesh_file="upper_deck.stl"/>
-    <xacro:solidworks_base_visual visual_name="rear_panel_visual" mesh_file="rear_panel.stl"/>
-    <xacro:solidworks_base_visual visual_name="support_mhm_visual" mesh_file="support_mhm.stl"/>
-    <xacro:solidworks_base_visual visual_name="driver_l298n_visual" mesh_file="driver_l298n.stl"/>
-    <xacro:solidworks_base_visual visual_name="esp32_visual" mesh_file="esp32.stl"/>
-    <xacro:solidworks_base_visual visual_name="jetson_nano_visual" mesh_file="jetson_nano.stl"/>
-    <xacro:solidworks_base_visual visual_name="powerbank_visual" mesh_file="powerbank.stl"/>
-    <xacro:solidworks_base_visual visual_name="xl4015_regulator_visual" mesh_file="xl4015_regulator.stl"/>
-    <xacro:solidworks_base_visual visual_name="left_motor_visual" mesh_file="left_motor.stl"/>
-    <xacro:solidworks_base_visual visual_name="right_motor_visual" mesh_file="right_motor.stl"/>
-    <xacro:solidworks_base_visual visual_name="left_encoder_coupler_lm393_visual" mesh_file="left_encoder_coupler_lm393.stl"/>
-    <xacro:solidworks_base_visual visual_name="right_encoder_coupler_lm393_visual" mesh_file="right_encoder_coupler_lm393.stl"/>
-    <xacro:solidworks_base_visual visual_name="left_encoder_reader_visual" mesh_file="left_encoder_reader.stl"/>
-    <xacro:solidworks_base_visual visual_name="right_encoder_reader_visual" mesh_file="right_encoder_reader.stl"/>
-    <xacro:solidworks_base_visual visual_name="axis_protector_left_visual" mesh_file="axis_protector_left.stl"/>
-    <xacro:solidworks_base_visual visual_name="axis_protector_right_visual" mesh_file="axis_protector_right.stl"/>
-    <xacro:solidworks_base_visual visual_name="motor_support_01_visual" mesh_file="motor_support_01.stl"/>
-    <xacro:solidworks_base_visual visual_name="motor_support_02_visual" mesh_file="motor_support_02.stl"/>
-    <xacro:solidworks_base_visual visual_name="motor_support_03_visual" mesh_file="motor_support_03.stl"/>
-    <xacro:solidworks_base_visual visual_name="motor_support_04_visual" mesh_file="motor_support_04.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_01_visual" mesh_file="screw_m2_5x6_01.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_02_visual" mesh_file="screw_m2_5x6_02.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_03_visual" mesh_file="screw_m2_5x6_03.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_04_visual" mesh_file="screw_m2_5x6_04.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_05_visual" mesh_file="screw_m2_5x6_05.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_06_visual" mesh_file="screw_m2_5x6_06.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_07_visual" mesh_file="screw_m2_5x6_07.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_08_visual" mesh_file="screw_m2_5x6_08.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_09_visual" mesh_file="screw_m2_5x6_09.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_10_visual" mesh_file="screw_m2_5x6_10.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_11_visual" mesh_file="screw_m2_5x6_11.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_12_visual" mesh_file="screw_m2_5x6_12.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_13_visual" mesh_file="screw_m2_5x6_13.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_14_visual" mesh_file="screw_m2_5x6_14.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_15_visual" mesh_file="screw_m2_5x6_15.stl"/>
-    <xacro:solidworks_base_visual visual_name="screw_m2_5x6_16_visual" mesh_file="screw_m2_5x6_16.stl"/>
 
-    <collision name="base_collision">
-      <origin xyz="0 0 ${base_collision_z}" rpy="0 0 0"/>
-      <geometry>
-        <box size="${base_length} ${base_width} ${base_height}"/>
-      </geometry>
-    </collision>
+  <!-- Componentes estruturais/chassi: roxo -->
+  <xacro:solidworks_base_visual visual_name="chassis_visual" mesh_file="chassi_v3_1.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="upper_deck_visual" mesh_file="andar_superior_v1_1.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="rear_panel_visual" mesh_file="traseira_v1_1.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="support_mhm_visual" mesh_file="suporte_mhm_1.stl" material_name="roxo_chassi"/>
 
-    <inertial>
-      <origin xyz="0 0 ${base_collision_z}" rpy="0 0 0"/>
-      <mass value="${base_mass}"/>
-      <inertia
-        ixx="${(base_mass/12.0) * (base_width*base_width + base_height*base_height)}"
-        ixy="0"
-        ixz="0"
-        iyy="${(base_mass/12.0) * (base_length*base_length + base_height*base_height)}"
-        iyz="0"
-        izz="${(base_mass/12.0) * (base_length*base_length + base_width*base_width)}"/>
-    </inertial>
-  </link>
+  <xacro:solidworks_base_visual visual_name="motor_support_01_visual" mesh_file="suporte_motor_1.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="motor_support_02_visual" mesh_file="suporte_motor_2.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="motor_support_03_visual" mesh_file="suporte_motor_3.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="motor_support_04_visual" mesh_file="suporte_motor_4.stl" material_name="roxo_chassi"/>
 
-  <!-- Roda esquerda: centro obtido diretamente do STL left_wheel.stl. -->
+  <xacro:solidworks_base_visual visual_name="axis_protector_left_visual" mesh_file="protetor_eixo_v1_1.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="axis_protector_right_visual" mesh_file="protetor_eixo_v1_2.stl" material_name="roxo_chassi"/>
+
+  <!-- Ponte H / Driver L298N: vermelho -->
+  <xacro:solidworks_base_visual visual_name="driver_l298n_visual" mesh_file="driver_l298n_1.stl" material_name="vermelho_ponte_h"/>
+
+  <!-- Raspberry / placa principal: verde -->
+  <!-- Se no seu arquivo ainda estiver como Jetson Nano, mantive o nome jetson_nano_visual. -->
+  <xacro:solidworks_base_visual visual_name="jetson_nano_visual" mesh_file="jetson_nano_1.stl" material_name="verde_raspberry"/>
+
+  <!-- ESP32: verde também, caso queira representar como placa eletrônica -->
+  <xacro:solidworks_base_visual visual_name="esp32_visual" mesh_file="esp32_1.stl" material_name="verde_raspberry"/>
+
+  <!-- Outros componentes eletrônicos -->
+  <xacro:solidworks_base_visual visual_name="powerbank_visual" mesh_file="powerbank_1.stl" material_name="preto"/>
+  <xacro:solidworks_base_visual visual_name="xl4015_regulator_visual" mesh_file="regulador_xl4015_1.stl" material_name="verde_raspberry"/>
+
+  <!-- Motores e encoders -->
+  <xacro:solidworks_base_visual visual_name="left_motor_visual" mesh_file="motor_dc_1.stl" material_name="cinza_metalico"/>
+  <xacro:solidworks_base_visual visual_name="right_motor_visual" mesh_file="motor_dc_2.stl" material_name="cinza_metalico"/>
+
+  <xacro:solidworks_base_visual visual_name="left_encoder_coupler_lm393_visual" mesh_file="encoder_optico_lm393_1.stl" material_name="preto"/>
+  <xacro:solidworks_base_visual visual_name="right_encoder_coupler_lm393_visual" mesh_file="encoder_optico_lm393_2.stl" material_name="preto"/>
+
+  <xacro:solidworks_base_visual visual_name="left_encoder_reader_visual" mesh_file="leitor_encoder_3.stl" material_name="verde_raspberry"/>
+  <xacro:solidworks_base_visual visual_name="right_encoder_reader_visual" mesh_file="leitor_encoder_4.stl" material_name="verde_raspberry"/>
+
+  <!-- Parafusos: deixei roxos para acompanhar o chassi -->
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_01_visual" mesh_file="parafuso_m2.5x6_1.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_02_visual" mesh_file="parafuso_m2.5x6_2.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_03_visual" mesh_file="parafuso_m2.5x6_3.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_04_visual" mesh_file="parafuso_m2.5x6_4.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_05_visual" mesh_file="parafuso_m2.5x6_5.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_06_visual" mesh_file="parafuso_m2.5x6_6.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_07_visual" mesh_file="parafuso_m2.5x6_7.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_08_visual" mesh_file="parafuso_m2.5x6_8.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_09_visual" mesh_file="parafuso_m2.5x6_9.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_10_visual" mesh_file="parafuso_m2.5x6_10.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_11_visual" mesh_file="parafuso_m2.5x6_11.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_12_visual" mesh_file="parafuso_m2.5x6_12.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_13_visual" mesh_file="parafuso_m2.5x6_13.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_14_visual" mesh_file="parafuso_m2.5x6_14.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_15_visual" mesh_file="parafuso_m2.5x6_15.stl" material_name="roxo_chassi"/>
+  <xacro:solidworks_base_visual visual_name="screw_m2_5x6_16_visual" mesh_file="parafuso_m2.5x6_16.stl" material_name="roxo_chassi"/>
+
+</link>
+
+  <!-- Roda esquerda: centro obtido diretamente do STL original da roda esquerda. -->
   <link name="left_wheel">
-    <xacro:solidworks_centered_visual mesh_file="left_wheel.stl" ox="-0.073522" oy="0.152366" oz="-0.038959"/>
-    <collision>
-      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-      <geometry>
-        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="${wheel_mass}"/>
-      <inertia
-        ixx="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"
-        ixy="0"
-        ixz="0"
-        iyy="${0.5 * wheel_mass * wheel_radius * wheel_radius}"
-        iyz="0"
-        izz="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"/>
-    </inertial>
-  </link>
+
+  <!-- Miolo/roda em amarelo usando o STL -->
+  <xacro:solidworks_centered_visual 
+    mesh_file="roda_1.stl" 
+    ox="-0.073522" 
+    oy="0.152366" 
+    oz="-0.038959"
+    material_name="amarelo_roda"/>
+
+  <!-- Pneu preto aproximado por cilindro visual -->
+  <visual name="left_tire_visual">
+    <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
+    <material name="preto"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
+  </collision>
+
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="${wheel_mass}"/>
+    <inertia
+      ixx="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"
+      ixy="0"
+      ixz="0"
+      iyy="${0.5 * wheel_mass * wheel_radius * wheel_radius}"
+      iyz="0"
+      izz="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"/>
+  </inertial>
+</link>
 
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
     <origin xyz="-0.05425 0.0823 0" rpy="0 0 0"/>
     <axis xyz="0 -1 0"/>
-  </joint>
+    </joint>
 
-  <!-- Roda direita: centro obtido diretamente do STL right_wheel.stl. -->
+  <!-- Roda direita: centro obtido diretamente do STL original da roda direita. -->
   <link name="right_wheel">
-    <xacro:solidworks_centered_visual mesh_file="right_wheel.stl" ox="-0.073522" oy="0.317166" oz="-0.038959"/>
-    <collision>
-      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-      <geometry>
-        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="${wheel_mass}"/>
-      <inertia
-        ixx="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"
-        ixy="0"
-        ixz="0"
-        iyy="${0.5 * wheel_mass * wheel_radius * wheel_radius}"
-        iyz="0"
-        izz="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"/>
-    </inertial>
-  </link>
+
+  <!-- Miolo/roda em amarelo usando o STL -->
+  <xacro:solidworks_centered_visual 
+    mesh_file="roda_2.stl" 
+    ox="-0.073522" 
+    oy="0.317166" 
+    oz="-0.038959"
+    material_name="amarelo_roda"/>
+
+  <!-- Pneu preto aproximado por cilindro visual -->
+  <visual name="right_tire_visual">
+    <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
+    <material name="preto"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
+  </collision>
+
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="${wheel_mass}"/>
+    <inertia
+      ixx="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"
+      ixy="0"
+      ixz="0"
+      iyy="${0.5 * wheel_mass * wheel_radius * wheel_radius}"
+      iyz="0"
+      izz="${(wheel_mass/12.0) * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"/>
+  </inertial>
+</link>
 
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <origin xyz="-0.05425 -0.0825 0" rpy="0 0 0"/>
     <axis xyz="0 -1 0"/>
-  </joint>
+    </joint> 
 
   <!-- Roda boba: mantida como junta fixa para simplificar a simulação. -->
-  <link name="caster_wheel">
-    <xacro:solidworks_centered_visual mesh_file="caster_wheel.stl" ox="-0.224406" oy="0.234666" oz="-0.014309"/>
+ <link name="caster_wheel">
+    <xacro:solidworks_centered_visual mesh_file="roda_boba_1.stl" ox="-0.224406" oy="0.234666" oz="-0.014309" material_name="preto"/>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -204,41 +269,48 @@
     <parent link="base_link"/>
     <child link="caster_wheel"/>
     <origin xyz="0.096635 0 -0.02465" rpy="0 0 0"/>
-  </joint>
+    </joint>
 
   <!-- LIDAR: link visual separado para permitir TF do sensor. -->
   <link name="rplidar_link">
-    <xacro:solidworks_centered_visual mesh_file="rplidar_a1.stl" ox="-0.093628" oy="0.232936" oz="-0.108759"/>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.050" length="0.040"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.17"/>
-      <inertia ixx="0.00008" ixy="0" ixz="0" iyy="0.00008" iyz="0" izz="0.00012"/>
-    </inertial>
-  </link>
+  <xacro:solidworks_centered_visual 
+    mesh_file="rplidar_a1_1.stl" 
+    ox="-0.093628" 
+    oy="0.232936" 
+    oz="-0.108759"
+    material_name="preto"/>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.050" length="0.040"/>
+    </geometry>
+  </collision>
+
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.17"/>
+    <inertia ixx="0.00008" ixy="0" ixz="0" iyy="0.00008" iyz="0" izz="0.00012"/>
+  </inertial>
+</link>
 
   <joint name="rplidar_joint" type="fixed">
     <parent link="base_link"/>
     <child link="rplidar_link"/>
     <origin xyz="-0.034144 0.001731 0.0698" rpy="0 0 0"/>
-  </joint>
+    </joint>
 
   <!-- Frame recomendado para o LaserScan. Ajuste o z se a altura real do plano do laser for medida. -->
-  <link name="laser_frame"/>
+<link name="laser_frame"/>
   <joint name="laser_joint" type="fixed">
     <parent link="rplidar_link"/>
     <child link="laser_frame"/>
     <origin xyz="0 0 0.020" rpy="0 0 0"/>
-  </joint>
+    </joint>
 
   <!-- IMU MPU6050: frame separado para uso com robot_localization/ekf_node. -->
   <link name="imu_link">
-    <xacro:solidworks_centered_visual mesh_file="mpu6050.stl" ox="-0.111" oy="0.235782" oz="-0.035587"/>
+    <xacro:solidworks_centered_visual mesh_file="acelerometro_mpu6050_2.stl" ox="-0.111" oy="0.235782" oz="-0.035587" material_name="verde_raspberry"/>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -271,6 +343,6 @@
   <gazebo reference="right_wheel">
     <mu1 value="1.16"/>
     <mu2 value="1.16"/>
-  </gazebo>
-
+    </gazebo> 
+  
 </robot>
