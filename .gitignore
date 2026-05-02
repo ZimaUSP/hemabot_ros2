@@ -1,3 +1,11 @@
-# Ignore VS Code local workspace data
+# VS Code / C++ cache
 .vscode/
 *.vc.db
+*.VC.db
+*.ipch
+
+# ROS 2 build artifacts
+build/
+install/
+log/
+EOF
