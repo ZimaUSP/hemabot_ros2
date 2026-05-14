@@ -1,5 +1,6 @@
 #!/bin/bash
-
+source /opt/ros/humble/setup.bash
+source /home/hemabot/hemabot_ros2/install/setup.bash
 echo "================================"
 echo "CALIBRACAO MPU6050"
 echo "================================"
@@ -39,7 +40,7 @@ echo "Accel: $ax $ay $az"
 
 # 4 atualizar arquivo .h
 
-arquivo="src/minihema_launch/include/minihema_launch/mpu6050_lib.h"
+arquivo="/home/hemabot/hemabot_ros2/src/minihema_launch/include/minihema_launch/mpu6050_lib.h"
 
 echo "Atualizando arquivo $arquivo"
 

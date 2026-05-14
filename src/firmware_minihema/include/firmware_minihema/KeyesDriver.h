@@ -16,9 +16,9 @@
 extern "C" {
 #endif
 
-#include "PinPlannerRasp.h"
 #include "DEV_Config.h"
 #include <wiringPi.h>
+#include "PinPlannerRasp.h"
 
 //  Configurações do GPIO
 

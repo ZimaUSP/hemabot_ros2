@@ -1,9 +1,9 @@
 /*Data    :   19/03/2026
-Descrição: PinPLanner do MiniHema
+Descrição: PinPlanner do MiniHema
 */
 
-#ifndef __PIN_PLANNER_H__
-#define __PIN_PLANNER_H__
+#ifndef __PINPLANNERRASP_H__
+#define __PINPLANNERRASP_H__
 
 #ifdef __cplusplus
 extern "C" {
