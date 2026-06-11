@@ -14,10 +14,10 @@ extern "C" {
 // ==========================
 #define PIN_LEFT_WHL_ENC_D0    9
 #define PIN_RIGHT_WHL_ENC_D0   6
-
+/*
 #define PIN_LEFT_WHL_ENC_DIR   24
-#define PIN_RIGHT_WHL_ENC_DIR  25
-
+//#define PIN_RIGHT_WHL_ENC_DIR  25
+*/
 #define PIN_LEFT_WHL_ENC_A0    4
 #define PIN_RIGHT_WHL_ENC_A0   16
 
