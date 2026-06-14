@@ -28,6 +28,8 @@ extern "C" {
 #define PIN_MOTOR_IN1   25
 #define PIN_MOTOR_IN2   21
 #define PIN_MOTOR_IN3   20
+#define PINO_ENA        11
+#define PINO_ENB        7
 
 #ifdef __cplusplus
 }
