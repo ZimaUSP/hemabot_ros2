@@ -26,7 +26,7 @@ Abra o Raspberry Pi Imager, conecte seu microSD no notebook e realize a sequênc
 
 <img width="742" height="550" alt="Captura de tela 2026-06-18 180029" src="https://github.com/user-attachments/assets/1b5f4286-62d5-452f-aef5-50e8d53b0fd0" />
 
-Agora, selecione o seu microSD
+Agora, selecione o seu microSD (na imagem aparece um SD de 7 Gb, mas é necessário um de pelo menos 10 Gb)
 
 <img width="747" height="537" alt="Captura de tela 2026-06-18 182106" src="https://github.com/user-attachments/assets/cd4d207a-330e-4bc7-940a-577a33bc2d28" />
 
@@ -48,4 +48,19 @@ Configure a internet, colocando a rede e senha que o robô irá se conectar
 
 <img width="750" height="532" alt="Captura de tela 2026-06-18 182450" src="https://github.com/user-attachments/assets/f6d2e5c7-5616-4f43-b4c1-f1c211519b95" />
 
-Depois disso, clique em WRITE e em seguida confirme o apagamento dos dados do microSD
+Depois disso, clique em WRITE e em seguida confirme o apagamento dos dados atuais do microSD
+
+Após esperar o download, conecte o microSD em sua Raspberry Pi 4.
+
+
+
+## Conectando via SSH
+
+Abra seu terminal e faça a conexão SSH, para isso é necessário descobrir o IP do raspberry pi ou então tentar identificar pelo hostname, as duas opções de comando estão listadas abaixo:
+
+``` sh
+ssh your_username@your_hostname.local
+ssh your_username@192.168.x.x
+```
+
+Após isso, insira a senha que colocou para seu usuário e sua conexão será realizada.
