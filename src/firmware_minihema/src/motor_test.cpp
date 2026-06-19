@@ -2,49 +2,99 @@ extern "C" {
   #include "firmware_minihema/KeyesDriver.h"
   #include "firmware_minihema/motor_encoder.h"
 }
-int main(int argc, char **argv)
- { 
- 	 
-    int x=0, y = 0;
-    // Setup GPIO encoder interrupt and direction pins
-    wiringPiSetupGpio();
-    // Initialize motor driver
+
+#include <csignal>
+#include <cstdio>
+#include <cstdlib>
+#include <wiringPi.h>
+
+// Flag global para permitir parada segura com Ctrl+C
+static volatile bool g_running = true;
+
+void handleSigint(int) {
+    g_running = false;
+}
+
+// Para os motores e imprime o estado final dos encoders antes de sair
+void safeShutdown(int x, int y) {
+    set_motor_speeds(0, 0);
+    printf("\n[SHUTDOWN] Motores parados.\n");
+    printf("[SHUTDOWN] Encoder esquerdo: %d | Encoder direito: %d\n", x, y);
+}
+
+// Executa um teste de movimento por uma duração, reportando velocidade
+// estimada via encoder antes/depois (pulsos por segundo)
+void runMotorTest(int leftSpeed, int rightSpeed, int durationMs, const char *label) {
+    int xBefore = 0, yBefore = 0;
+    int xAfter = 0, yAfter = 0;
+
+    read_encoder_values(&xBefore, &yBefore);
+
+    printf("\n[TEST] %s -> set_motor_speeds(%d, %d) por %d ms\n",
+           label, leftSpeed, rightSpeed, durationMs);
+
+    set_motor_speeds(leftSpeed, rightSpeed);
+
+    // Delay interrompível em pedaços de 100ms, para reagir ao Ctrl+C rapidamente
+    int elapsed = 0;
+    while (elapsed < durationMs && g_running) {
+        delay(100);
+        elapsed += 100;
+    }
+
+    set_motor_speeds(0, 0);
+    delay(200); // pequena pausa para o motor parar antes de ler o encoder
+
+    read_encoder_values(&xAfter, &yAfter);
+
+    int deltaLeft  = xAfter - xBefore;
+    int deltaRight = yAfter - yBefore;
+    double pulsesPerSecLeft  = deltaLeft  / (durationMs / 1000.0);
+    double pulsesPerSecRight = deltaRight / (durationMs / 1000.0);
+
+    printf("[RESULT] Encoder esquerdo: %d -> %d (delta %d, %.1f pulsos/s)\n",
+           xBefore, xAfter, deltaLeft, pulsesPerSecLeft);
+    printf("[RESULT] Encoder direito:  %d -> %d (delta %d, %.1f pulsos/s)\n",
+           yBefore, yAfter, deltaRight, pulsesPerSecRight);
+}
+
+int main(int argc, char **argv) {
+    signal(SIGINT, handleSigint);
+
+    // Configura GPIO usando numeração BCM
+    if (wiringPiSetupGpio() == -1) {
+        fprintf(stderr, "[ERRO] Falha ao inicializar wiringPi.\n");
+        return EXIT_FAILURE;
+    }
+
     Motor_Init();
 
-    // Initialize wiringPi using GPIO BCM pin numbers
     pinMode(LEFT_WHL_ENC_D0, INPUT);
     pinMode(RIGHT_WHL_ENC_D0, INPUT);
 
-    // Setup pull up resistors on encoder pins
     pullUpDnControl(LEFT_WHL_ENC_D0, PUD_UP);
-    pullUpDnControl(RIGHT_WHL_ENC_D0, PUD_UP); 
+    pullUpDnControl(RIGHT_WHL_ENC_D0, PUD_UP);
+
     wiringPiISR(LEFT_WHL_ENC_D0, INT_EDGE_FALLING, add_left_wheel);
     wiringPiISR(RIGHT_WHL_ENC_D0, INT_EDGE_FALLING, add_right_wheel);
-    while(true) {
-    set_motor_speeds(30,30);
-    delay(5000);
 
-    read_encoder_values(&x, &y);
-    DEBUG("Left encoder: %d\n", x);
-    DEBUG("Right encoder: %d\n", y);
-    set_motor_speeds(0,0);
-    delay(5000);
-    }   
-    /*
-    // Initialize the rclcpp library
-    rclcpp::init(argc, argv);
+    printf("=== Teste de motores e encoders iniciado (Ctrl+C para parar) ===\n");
 
-    // Create a shared pointer to a Node type and name it "motor_checks_server"
-    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("motor_checks_server");
+    // Bateria de testes: frente, ré, giro no eixo, e parada
+    const int kTestDurationMs = 3000;
 
-    // Create a "checks" service with a checkMotors callback
-    rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr service = 
-        node->create_service<std_srvs::srv::Trigger>("checks", &checkMotors);
+    if (g_running) runMotorTest(30,  30,  kTestDurationMs, "Frente");
+    if (g_running) runMotorTest(0,   0,   1000,            "Parada");
+    if (g_running) runMotorTest(-30, -30, kTestDurationMs, "Ré");
+    if (g_running) runMotorTest(0,   0,   1000,            "Parada");
+    if (g_running) runMotorTest(30, -30,  kTestDurationMs, "Giro horário");
+    if (g_running) runMotorTest(-30, 30,  kTestDurationMs, "Giro anti-horário");
 
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to check motors");
-s
-    // Spin the node until it's terminated
-    rclcpp::spin(node);
-    rclcpp::shutdown();
-    */
- }
+    int xFinal = 0, yFinal = 0;
+    read_encoder_values(&xFinal, &yFinal);
+    safeShutdown(xFinal, yFinal);
+
+    printf("=== Teste finalizado ===\n");
+    return EXIT_SUCCESS;
+
+}
