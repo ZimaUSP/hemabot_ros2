@@ -121,6 +121,42 @@ install(
 
 
 # ------------------------------------------------------------------------------
+# test_encoder executable
+# ------------------------------------------------------------------------------
+
+add_executable(test_encoder
+  src/test_encoder.c
+  src/motor_encoder.c
+  src/KeyesDriver.c
+)
+
+ament_target_dependencies(test_encoder
+  rclcpp
+  std_srvs
+)
+
+target_link_libraries(test_encoder
+  m
+  wiringPi
+  pthread
+  crypt
+  rt
+)
+
+target_compile_options(test_encoder PRIVATE -w)  # Remove warnings (optional)
+
+# ------------------------------------------------------------------------------
+# Install executables
+# ------------------------------------------------------------------------------
+
+install(
+  TARGETS
+    test_encoder
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
+# ------------------------------------------------------------------------------
 # Export the library
 # ------------------------------------------------------------------------------
 
