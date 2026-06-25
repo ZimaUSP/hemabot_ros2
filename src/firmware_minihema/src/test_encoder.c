@@ -1,20 +1,22 @@
-extern "C" {
-  #include "firmware_minihema/KeyesDriver.h"
-  #include "firmware_minihema/motor_encoder.h"
-}
+#include "firmware_minihema/KeyesDriver.h"
+#include "firmware_minihema/motor_encoder.h"
 
-#include <csignal>
-#include <cstdio>
-#include <cstdlib>
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <wiringPi.h>
 
-static volatile bool g_running = true;
+static volatile int g_running = 1;
 
-void handleSigint(int) {
-    g_running = false;
+void handleSigint(int sig) {
+    (void)sig;
+    g_running = 0;
 }
 
 int main(int argc, char **argv) {
+    (void)argc;
+    (void)argv;
+
     signal(SIGINT, handleSigint);
 
     if (wiringPiSetupGpio() == -1) {
@@ -37,7 +39,7 @@ int main(int argc, char **argv) {
     int xPrev = 0, yPrev = 0;
     read_encoder_values(&xPrev, &yPrev);
 
-    const int kSampleIntervalMs = 500; // intervalo entre amostras
+    const int kSampleIntervalMs = 500;
     int elapsedTotal = 0;
 
     while (g_running) {
