@@ -80,19 +80,23 @@ int main(int argc, char **argv) {
 
     printf("=== Teste de motores e encoders iniciado (Ctrl+C para parar) ===\n");
 
-    // Bateria de testes: frente, ré, giro no eixo, e parada
-    const int kTestDurationMs = 3000;
+    // // Bateria de testes: frente, ré, giro no eixo, e parada
+    // const int kTestDurationMs = 3000;
 
-    if (g_running) runMotorTest(100,  100,  kTestDurationMs, "Frente");
-    if (g_running) runMotorTest(0,   0,   1000,            "Parada");
-    if (g_running) runMotorTest(-100, -100, kTestDurationMs, "Ré");
-    if (g_running) runMotorTest(0,   0,   1000,            "Parada");
-    if (g_running) runMotorTest(100, -100,  kTestDurationMs, "Giro horário");
-    if (g_running) runMotorTest(-100, 100,  kTestDurationMs, "Giro anti-horário");
+    // if (g_running) runMotorTest(40,  40,  kTestDurationMs, "Frente");
+    // if (g_running) runMotorTest(0,   0,   1000,            "Parada");
+    // if (g_running) runMotorTest(-100, -100, kTestDurationMs, "Ré");
+    // if (g_running) runMotorTest(0,   0,   1000,            "Parada");
+    // if (g_running) runMotorTest(100, -100,  kTestDurationMs, "Giro horário");
+    // if (g_running) runMotorTest(-100, 100,  kTestDurationMs, "Giro anti-horário");
 
-    int xFinal = 0, yFinal = 0;
-    read_encoder_values(&xFinal, &yFinal);
-    safeShutdown(xFinal, yFinal);
+    // int xFinal = 0, yFinal = 0;
+    // read_encoder_values(&xFinal, &yFinal);
+    // safeShutdown(xFinal, yFinal);
+
+    while (true){
+        set_motor_speeds(40, 40);
+    }
 
     printf("=== Teste finalizado ===\n");
     return EXIT_SUCCESS;
