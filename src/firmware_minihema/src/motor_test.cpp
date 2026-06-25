@@ -83,12 +83,12 @@ int main(int argc, char **argv) {
     // Bateria de testes: frente, ré, giro no eixo, e parada
     const int kTestDurationMs = 3000;
 
-    if (g_running) runMotorTest(30,  30,  kTestDurationMs, "Frente");
+    if (g_running) runMotorTest(100,  100,  kTestDurationMs, "Frente");
     if (g_running) runMotorTest(0,   0,   1000,            "Parada");
-    if (g_running) runMotorTest(-30, -30, kTestDurationMs, "Ré");
+    if (g_running) runMotorTest(-100, -100, kTestDurationMs, "Ré");
     if (g_running) runMotorTest(0,   0,   1000,            "Parada");
-    if (g_running) runMotorTest(30, -30,  kTestDurationMs, "Giro horário");
-    if (g_running) runMotorTest(-30, 30,  kTestDurationMs, "Giro anti-horário");
+    if (g_running) runMotorTest(100, -100,  kTestDurationMs, "Giro horário");
+    if (g_running) runMotorTest(-100, 100,  kTestDurationMs, "Giro anti-horário");
 
     int xFinal = 0, yFinal = 0;
     read_encoder_values(&xFinal, &yFinal);
