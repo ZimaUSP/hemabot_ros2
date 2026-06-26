@@ -97,6 +97,20 @@
 
   <link name="base_link">
 
+  <!-- Inércia do chassi, aproximada como uma caixa sólida usando base_mass/base_length/base_width/base_height.
+       Origem em 0 0 0 pois base_link já está centrado no chassi (ver comentário no topo do arquivo). -->
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="${base_mass}"/>
+    <inertia
+      ixx="${(base_mass/12.0) * (base_width*base_width + base_height*base_height)}"
+      ixy="0"
+      ixz="0"
+      iyy="${(base_mass/12.0) * (base_length*base_length + base_height*base_height)}"
+      iyz="0"
+      izz="${(base_mass/12.0) * (base_length*base_length + base_width*base_width)}"/>
+  </inertial>
+
   <!-- Componentes estruturais/chassi: roxo -->
   <xacro:solidworks_base_visual visual_name="chassis_visual" mesh_file="chassi_v3_1.stl" material_name="roxo_chassi"/>
   <xacro:solidworks_base_visual visual_name="upper_deck_visual" mesh_file="andar_superior_v1_1.stl" material_name="roxo_chassi"/>
@@ -346,3 +360,4 @@
     </gazebo> 
   
 </robot>
+
