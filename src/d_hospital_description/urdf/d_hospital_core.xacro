@@ -321,6 +321,40 @@
     <child link="laser_frame"/>
     <origin xyz="0 0 0.020" rpy="0 0 0"/>
     </joint>
+    <gazebo reference="laser_frame">
+    <sensor name="lidar" type="ray">
+        <pose>0 0 0 0 0 0</pose>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>5</update_rate>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>720</samples>
+                    <min_angle>-3.14</min_angle>
+                    <max_angle>3.14</max_angle>
+                </horizontal>
+            </scan>
+            <range>
+                <min>0.12</min>
+                <max>10.0</max>
+                <resolution>1</resolution>
+            </range>
+            <noise>
+                <type>gaussian</type>
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+            </noise>
+        </ray>
+        <plugin name="lidar_controller" filename="libgazebo_ros_ray_sensor.so">
+            <ros>
+                <remapping>~/out:=scan</remapping>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
+            <frame_name>laser_frame</frame_name>
+        </plugin>
+    </sensor>
+</gazebo>
 
   <!-- IMU MPU6050: frame separado para uso com robot_localization/ekf_node. -->
   <link name="imu_link">
