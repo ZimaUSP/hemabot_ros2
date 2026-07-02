@@ -1,6 +1,6 @@
 controller_manager: # Node name
   ros__parameters:
-    update_rate: 10 # Has to be an integer otherwise errors are encountered
+    update_rate: 50 # Has to be an integer otherwise errors are encountered
 
     diff_controller:
       type: diff_drive_controller/DiffDriveController
