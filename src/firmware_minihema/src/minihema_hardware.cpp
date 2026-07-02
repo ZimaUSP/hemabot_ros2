@@ -131,6 +131,7 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
     double left_motor_counts_per_loop = (left_wheel_.command * delta_seconds) / left_wheel_.rads_per_tick;
     double right_motor_counts_per_loop = (right_wheel_.command * delta_seconds) / right_wheel_.rads_per_tick;
 
+    DEBUG("Enviando comandos para o driver do motor: left=%f, right=%f\n", left_motor_counts_per_loop, right_motor_counts_per_loop);
     // Send commands to motor driver
     set_motor_speeds(left_motor_counts_per_loop, right_motor_counts_per_loop);
 
