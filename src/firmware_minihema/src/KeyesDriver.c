@@ -96,12 +96,12 @@ void Motor_Stop(UBYTE motor)
 UBYTE Motor_Direction(UBYTE motor)
 {
     if(motor == MOTORA) {
-        if(ain1_value == 0 && ain2_value == 1) return 1;
-        if(ain1_value == 1 && ain2_value == 0) return 0;
+        if(ain1_value == 0 && ain2_value == 1) return 0;
+        if(ain1_value == 1 && ain2_value == 0) return 1;
     }
     else if (motor == MOTORB) {
-        if(bin1_value == 0 && bin2_value == 1) return 1;
-        if(bin1_value == 1 && bin2_value == 0) return 0;
+        if(bin1_value == 0 && bin2_value == 1) return 0;
+        if(bin1_value == 1 && bin2_value == 0) return 1;
     }
     
     return 0; 

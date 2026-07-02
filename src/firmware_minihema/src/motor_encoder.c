@@ -58,20 +58,19 @@ void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
   DIR left_motor_direction;
   DIR right_motor_direction;
 
-  // Aplica o ganho de conversão
-  double left_motor_speed = ceil(left_wheel_command * 1.65);
-  double right_motor_speed = ceil(right_wheel_command * 1.65);
+  double left_motor_speed = left_wheel_command * 1.65;
+  double right_motor_speed = right_wheel_command * 1.65;
 
   // Determina as direções
   if (left_motor_speed >= 0) 
-    left_motor_direction = FORWARD;
-  else
     left_motor_direction = BACKWARD;
+  else
+    left_motor_direction = FORWARD;
 
   if (right_motor_speed >= 0)
-    right_motor_direction = FORWARD;
-  else
     right_motor_direction = BACKWARD;
+  else
+    right_motor_direction = FORWARD;
   
   // Atualiza as variáveis de direção que as ISRs usam para saber se somam ou subtraem
   left_wheel_direction = left_motor_direction;
