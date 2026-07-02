@@ -64,14 +64,14 @@ void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
 
   // Determina as direções
   if (left_motor_speed >= 0) 
-    left_motor_direction = BACKWARD;
-  else
     left_motor_direction = FORWARD;
+  else
+    left_motor_direction = BACKWARD;
 
   if (right_motor_speed >= 0)
-    right_motor_direction = BACKWARD;
-  else
     right_motor_direction = FORWARD;
+  else
+    right_motor_direction = BACKWARD;
   
   // Atualiza as variáveis de direção que as ISRs usam para saber se somam ou subtraem
   left_wheel_direction = left_motor_direction;
