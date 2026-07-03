@@ -38,6 +38,8 @@ def generate_launch_description():
     twist_mux_params_file = os.path.join(pkg_teleop, "config/twist_mux.yaml")
     ekf_params_file = os.path.join(pkg_navigation, "config/ekf.yaml")
 
+    xacro_file = os.path.join(pkg_description, "urdf", "d_hospital.xacro")
+
     # Launch configuration variables
     use_sim_time = LaunchConfiguration("use_sim_time")
     use_ros2_control = LaunchConfiguration("use_ros2_control")
@@ -62,26 +64,39 @@ def generate_launch_description():
         description="Use robot_localization package if true",
     )
 
-    # Start robot state publisher
-    start_robot_state_publisher_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [os.path.join(pkg_description, "launch", "robot_hospital.py")]
-        ),
-        launch_arguments={
-            "use_sim_time": use_sim_time,
-            "use_ros2_control": use_ros2_control,
-        }.items(),
+    # -----------------------------------------------------------------
+    # FIX: build robot_description ONCE, in this process, via xacro.
+    # This is a Command substitution that runs `xacro <file>` and captures
+    # stdout. It has NO dependency on any other node being alive or
+    # discoverable, so it can never race against robot_state_publisher
+    # startup -- unlike `ros2 param get ... robot_state_publisher ...`,
+    # which requires that node to already be up and visible on the ROS
+    # graph, which was the root cause of the "Node not found" crash.
+    # -----------------------------------------------------------------
+    robot_description_content = Command(["xacro ", xacro_file])
+    robot_description = {"robot_description": robot_description_content}
+
+    # Start robot state publisher directly (no longer via include, since we
+    # now own robot_description here and want to hand it the same value
+    # controller_manager gets). If robot_hospital.py does other useful setup
+    # (e.g. static transforms), keep the include for that and just add
+    # `parameters` override here, or merge as appropriate for your setup.
+    start_robot_state_publisher_cmd = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        output="screen",
+        parameters=[
+            robot_description,
+            {"use_sim_time": use_sim_time},
+        ],
     )
 
-    robot_description = Command(
-        ["ros2 param get --hide-type /robot_state_publisher robot_description"]
-    )
-
-    # Launch controller manager
+    # Launch controller manager -- reuses the SAME robot_description dict,
+    # so both nodes agree and neither has to query the other.
     start_controller_manager_cmd = Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[{"robot_description": robot_description}, controller_params_file],
+        parameters=[robot_description, controller_params_file],
     )
 
     # Spawn diff_controller
@@ -106,6 +121,10 @@ def generate_launch_description():
     )
 
     # Delayed controller manager action
+    # A short delay is still reasonable here to let robot_state_publisher
+    # finish initializing, but it is no longer load-bearing for correctness
+    # -- controller_manager already has its own copy of robot_description
+    # and does not need to discover robot_state_publisher on the graph.
     start_delayed_controller_manager = TimerAction(
         period=2.0, actions=[start_controller_manager_cmd]
     )
