@@ -64,3 +64,60 @@ ssh your_username@192.168.x.x
 ```
 
 Após isso, insira a senha que colocou para seu usuário e sua conexão será realizada.
+
+## Instalação do ROS2
+
+Antes de instalar qualquer coisa, é fundamental garantir que todos os pacotes atuais do sistema estejam na versão mais recente por meio do comando:
+
+```sh
+sudo apt update
+sudo apt upgrade -y
+```
+
+Instale as dependências
+
+```
+sudo apt install -y curl gnupg2 lsb-release software-properties-common
+```
+
+Crie a pasta das chaves
+
+``
+sudo mkdir -p /etc/apt/keyrings
+``
+Baixar a chave oficial do ROS
+````
+curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo gpg --dearmor -o /etc/apt/keyrings/ros-archive-keyring.gpg
+````
+E adicionar o repositório do ROS2
+
+````
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+````
+Atualize novamente com o ''sudo apt update''
+
+E agora vamos instalar o ROS2
+
+````
+sudo apt install ros-humble-ros-base
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+ros2 --version
+ros2 topic list
+````
+
+Por fim, instalaremos as ferramentas de build
+
+````
+sudo apt install python3-colcon-common-extensions python3-rosdep python3-vcstool build-essential
+sudo rosdep init
+rosdep update
+````
+
+
+## Configuração de conexão a um outro wi-fi
+
+## Configuração de um ID fixo
+
+## Baixar as pastas do repositório github
+
