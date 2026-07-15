@@ -1,6 +1,6 @@
 controller_manager: # Node name
   ros__parameters:
-    update_rate: 10 # Has to be an integer otherwise errors are encountered
+    update_rate: 30 # Has to be an integer otherwise errors are encountered
 
     diff_controller:
       type: diff_drive_controller/DiffDriveController
@@ -8,21 +8,31 @@ controller_manager: # Node name
     joint_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-        #    imu_broadcaster:
-        #type: imu_sensor_broadcaster/IMUSensorBroadcaster 
+    imu_broadcaster:
+      type: imu_sensor_broadcaster/IMUSensorBroadcaster 
 
 
 diff_controller:
   ros__parameters:
     
-    publish_rate: 10.0 # Has to be a double otherwise errors are encountered
+    publish_rate: 50.0 # Has to be a double otherwise errors are encountered
 
     base_frame_id: base_footprint
 
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.169
-    wheel_radius: 0.031
+    wheel_separation: 0.165 #0.134
+    wheel_radius: 0.0325 #0.0334
+
+    # --- Trim de calibração para corrigir o desvio lateral em linha reta ---
+    # O robô está puxando para a direita, ou seja, a roda direita está,
+    # na prática, "andando menos" que a esquerda para o mesmo comando de
+    # velocidade. Reduzir right_wheel_radius_multiplier faz o controlador
+    # comandar uma velocidade angular (rad/s) MAIOR para a roda direita,
+    # compensando o desvio. Ajuste em passos pequenos (1-3%) e valide.
+    wheel_separation_multiplier: 1.0
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 0.0   # <- ponto de partida, ajuste empiricamente
 
     # Obtained from https://wiki.ros.org/diff_drive_controller
     pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]

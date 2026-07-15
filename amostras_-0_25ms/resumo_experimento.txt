@@ -1,0 +1,5 @@
+velocidade_ms=-0.25
+distancia_alvo_m=5.0
+tempo_por_amostra_s=20.0000
+num_amostras=30
+timestamp=2026-07-14T21:45:17-03:00

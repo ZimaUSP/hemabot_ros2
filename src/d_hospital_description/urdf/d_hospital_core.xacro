@@ -63,7 +63,7 @@
   <xacro:property name="wheel_radius" value="0.0325"/>
   <xacro:property name="wheel_width" value="0.03"/>
   <xacro:property name="wheel_mass" value="0.031"/>
-  <xacro:property name="wheel_separation" value="0.1648"/>
+  <xacro:property name="wheel_separation" value="0.165"/>
 
   <!-- Transforma uma malha exportada em coordenadas globais do SolidWorks para o frame base_link. -->
 <xacro:macro name="solidworks_base_visual" params="visual_name mesh_file material_name:=cinza_metalico">
@@ -212,7 +212,7 @@
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="-0.05425 0.0823 0" rpy="0 0 0"/>
+    <origin xyz="-0.05425 0.0825 0" rpy="0 0 0"/>
     <axis xyz="0 -1 0"/>
     </joint>
 

@@ -1,0 +1,6 @@
+velocidade_ms=-0.25
+velocidade_nome=-0_25
+distancia_alvo_m=5.0
+tempo_movimento_s=20.0000
+amostra=31
+timestamp=2026-07-14T21:34:44-03:00

@@ -1,6 +1,4 @@
-#!/bin/bash
-
-VELOCIDADES=(0.25 0.5 1.0)
+VELOCIDADES=(-0.25)
 DISTANCIA=5.0  # metros — mesma distância para todas as velocidades
 
 for VEL in "${VELOCIDADES[@]}"
@@ -10,8 +8,10 @@ do
     DIR_AMOSTRAS="amostras_${VEL_NOME}ms"
 
     # Calcula o tempo necessário para percorrer a distância na velocidade atual
-    # tempo = distancia / velocidade
-    TEMPO=$(echo "scale=4; $DISTANCIA / $VEL" | bc)
+    # tempo = distancia / |velocidade|  (usa módulo pois VEL pode ser negativo,
+    # indicando sentido oposto — o timeout não aceita valores negativos)
+    VEL_ABS=$(echo "$VEL" | tr -d '-')
+    TEMPO=$(echo "scale=4; $DISTANCIA / $VEL_ABS" | bc)
 
     echo "========================================"
     echo "Iniciando experimentos para velocidade: ${VEL} m/s"
@@ -20,7 +20,7 @@ do
 
     mkdir -p "$DIR_AMOSTRAS"
 
-    for i in $(seq 1 30)
+    for i in $(seq 1 50)
     do
         echo "  Iniciando amostra $i / 30 (vel=${VEL} m/s, t=${TEMPO}s)"
 
@@ -39,7 +39,7 @@ do
 
         # Movimento do robô pelo tempo calculado para manter distância constante
         # angular.z explicitamente zero para garantir trajetória reta
-        timeout "$TEMPO" ros2 topic pub /cmd_vel geometry_msgs/msg/Twist \
+        timeout "$TEMPO" ros2 topic pub -r 30 /cmd_vel geometry_msgs/msg/Twist \
             "{linear: {x: ${VEL}, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 
         # Para o robô
@@ -92,4 +92,3 @@ do
     echo "  - amostras_${VEL_NOME}ms.zip"
 done
 echo "========================================"
-
