@@ -59,8 +59,8 @@ void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
   DIR right_motor_direction;
 
   // Aplica o ganho de conversão
-  double left_motor_speed = ceil(left_wheel_command * 1.85);
-  double right_motor_speed = ceil(right_wheel_command * 1.65);
+  double left_motor_speed = ceil(left_wheel_command * 125);
+  double right_motor_speed = ceil(right_wheel_command * 125);
 
   // Determina as direções
   if (left_motor_speed >= 0) 

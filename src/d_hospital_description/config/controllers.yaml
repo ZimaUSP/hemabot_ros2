@@ -15,14 +15,14 @@ controller_manager: # Node name
 diff_controller:
   ros__parameters:
     
-    publish_rate: 30.0 # Has to be a double otherwise errors are encountered
+    publish_rate: 20.0 # Has to be a double otherwise errors are encountered
 
     base_frame_id: base_footprint
 
     left_wheel_names: ['right_wheel_joint']
     right_wheel_names: ['left_wheel_joint']
     wheel_separation: 0.169
-    wheel_radius: 0.031
+    wheel_radius: 0.040
 
     # Obtained from https://wiki.ros.org/diff_drive_controller
     pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
