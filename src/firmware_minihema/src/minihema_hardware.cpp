@@ -175,11 +175,24 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
     double left_motor_counts_per_loop = (left_wheel_.command * delta_seconds) / left_wheel_.rads_per_tick;
     double right_motor_counts_per_loop = (right_wheel_.command * delta_seconds) / right_wheel_.rads_per_tick;
 
-    // Correção proporcional em malha fechada via realimentação dos encoders (referência: pi_diff_drive/pid.cpp)
-    // erro = setpoint (command) - current_state (velocity)
-    // correção = Kp * erro
-    double left_correction = pid_left_.computeControl(left_wheel_.command, left_wheel_.velocity, delta_seconds);
-    double right_correction = pid_right_.computeControl(right_wheel_.command, right_wheel_.velocity, delta_seconds);
+    // Erros individuais de velocidade em relação ao setpoint (rad/s)
+    double left_error = left_wheel_.command - left_wheel_.velocity;
+    double right_error = right_wheel_.command - right_wheel_.velocity;
+
+    // Erro diferencial lateral entre as rodas:
+    // Diferença desejada menos diferença real das velocidades
+    double target_diff = left_wheel_.command - right_wheel_.command;
+    double actual_diff = left_wheel_.velocity - right_wheel_.velocity;
+    double diff_error = target_diff - actual_diff; // Positivo quando a roda esquerda gira menos que a direita
+
+    // Correção proporcional:
+    // 1) Rastreamento individual via PIDController (correção = Kp * erro)
+    // 2) Compensação lateral diferencial: acelera a roda mais lenta e reduz a roda mais rápida
+    double left_pid = pid_left_.computeControl(left_wheel_.command, left_wheel_.velocity, delta_seconds);
+    double right_pid = pid_right_.computeControl(right_wheel_.command, right_wheel_.velocity, delta_seconds);
+
+    double left_correction = left_pid + (config_.pid_p * diff_error);
+    double right_correction = right_pid - (config_.pid_p * diff_error);
 
     // Converte a correção de velocidade (rad/s) para contagens por loop e aplica ao comando final
     double left_correction_counts = (left_correction * delta_seconds) / left_wheel_.rads_per_tick;
@@ -187,6 +200,19 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
 
     left_motor_counts_per_loop += left_correction_counts;
     right_motor_counts_per_loop += right_correction_counts;
+
+    // Log periódico no terminal a cada ~1 segundo (20 iterações a 20Hz)
+    static int log_counter = 0;
+    if (++log_counter % 20 == 0)
+    {
+        RCLCPP_INFO(logger_, 
+            "Kp=%.2f | Cmd: L=%.2f R=%.2f | Vel: L=%.2f R=%.2f | Corr: L=%.2f R=%.2f | Counts: L=%.2f R=%.2f",
+            config_.pid_p,
+            left_wheel_.command, right_wheel_.command,
+            left_wheel_.velocity, right_wheel_.velocity,
+            left_correction, right_correction,
+            left_motor_counts_per_loop, right_motor_counts_per_loop);
+    }
 
     DEBUG("Enviando comandos para o driver: left=%f (corr=%f), right=%f (corr=%f)\n", 
           left_motor_counts_per_loop, left_correction_counts,
