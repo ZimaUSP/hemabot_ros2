@@ -22,10 +22,32 @@ CallbackReturn MinihemaHardware::on_init(const hardware_interface::HardwareInfo 
     config_.enc_ticks_per_rev = std::stoi(info_.hardware_parameters["enc_ticks_per_rev"]);
     config_.loop_rate = std::stod(info_.hardware_parameters["loop_rate"]); // Mantido para referência, se necessário em outro lugar
 
+    if (info_.hardware_parameters.find("pid_p") != info_.hardware_parameters.end())
+    {
+        config_.pid_p = std::stod(info_.hardware_parameters["pid_p"]);
+    }
+    else if (info_.hardware_parameters.find("kp") != info_.hardware_parameters.end())
+    {
+        config_.pid_p = std::stod(info_.hardware_parameters["kp"]);
+    }
+
+    if (info_.hardware_parameters.find("pid_i") != info_.hardware_parameters.end())
+    {
+        config_.pid_i = std::stod(info_.hardware_parameters["pid_i"]);
+    }
+
+    if (info_.hardware_parameters.find("pid_d") != info_.hardware_parameters.end())
+    {
+        config_.pid_d = std::stod(info_.hardware_parameters["pid_d"]);
+    }
+
+    pid_left_.setupPID(config_.pid_p, config_.pid_i, config_.pid_d, 1.0 / config_.loop_rate, config_.pid_max_input, config_.pid_max_windup);
+    pid_right_.setupPID(config_.pid_p, config_.pid_i, config_.pid_d, 1.0 / config_.loop_rate, config_.pid_max_input, config_.pid_max_windup);
+
     left_wheel_.setup(config_.left_wheel_name, config_.enc_ticks_per_rev);
     right_wheel_.setup(config_.right_wheel_name, config_.enc_ticks_per_rev);
 
-    RCLCPP_INFO(logger_, "Finished initialization");
+    RCLCPP_INFO(logger_, "Finished initialization. Proportional control Kp = %f", config_.pid_p);
 
     return CallbackReturn::SUCCESS;
 }
@@ -86,6 +108,16 @@ CallbackReturn MinihemaHardware::on_activate(const rclcpp_lifecycle::State & /*p
     left_wheel_.command = 0.0;
     right_wheel_.command = 0.0;
 
+    // Sincroniza posições dos encoders e zera velocidades iniciais para evitar picos
+    read_encoder_values(&left_wheel_.encoder_ticks, &right_wheel_.encoder_ticks);
+    left_wheel_.position = left_wheel_.calculate_encoder_angle();
+    left_wheel_.velocity = 0.0;
+    right_wheel_.position = right_wheel_.calculate_encoder_angle();
+    right_wheel_.velocity = 0.0;
+
+    pid_left_.reset();
+    pid_right_.reset();
+
     return CallbackReturn::SUCCESS;
 }
 
@@ -97,6 +129,9 @@ CallbackReturn MinihemaHardware::on_deactivate(const rclcpp_lifecycle::State & /
     set_motor_speeds(0.0, 0.0);
     Motor_Stop(MOTORA);
     Motor_Stop(MOTORB);
+
+    pid_left_.reset();
+    pid_right_.reset();
 
     return CallbackReturn::SUCCESS;
 }
@@ -127,11 +162,36 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
 {   
     double delta_seconds = period.seconds();
 
-    // Cálculo utilizando o tempo real da iteração (delta_t) em vez da frequência teórica
+    // Quando o comando for zero para ambas as rodas, desliga os motores e reseta os PIDs
+    if (std::abs(left_wheel_.command) < 1e-4 && std::abs(right_wheel_.command) < 1e-4)
+    {
+        pid_left_.reset();
+        pid_right_.reset();
+        set_motor_speeds(0.0, 0.0);
+        return return_type::OK;
+    }
+
+    // Cálculo em malha aberta (feedforward de contagens por iteração delta_t)
     double left_motor_counts_per_loop = (left_wheel_.command * delta_seconds) / left_wheel_.rads_per_tick;
     double right_motor_counts_per_loop = (right_wheel_.command * delta_seconds) / right_wheel_.rads_per_tick;
 
-    DEBUG("Enviando comandos para o driver do motor: left=%f, right=%f\n", left_motor_counts_per_loop, right_motor_counts_per_loop);
+    // Correção proporcional em malha fechada via realimentação dos encoders (referência: pi_diff_drive/pid.cpp)
+    // erro = setpoint (command) - current_state (velocity)
+    // correção = Kp * erro
+    double left_correction = pid_left_.computeControl(left_wheel_.command, left_wheel_.velocity, delta_seconds);
+    double right_correction = pid_right_.computeControl(right_wheel_.command, right_wheel_.velocity, delta_seconds);
+
+    // Converte a correção de velocidade (rad/s) para contagens por loop e aplica ao comando final
+    double left_correction_counts = (left_correction * delta_seconds) / left_wheel_.rads_per_tick;
+    double right_correction_counts = (right_correction * delta_seconds) / right_wheel_.rads_per_tick;
+
+    left_motor_counts_per_loop += left_correction_counts;
+    right_motor_counts_per_loop += right_correction_counts;
+
+    DEBUG("Enviando comandos para o driver: left=%f (corr=%f), right=%f (corr=%f)\n", 
+          left_motor_counts_per_loop, left_correction_counts,
+          right_motor_counts_per_loop, right_correction_counts);
+
     // Send commands to motor driver
     set_motor_speeds(left_motor_counts_per_loop, right_motor_counts_per_loop);
 

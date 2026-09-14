@@ -21,6 +21,7 @@ add_library(minihema_hardware SHARED
   src/wheel.cpp 
   src/KeyesDriver.c
   src/motor_encoder.c
+  src/pid.cpp
 )
 
 target_include_directories(minihema_hardware PRIVATE include)
@@ -152,6 +153,33 @@ target_compile_options(test_encoder PRIVATE -w)  # Remove warnings (optional)
 install(
   TARGETS
     test_encoder
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(test_encoders
+  src/test_encoder.c
+  src/motor_encoder.c
+  src/KeyesDriver.c
+)
+
+ament_target_dependencies(test_encoders
+  rclcpp
+  std_srvs
+)
+
+target_link_libraries(test_encoders
+  m
+  wiringPi
+  pthread
+  crypt
+  rt
+)
+
+target_compile_options(test_encoders PRIVATE -w)
+
+install(
+  TARGETS
+    test_encoders
   DESTINATION lib/${PROJECT_NAME}
 )
 
