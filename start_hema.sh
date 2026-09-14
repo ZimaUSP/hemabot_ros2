@@ -5,6 +5,8 @@ echo "SETUP DO ROBO"
 echo "=========================="
 
 # carregar ambiente ROS2
+
+#Teste
 source install/setup.bash
 
 echo ""
