@@ -29,7 +29,7 @@ CallbackReturn MinihemaHardware::on_init(const hardware_interface::HardwareInfo 
     else if (info_.hardware_parameters.find("kp") != info_.hardware_parameters.end())
     {
         config_.pid_p = std::stod(info_.hardware_parameters["kp"]);
-    }
+    
 
     if (info_.hardware_parameters.find("pid_i") != info_.hardware_parameters.end())
     {
