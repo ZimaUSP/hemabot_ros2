@@ -57,10 +57,9 @@ void add_right_wheel(){
 void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
   DIR left_motor_direction;
   DIR right_motor_direction;
-
-  // Aplica o ganho de conversão
-  double left_motor_speed = ceil(left_wheel_command * 125);
-  double right_motor_speed = ceil(right_wheel_command * 125);
+  // Aplica o ganho de conversão e a compensação da roda direita (ratio 2.25 / 1.65 da branch mapeamento para andar reto)
+  double left_motor_speed = ceil(left_wheel_command * 125.0);
+  double right_motor_speed = ceil(right_wheel_command * (125.0 * (2.25 / 1.65)));
 
   // Determina as direções
   if (left_motor_speed >= 0) 
