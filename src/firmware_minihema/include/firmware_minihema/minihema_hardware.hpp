@@ -36,11 +36,11 @@ class MinihemaHardware : public hardware_interface::SystemInterface
     std::string right_wheel_name = "right_wheel";
     int enc_ticks_per_rev = 12;
     double loop_rate = 30.0;
-    double pid_p = 0.5; // Ganho proporcional Kp (ajustável empiricamente)
+    double pid_p = 0.2; // Ganho proporcional Kp suavizado para encoders ópticos de 12 pulsos
     double pid_i = 0.0;
     double pid_d = 0.0;
-    double pid_max_input = 20.0;
-    double pid_max_windup = 10.0;
+    double pid_max_input = 2.0;
+    double pid_max_windup = 1.0;
   };
 
   public:

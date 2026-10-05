@@ -148,11 +148,16 @@ return_type MinihemaHardware::read(const rclcpp::Time & /*time*/, const rclcpp::
     {
         double previous_position = left_wheel_.position;
         left_wheel_.position = left_wheel_.calculate_encoder_angle();
-        left_wheel_.velocity = (left_wheel_.position - previous_position) / delta_seconds;
+        double raw_left_velocity = (left_wheel_.position - previous_position) / delta_seconds;
 
         previous_position = right_wheel_.position;
         right_wheel_.position = right_wheel_.calculate_encoder_angle();
-        right_wheel_.velocity = (right_wheel_.position - previous_position) / delta_seconds;
+        double raw_right_velocity = (right_wheel_.position - previous_position) / delta_seconds;
+
+        // Filtro passa-baixa (EMA) para atenuar o ruído severo de quantização (12 pulsos/volta)
+        const double alpha = 0.3;
+        left_wheel_.velocity = alpha * raw_left_velocity + (1.0 - alpha) * left_wheel_.velocity;
+        right_wheel_.velocity = alpha * raw_right_velocity + (1.0 - alpha) * right_wheel_.velocity;
     }
 
     return return_type::OK;
@@ -167,6 +172,8 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
     {
         pid_left_.reset();
         pid_right_.reset();
+        left_wheel_.velocity = 0.0;
+        right_wheel_.velocity = 0.0;
         set_motor_speeds(0.0, 0.0);
         return return_type::OK;
     }
@@ -185,14 +192,19 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
     double actual_diff = left_wheel_.velocity - right_wheel_.velocity;
     double diff_error = target_diff - actual_diff; // Positivo quando a roda esquerda gira menos que a direita
 
-    // Correção proporcional:
+    // Correção:
     // 1) Rastreamento individual via PIDController (correção = Kp * erro)
-    // 2) Compensação lateral diferencial: acelera a roda mais lenta e reduz a roda mais rápida
+    // 2) Compensação lateral diferencial atenuada para evitar oscilações cruzadas com encoders de baixa resolução
     double left_pid = pid_left_.computeControl(left_wheel_.command, left_wheel_.velocity, delta_seconds);
     double right_pid = pid_right_.computeControl(right_wheel_.command, right_wheel_.velocity, delta_seconds);
 
-    double left_correction = left_pid + (config_.pid_p * diff_error);
-    double right_correction = right_pid - (config_.pid_p * diff_error);
+    double left_correction = left_pid + (config_.pid_p * diff_error * 0.3);
+    double right_correction = right_pid - (config_.pid_p * diff_error * 0.3);
+
+    // Limita a correção do PID para não desestabilizar o feedforward balanceado dos motores
+    const double max_correction = 1.0; // rad/s
+    left_correction = std::clamp(left_correction, -max_correction, max_correction);
+    right_correction = std::clamp(right_correction, -max_correction, max_correction);
 
     // Converte a correção de velocidade (rad/s) para contagens por loop e aplica ao comando final
     double left_correction_counts = (left_correction * delta_seconds) / left_wheel_.rads_per_tick;

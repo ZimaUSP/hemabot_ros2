@@ -54,31 +54,53 @@ void add_right_wheel(){
   }
 }
 
+// Calibração dos motores
+#define MIN_MOTOR_PWM 26.0          // Zona morta mínima para romper atrito estático imediatamente (sem atraso na partida)
+#define RIGHT_WHEEL_RATIO 1.18      // Razão balanceada da roda direita para andar reto sem puxar para a esquerda/direita
+
 void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
   DIR left_motor_direction;
   DIR right_motor_direction;
-  // Aplica o ganho de conversão e a compensação da roda direita (ratio 2.25 / 1.65 da branch mapeamento para andar reto)
-  double left_motor_speed = ceil(left_wheel_command * 125.0);
-  double right_motor_speed = ceil(right_wheel_command * (125.0 * (2.25 / 1.65)));
 
-  // Determina as direções
-  if (left_motor_speed >= 0) 
-    left_motor_direction = FORWARD;
-  else
-    left_motor_direction = BACKWARD;
+  // Determina direções com base no comando
+  left_motor_direction = (left_wheel_command >= 0.0) ? FORWARD : BACKWARD;
+  right_motor_direction = (right_wheel_command >= 0.0) ? FORWARD : BACKWARD;
 
-  if (right_motor_speed >= 0)
-    right_motor_direction = FORWARD;
-  else
-    right_motor_direction = BACKWARD;
-  
+  // Converte comando em magnitude base [0..100] com a compensação balanceada na roda direita
+  double left_mag = fabs(left_wheel_command) * 125.0;
+  double right_mag = fabs(right_wheel_command) * (125.0 * RIGHT_WHEEL_RATIO);
+
+  double left_motor_speed = 0.0;
+  double right_motor_speed = 0.0;
+
+  // Compensação de zona morta (deadband):
+  // Se o comando for não-nulo, inicia na faixa de torque útil (MIN_MOTOR_PWM)
+  // eliminando o atraso de partida (stiction lag)
+  if (left_mag > 1e-3) {
+    if (left_mag > 100.0) left_mag = 100.0;
+    left_motor_speed = MIN_MOTOR_PWM + (left_mag * (100.0 - MIN_MOTOR_PWM) / 100.0);
+  }
+  if (right_mag > 1e-3) {
+    if (right_mag > 100.0) right_mag = 100.0;
+    right_motor_speed = MIN_MOTOR_PWM + (right_mag * (100.0 - MIN_MOTOR_PWM) / 100.0);
+  }
+
   // Atualiza as variáveis de direção que as ISRs usam para saber se somam ou subtraem
   left_wheel_direction = left_motor_direction;
   right_wheel_direction = right_motor_direction;
-  
-  // Controla os motores físicos
-  Motor_Run(MOTORA, left_motor_direction, (int)abs(left_motor_speed));
-  Motor_Run(MOTORB, right_motor_direction, (int)abs(right_motor_speed));
+
+  // Controla os motores físicos (se velocidade for zero, para imediatamente)
+  if (left_motor_speed <= 0.0) {
+    Motor_Stop(MOTORA);
+  } else {
+    Motor_Run(MOTORA, left_motor_direction, (int)round(left_motor_speed));
+  }
+
+  if (right_motor_speed <= 0.0) {
+    Motor_Stop(MOTORB);
+  } else {
+    Motor_Run(MOTORB, right_motor_direction, (int)round(right_motor_speed));
+  }
 }
 
 void handler(int signo) {
