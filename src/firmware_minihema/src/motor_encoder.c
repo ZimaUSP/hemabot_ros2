@@ -4,7 +4,8 @@ Data    :   01/04/2025
 Descrição: Código simples para teste de funcionamento do Driver TCRT500
 */
 
-
+#include <stdio.h> 
+#include <unistd.h>
 #include "firmware_minihema/motor_encoder.h"
 #include <math.h>
 const unsigned long intervaloDebounce = 40; // em milissegundos
@@ -66,8 +67,7 @@ void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
   // dependent on the number of encoder ticks. 3000 ticks and above work well
   // with coefficients of 1.0
   double left_motor_speed = ceil(left_wheel_command * 1.65);
-  double right_motor_speed = ceil(right_wheel_command * 2.25);
-
+  double right_motor_speed = ceil(right_wheel_command * 2.25);//2.25
   // Set motor directions
   if (left_motor_speed > 0)
     left_motor_direction = FORWARD;
