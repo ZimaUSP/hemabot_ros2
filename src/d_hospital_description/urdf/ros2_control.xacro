@@ -11,6 +11,8 @@
 	  <param name='enc_ticks_per_rev'>12</param>
 	  <param name='loop_rate'>10.0</param>
 	  <param name='pid_p'>0.2</param>
+	  <param name='velocity_timeout'>0.5</param>
+	  <param name='velocity_filter_alpha'>0.5</param>
       </hardware>
       <joint name='left_wheel_joint'>
         <command_interface name='velocity'>

@@ -34,7 +34,7 @@ ament_target_dependencies(
   rclcpp_lifecycle
 )
 
-target_link_libraries(minihema_hardware wiringPi)
+target_link_libraries(minihema_hardware wiringPi pthread)
 
 pluginlib_export_plugin_description_file(hardware_interface minihema_hardware.xml)
 

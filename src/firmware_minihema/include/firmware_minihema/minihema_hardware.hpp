@@ -41,6 +41,8 @@ class MinihemaHardware : public hardware_interface::SystemInterface
     double pid_d = 0.0;
     double pid_max_input = 2.0;
     double pid_max_windup = 1.0;
+    double velocity_timeout = 0.5;      // s sem pulsos para considerar a roda parada
+    double velocity_filter_alpha = 0.5; // EMA sobre a velocidade medida (1.0 desliga o filtro)
   };
 
   public:

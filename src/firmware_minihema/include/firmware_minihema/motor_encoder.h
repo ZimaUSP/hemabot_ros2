@@ -33,11 +33,15 @@ void add_left_wheel();
 void add_right_wheel();
 void set_motor_speeds(double left_wheel_command, double right_wheel_command);
 void read_encoder_values(int *left_encoder_value, int *right_encoder_value);
+void read_encoder_snapshot(int *left_ticks, unsigned int *left_pulse_us,
+                           int *right_ticks, unsigned int *right_pulse_us);
 
 extern volatile int left_wheel_pulse_count;
 extern volatile int right_wheel_pulse_count;
 extern volatile int left_wheel_direction;
 extern volatile int right_wheel_direction;
+extern volatile unsigned int left_wheel_pulse_us;
+extern volatile unsigned int right_wheel_pulse_us;
 
 #ifdef __cplusplus
 }
