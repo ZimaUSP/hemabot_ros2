@@ -85,9 +85,10 @@ void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
     right_motor_speed = MIN_MOTOR_PWM + (right_mag * (100.0 - MIN_MOTOR_PWM) / 100.0);
   }
 
-  // Atualiza as variáveis de direção que as ISRs usam para saber se somam ou subtraem
-  left_wheel_direction = left_motor_direction;
-  right_wheel_direction = right_motor_direction;
+  // Atualiza as variáveis de direção que as ISRs usam para saber se somam ou subtraem.
+  // Só muda quando o motor é acionado: parado, a roda ainda gira por inércia no último sentido.
+  if (left_motor_speed > 0.0) left_wheel_direction = left_motor_direction;
+  if (right_motor_speed > 0.0) right_wheel_direction = right_motor_direction;
 
   // Controla os motores físicos (se velocidade for zero, para imediatamente)
   if (left_motor_speed <= 0.0) {

@@ -4,6 +4,26 @@
 namespace firmware_minihema
 {
 
+namespace
+{
+
+// Limita o comando final ao sentido do comando da roda: a correção pode no máximo zerá-lo.
+// Com comando nulo na roda, a correção sozinha não aciona o motor.
+double limit_to_command_sign(double value, double command)
+{
+    if (command > 1e-4)
+    {
+        return std::max(value, 0.0);
+    }
+    if (command < -1e-4)
+    {
+        return std::min(value, 0.0);
+    }
+    return 0.0;
+}
+
+} // namespace
+
 MinihemaHardware::MinihemaHardware()
     : logger_(rclcpp::get_logger("MinihemaHardware"))
 {}
@@ -212,6 +232,12 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
 
     left_motor_counts_per_loop += left_correction_counts;
     right_motor_counts_per_loop += right_correction_counts;
+
+    // Impede que a correção do PID inverta o sentido do motor em relação ao comando.
+    // Inverter faria a zona morta saltar de +MIN_MOTOR_PWM para -MIN_MOTOR_PWM
+    // e a ISR passaria a contar os pulsos da roda ao contrário.
+    left_motor_counts_per_loop = limit_to_command_sign(left_motor_counts_per_loop, left_wheel_.command);
+    right_motor_counts_per_loop = limit_to_command_sign(right_motor_counts_per_loop, right_wheel_.command);
 
     // Log periódico no terminal a cada ~1 segundo (20 iterações a 20Hz)
     static int log_counter = 0;
