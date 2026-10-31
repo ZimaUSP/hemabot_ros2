@@ -21,6 +21,7 @@
     <always_on>true</always_on>
     <update_rate>200</update_rate>
     <topic>imu_broadcaster/imu</topic>
+    <frame_id>imu_link</frame_id>
     <imu>
       <angular_velocity>
         <x>
@@ -62,26 +63,6 @@
           </noise>
         </z>
       </linear_acceleration>
-      <orientation>
-        <x>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>2e-3</stddev>
-           </noise>
-        </x>
-        <y>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>2e-3</stddev>
-          </noise>
-        </y>
-        <z>
-          <noise type="gaussian">
-            <mean>0.0</mean>
-            <stddev>2e-3</stddev>
-          </noise>
-        </z>
-      </orientation>
      </imu>
    </sensor>
   </gazebo>
@@ -116,7 +97,7 @@
       <visualize>true</visualize>
       <update_rate>30</update_rate>
       <topic>camera/image_raw</topic>
-      <gz_frame_id>camera_rgb_frame</gz_frame_id>
+      <frame_id>camera_link_optical</frame_id>
       <camera name="camera">
         <camera_info_topic>camera/camera_info</camera_info_topic>
           <horizontal_fov>0.934</horizontal_fov>
@@ -166,7 +147,7 @@
       <visualize>true</visualize>
       <update_rate>10</update_rate>
       <topic>scan</topic>
-      <gz_frame_id>base_scan</gz_frame_id>
+      <frame_id>lidar_link</frame_id>
       <lidar>
         <scan>
           <horizontal>

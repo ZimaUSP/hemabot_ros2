@@ -1,201 +1,161 @@
-# Launches the d_hospital in Gazebo Fortress to be controlled using a joystick.
-#
-# File adapted from https://automaticaddison.com
+"""Launch the complete HemaBot simulation with ROS 2 and Gazebo Sim."""
 
 import os
 
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (
+    AppendEnvironmentVariable,
     DeclareLaunchArgument,
     IncludeLaunchDescription,
-    AppendEnvironmentVariable,
+    RegisterEventHandler,
 )
-from launch.conditions import IfCondition
+from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
-
+from launch.substitutions import Command, LaunchConfiguration
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+    pkg_gz = get_package_share_directory("d_hospital_gz")
+    pkg_ros_gz_sim = get_package_share_directory("ros_gz_sim")
 
-    # Set the path to different files and folders
-    pkg_path = FindPackageShare(package="d_hospital_gz").find("d_hospital_gz")
-    pkg_description = FindPackageShare(package="d_hospital_description").find(
-        "d_hospital_description"
-    )
-    pkg_teleop = FindPackageShare(package="d_hospital_teleop").find("d_hospital_teleop")
-    pkg_ros_ign_gazebo = FindPackageShare(package="ros_ign_gazebo").find(
-        "ros_ign_gazebo"
-    )
-    pkg_navigation = FindPackageShare(package="d_hospital_navigation2").find(
-        "d_hospital_navigation2"
-    )
+    default_world = os.path.join(pkg_gz, "worlds", "obstacles.world")
+    default_urdf = os.path.join(pkg_gz, "urdf", "d_hospital_gz.urdf.xacro")
+    bridge_config = os.path.join(pkg_gz, "config", "lidarbot_bridge.yaml")
+    controllers_config = os.path.join(pkg_gz, "config", "controllers.yaml")
 
-    bridge_params = os.path.join(pkg_path, "config/lidarbot_bridge.yaml")
-    ekf_params_file = os.path.join(pkg_navigation, "config/ekf.yaml")
-    urdf_model_path = os.path.join(pkg_path, "urdf/d_hospital_gz.urdf.xacro")
-    twist_mux_params_file = os.path.join(pkg_teleop, "config/twist_mux.yaml")
-    world_filename = "obstacles.world"
-    world_path = os.path.join(pkg_path, "worlds", world_filename)
-    set_env_vars_resources = AppendEnvironmentVariable(
-        "GZ_SIM_RESOURCE_PATH", os.path.join(pkg_path, "models")
-    )
-
-    # Launch configuration variables specific to simulation
-    use_sim_time = LaunchConfiguration("use_sim_time")
-    use_ros2_control = LaunchConfiguration("use_ros2_control")
-    urdf_path = LaunchConfiguration("urdf_path")
     world = LaunchConfiguration("world")
-    use_robot_localization = LaunchConfiguration("use_robot_localization")
+    urdf_path = LaunchConfiguration("urdf_path")
+    gz_args = LaunchConfiguration("gz_args")
+    spawn_z = LaunchConfiguration("spawn_z")
+    use_sim_time = LaunchConfiguration("use_sim_time")
 
-    # Declare the launch arguments
-    declare_use_sim_time_cmd = DeclareLaunchArgument(
-        name="use_sim_time",
-        default_value="True",
-        description="Use simulation (Gazebo) clock if true",
+    robot_description = {
+        "robot_description": Command(["xacro ", urdf_path]),
+        "use_sim_time": use_sim_time,
+    }
+
+    robot_state_publisher = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        output="screen",
+        parameters=[robot_description],
     )
 
-    declare_use_ros2_control_cmd = DeclareLaunchArgument(
-        name="use_ros2_control",
-        default_value="True",
-        description="Use ros2_control if true",
-    )
-
-    declare_world_cmd = DeclareLaunchArgument(
-        name="world",
-        default_value=world_path,
-        description="Full path to the world model to load",
-    )
-
-    declare_urdf_path = DeclareLaunchArgument(
-        name="urdf_path",
-        default_value=urdf_model_path,
-        description="Path to the main urdf model",
-    )
-
-    declare_use_robot_localization_cmd = DeclareLaunchArgument(
-        name="use_robot_localization",
-        default_value="True",
-        description="Use robot_localization package if true",
-    )
-
-    # Start robot state publisher
-    start_robot_state_publisher_cmd = IncludeLaunchDescription(
+    gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [os.path.join(pkg_description, "launch", "robot_hospital.py")]
+            os.path.join(pkg_ros_gz_sim, "launch", "gz_sim.launch.py")
         ),
         launch_arguments={
-            "use_sim_time": use_sim_time,
-            "use_ros2_control": use_ros2_control,
-            "urdf_path": urdf_path,
-        }.items(),
-    )
-
-    # Launch Gazebo
-    start_gazebo_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [os.path.join(pkg_ros_ign_gazebo, "launch", "ign_gazebo.launch.py")]
-        ),
-        launch_arguments={
-            "gz_args": ["-r -v4 ", world],
+            "gz_args": [gz_args, " ", world],
             "on_exit_shutdown": "true",
         }.items(),
     )
 
-    # Spawn robot in Gazebo
-    start_spawner_cmd = Node(
+    spawn_robot = Node(
         package="ros_gz_sim",
         executable="create",
-        arguments=["-topic", "robot_description", "-name", "d_hospital"],
+        name="spawn_d_hospital",
         output="screen",
-    )
-
-    # Start Gazebo ROS bridge
-    start_gazebo_ros_bridge_cmd = Node(
-        package="ros_gz_bridge",
-        executable="parameter_bridge",
         arguments=[
-            "--ros-args",
-            "-p",
-            f"config_file:={bridge_params}",
+            "-topic",
+            "robot_description",
+            "-name",
+            "d_hospital",
+            "-allow_renaming",
+            "true",
+            "-z",
+            spawn_z,
         ],
-        output="screen",
     )
 
-    # Start Gazebo ROS Image bridge
-    start_gazebo_ros_image_bridge_cmd = Node(
-        package="ros_gz_image",
-        executable="image_bridge",
-        arguments=["/camera/image_raw"],
-        output="screen",
-    )
-
-    # Spawn diff_controller
-    start_diff_controller_cmd = Node(
+    spawn_controllers = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+        arguments=[
+            "joint_state_broadcaster",
+            "diff_controller",
+            "--controller-manager",
+            "/controller_manager",
+            "--param-file",
+            controllers_config,
+            "--controller-manager-timeout",
+            "60",
+            "--switch-timeout",
+            "60",
+            "--service-call-timeout",
+            "60",
+        ],
     )
 
-    # Spawn joint_state_broadcaser
-    start_joint_broadcaster_cmd = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["joint_broadcaster", "--controller-manager", "/controller_manager"],
-    )
-
-    # Start robot localization using an Extended Kalman Filter
-    start_robot_localization_cmd = Node(
-        condition=IfCondition(use_robot_localization),
-        package="robot_localization",
-        executable="ekf_node",
-        parameters=[ekf_params_file],
-        remappings=[("/odometry/filtered", "/odom")],
-    )
-
-    # Start joystick node for use with ros2_control
-    start_joystick_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [os.path.join(pkg_teleop, "launch", "joystick_launch.py")]
+    start_controllers_after_spawn = RegisterEventHandler(
+        OnProcessExit(
+            target_action=spawn_robot,
+            on_exit=[spawn_controllers],
         )
     )
 
-    # Start twist mux
-    start_twist_mux_cmd = Node(
-        package="twist_mux",
-        executable="twist_mux",
-        parameters=[twist_mux_params_file, {"use_sim_time": True}],
-        remappings=[("/cmd_vel_out", "/diff_controller/cmd_vel_unstamped")],
+    gazebo_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        name="gazebo_bridge",
+        output="screen",
+        parameters=[
+            {
+                "config_file": bridge_config,
+                "use_sim_time": use_sim_time,
+            }
+        ],
     )
 
-    # Create the launch description and populate
-    ld = LaunchDescription()
+    image_bridge = Node(
+        package="ros_gz_image",
+        executable="image_bridge",
+        name="camera_image_bridge",
+        output="screen",
+        arguments=["/camera/image_raw"],
+        parameters=[{"use_sim_time": use_sim_time}],
+    )
 
-    # Declare the launch options
-    ld.add_action(declare_use_sim_time_cmd)
-    ld.add_action(declare_use_ros2_control_cmd)
-    ld.add_action(declare_urdf_path)
-    ld.add_action(declare_world_cmd)
-    ld.add_action(declare_use_robot_localization_cmd)
-    ld.add_action(set_env_vars_resources)
-
-    # Add any actions
-    ld.add_action(start_robot_state_publisher_cmd)
-    ld.add_action(start_gazebo_cmd)
-    ld.add_action(start_spawner_cmd)
-    ld.add_action(start_gazebo_ros_bridge_cmd)
-    ld.add_action(start_gazebo_ros_image_bridge_cmd)
-    ld.add_action(start_robot_localization_cmd)
-    ld.add_action(start_diff_controller_cmd)
-    ld.add_action(start_joint_broadcaster_cmd)
-    ld.add_action(start_joystick_cmd)
-    ld.add_action(start_twist_mux_cmd)
-
-    # TODO:
-    # Sort out colors in simulation
-    # Bring up rviz2 and mapping/localization stuff too (?)
-    # Launch processes after previous ones have started (?)
-
-    return ld
+    return LaunchDescription(
+        [
+            DeclareLaunchArgument(
+                "world",
+                default_value=default_world,
+                description="Absolute path to the Gazebo world file",
+            ),
+            DeclareLaunchArgument(
+                "urdf_path",
+                default_value=default_urdf,
+                description="Absolute path to the robot Xacro file",
+            ),
+            DeclareLaunchArgument(
+                "gz_args",
+                default_value="-r -v 4",
+                description=(
+                    "Arguments passed to Gazebo. Use '-r -s -v 4' for headless mode"
+                ),
+            ),
+            DeclareLaunchArgument(
+                "spawn_z",
+                default_value="0.08",
+                description="Initial robot height above the ground in metres",
+            ),
+            DeclareLaunchArgument(
+                "use_sim_time",
+                default_value="true",
+                description="Use the Gazebo simulation clock",
+            ),
+            AppendEnvironmentVariable(
+                "GZ_SIM_RESOURCE_PATH", os.path.join(pkg_gz, "models")
+            ),
+            robot_state_publisher,
+            gazebo,
+            spawn_robot,
+            gazebo_bridge,
+            image_bridge,
+            start_controllers_after_spawn,
+        ]
+    )

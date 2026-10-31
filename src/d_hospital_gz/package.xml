@@ -12,12 +12,21 @@
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
+  <depend>ament_index_python</depend>
+  <depend>controller_manager</depend>
   <depend>d_hospital_description</depend>
-
-  <depend>ign_ros2_control</depend>
+  <depend>diff_drive_controller</depend>
+  <depend>gz_ros2_control</depend>
+  <depend>joint_state_broadcaster</depend>
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+  <depend>robot_state_publisher</depend>
   <depend>ros_gz_bridge</depend>
   <depend>ros_gz_image</depend>
   <depend>ros_gz_sim</depend>
+  <depend>rosgraph_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>xacro</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

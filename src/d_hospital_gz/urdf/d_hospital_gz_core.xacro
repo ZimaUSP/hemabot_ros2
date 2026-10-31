@@ -180,6 +180,7 @@
     <child link="left_wheel"/>
     <origin xyz="0.133 0.065 -${wheel_zoff}" rpy="-${pi/2} 0 ${pi}"/>
     <axis xyz="0 0 -1"/>
+    <limit effort="1.0" velocity="20.0"/>
   </joint>
 
   <!-- Right wheel -->
@@ -206,6 +207,7 @@
     <child link="right_wheel"/>
     <origin xyz="0.133 -0.065 -${wheel_zoff}" rpy="${pi/2} 0 ${-pi}"/>
     <axis xyz="0 0 1"/>
+    <limit effort="1.0" velocity="20.0"/>
   </joint>
 
   <!-- Caster wheel -->
