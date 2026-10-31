@@ -2,3 +2,9 @@
 build
 install
 log
+
+# Claude Code (arquivos locais do assistente)
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+/docs/

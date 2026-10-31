@@ -19,6 +19,7 @@
 
 #include "motor_encoder.h"
 #include "wheel.hpp"
+#include "firmware_minihema/pid.hpp"
 
 using hardware_interface::return_type;
 using hardware_interface::CallbackReturn;
@@ -35,6 +36,13 @@ class MinihemaHardware : public hardware_interface::SystemInterface
     std::string right_wheel_name = "right_wheel";
     int enc_ticks_per_rev = 12;
     double loop_rate = 30.0;
+    double pid_p = 0.2; // Ganho proporcional Kp suavizado para encoders ópticos de 12 pulsos
+    double pid_i = 0.0;
+    double pid_d = 0.0;
+    double pid_max_input = 2.0;
+    double pid_max_windup = 1.0;
+    double velocity_timeout = 0.5;      // s sem pulsos para considerar a roda parada
+    double velocity_filter_alpha = 0.5; // EMA sobre a velocidade medida (1.0 desliga o filtro)
   };
 
   public:
@@ -61,6 +69,9 @@ class MinihemaHardware : public hardware_interface::SystemInterface
 
     Wheel left_wheel_;
     Wheel right_wheel_;
+
+    PIDController pid_left_;
+    PIDController pid_right_;
 
     rclcpp::Logger logger_;
 

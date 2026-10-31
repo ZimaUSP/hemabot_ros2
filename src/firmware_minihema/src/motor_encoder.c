@@ -1,95 +1,136 @@
 /*
 Autores  : Alicia Mei, Leonardo Dias do Carmo
-Data    :   01/04/2025
-Descrição: Código simples para teste de funcionamento do Driver TCRT500
+Data     : 01/04/2025
+Descrição: Código simples para teste de funcionamento do Driver TCRT500 (Corrigido)
 */
-
 
 #include "firmware_minihema/motor_encoder.h"
 #include <math.h>
-const unsigned long intervaloDebounce = 40; // em milissegundos
-volatile unsigned long ultimoPulso = 0;
-// Initialize pulse counters
-int left_wheel_pulse_count = 0;
-int right_wheel_pulse_count = 0;
+#include <pthread.h>
 
-// Initialize wheel directions
-// 1 - forward, 0 - backward
-int left_wheel_direction = 1;
-int right_wheel_direction = 1;
+const unsigned int intervaloDebounce = 5000; // us
+
+// Tempos de debounce independentes para cada roda
+volatile unsigned int ultimoPulsoEsquerda = 0;
+volatile unsigned int ultimoPulsoDireita = 0;
+
+// Contadores de pulso precisam ser volatile pois mudam na ISR
+volatile int left_wheel_pulse_count = 0;
+volatile int right_wheel_pulse_count = 0;
+
+// Direções das rodas (1 - forward, 0 - backward)
+volatile int left_wheel_direction = 1;
+volatile int right_wheel_direction = 1;
+
+// Instante (micros) do último pulso aceito, usado para estimar a velocidade pelo intervalo entre pulsos
+volatile unsigned int left_wheel_pulse_us = 0;
+volatile unsigned int right_wheel_pulse_us = 0;
+
+// As ISRs do wiringPi rodam em threads próprias: o mutex garante que contagem e instante sejam lidos juntos
+static pthread_mutex_t encoder_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 // Read wheel encoder values
 void read_encoder_values(int *left_encoder_value, int *right_encoder_value) {
   *left_encoder_value = left_wheel_pulse_count;
   *right_encoder_value = right_wheel_pulse_count;
+  
   DEBUG("Encoder esquerda: %d", *left_encoder_value);
   DEBUG("Encoder direita: %d", *right_encoder_value);
 }
 
+// Read wheel encoder counts together with the time of the last pulse of each wheel
+void read_encoder_snapshot(int *left_ticks, unsigned int *left_pulse_us,
+                           int *right_ticks, unsigned int *right_pulse_us) {
+  pthread_mutex_lock(&encoder_mutex);
+  *left_ticks = left_wheel_pulse_count;
+  *left_pulse_us = left_wheel_pulse_us;
+  *right_ticks = right_wheel_pulse_count;
+  *right_pulse_us = right_wheel_pulse_us;
+  pthread_mutex_unlock(&encoder_mutex);
+}
 
 void add_left_wheel(){
-  DEBUG("entrou add left: %d", left_wheel_direction);
-  unsigned long agora = millis();
-  if(left_wheel_direction == FORWARD && (agora - ultimoPulso > intervaloDebounce)){
-    left_wheel_pulse_count++;
-    ultimoPulso = agora;
-   // DEBUG("Encoder esquerda add1: %d", left_wheel_pulse_count);
-  }
-  else if (left_wheel_direction == BACKWARD && (agora - ultimoPulso > intervaloDebounce)){
-    left_wheel_pulse_count--;
-    ultimoPulso = agora;
-    //DEBUG("Encoder esquerda add2: %d", left_wheel_pulse_count);
+  unsigned int agora = micros();
+  if((agora - ultimoPulsoEsquerda) > intervaloDebounce){
+    pthread_mutex_lock(&encoder_mutex);
+    if(left_wheel_direction == FORWARD){
+      left_wheel_pulse_count++;
+    } else if (left_wheel_direction == BACKWARD){
+      left_wheel_pulse_count--;
+    }
+    left_wheel_pulse_us = agora;
+    pthread_mutex_unlock(&encoder_mutex);
+    ultimoPulsoEsquerda = agora;
   }
 }
 
 void add_right_wheel(){
-  //DEBUG("entrou add right: %d", right_wheel_direction); 
-  unsigned long agora = millis();
-  if(right_wheel_direction == FORWARD && (agora - ultimoPulso > intervaloDebounce)){
-    right_wheel_pulse_count++;
-    ultimoPulso = agora;
-    //DEBUG("Encoder direita add1: %d", right_wheel_pulse_count);
-  }
-  else if (right_wheel_direction == BACKWARD && (agora - ultimoPulso > intervaloDebounce)){
-    right_wheel_pulse_count--;
-    ultimoPulso = agora;
-    //DEBUG("Encoder direita add2: %d", right_wheel_pulse_count);
+  unsigned int agora = micros();
+  if((agora - ultimoPulsoDireita) > intervaloDebounce){
+    pthread_mutex_lock(&encoder_mutex);
+    if(right_wheel_direction == FORWARD){
+      right_wheel_pulse_count++;
+    } else if (right_wheel_direction == BACKWARD){
+      right_wheel_pulse_count--;
+    }
+    right_wheel_pulse_us = agora;
+    pthread_mutex_unlock(&encoder_mutex);
+    ultimoPulsoDireita = agora;
   }
 }
 
-// Set each motor speed from the respective velocity command interface
+// Calibração dos motores
+#define MIN_MOTOR_PWM 26.0          // Zona morta mínima para romper atrito estático imediatamente (sem atraso na partida)
+#define RIGHT_WHEEL_RATIO 1.18      // Razão balanceada da roda direita para andar reto sem puxar para a esquerda/direita
+
 void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
-  // Initialize DIR enum variables
   DIR left_motor_direction;
   DIR right_motor_direction;
-  // Tune motor speeds by adjusting the command coefficients. These are
-  // dependent on the number of encoder ticks. 3000 ticks and above work well
-  // with coefficients of 1.0
-  double left_motor_speed = ceil(left_wheel_command * 1.65);
-  double right_motor_speed = ceil(right_wheel_command * 1.65);
 
-  // Set motor directions
-  if (left_motor_speed > 0)
-    left_motor_direction = FORWARD;
-  else
-    left_motor_direction = BACKWARD;
+  // Determina direções com base no comando
+  left_motor_direction = (left_wheel_command >= 0.0) ? FORWARD : BACKWARD;
+  right_motor_direction = (right_wheel_command >= 0.0) ? FORWARD : BACKWARD;
 
-  if (right_motor_speed > 0)
-    right_motor_direction = FORWARD;
-  else
-    right_motor_direction = BACKWARD;
-  
-  left_wheel_direction = left_motor_direction;
-  right_wheel_direction = right_motor_direction;
-  
-  // Run motors with specified direction and speeds
-  Motor_Run(MOTORA, left_motor_direction, (int)abs(left_motor_speed));
-  Motor_Run(MOTORB, right_motor_direction, (int)abs(right_motor_speed));
+  // Converte comando em magnitude base [0..100] com a compensação balanceada na roda direita
+  double left_mag = fabs(left_wheel_command) * 125.0;
+  double right_mag = fabs(right_wheel_command) * (125.0 * RIGHT_WHEEL_RATIO);
+
+  double left_motor_speed = 0.0;
+  double right_motor_speed = 0.0;
+
+  // Compensação de zona morta (deadband):
+  // Se o comando for não-nulo, inicia na faixa de torque útil (MIN_MOTOR_PWM)
+  // eliminando o atraso de partida (stiction lag)
+  if (left_mag > 1e-3) {
+    if (left_mag > 100.0) left_mag = 100.0;
+    left_motor_speed = MIN_MOTOR_PWM + (left_mag * (100.0 - MIN_MOTOR_PWM) / 100.0);
+  }
+  if (right_mag > 1e-3) {
+    if (right_mag > 100.0) right_mag = 100.0;
+    right_motor_speed = MIN_MOTOR_PWM + (right_mag * (100.0 - MIN_MOTOR_PWM) / 100.0);
+  }
+
+  // Atualiza as variáveis de direção que as ISRs usam para saber se somam ou subtraem.
+  // Só muda quando o motor é acionado: parado, a roda ainda gira por inércia no último sentido.
+  if (left_motor_speed > 0.0) left_wheel_direction = left_motor_direction;
+  if (right_motor_speed > 0.0) right_wheel_direction = right_motor_direction;
+
+  // Controla os motores físicos (se velocidade for zero, para imediatamente)
+  if (left_motor_speed <= 0.0) {
+    Motor_Stop(MOTORA);
+  } else {
+    Motor_Run(MOTORA, left_motor_direction, (int)round(left_motor_speed));
+  }
+
+  if (right_motor_speed <= 0.0) {
+    Motor_Stop(MOTORB);
+  } else {
+    Motor_Run(MOTORB, right_motor_direction, (int)round(right_motor_speed));
+  }
 }
 
 void handler(int signo) {
   Motor_Stop(MOTORA);
   Motor_Stop(MOTORB);
-
   exit(0);
 }

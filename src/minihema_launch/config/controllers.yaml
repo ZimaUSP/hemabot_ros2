@@ -1,6 +1,6 @@
 controller_manager: # Node name
   ros__parameters:
-    update_rate: 30 # Has to be an integer otherwise errors are encountered
+    update_rate: 20 # Has to be an integer otherwise errors are encountered
 
     diff_controller:
       type: diff_drive_controller/DiffDriveController
@@ -15,14 +15,18 @@ controller_manager: # Node name
 diff_controller:
   ros__parameters:
     
-    publish_rate: 50.0 # Has to be a double otherwise errors are encountered
+    publish_rate: 20.0 # Has to be a double otherwise errors are encountered
 
     base_frame_id: base_footprint
 
-    left_wheel_names: ['left_wheel_joint']
-    right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.134
-    wheel_radius: 0.0335
+    left_wheel_names: ['right_wheel_joint']
+    right_wheel_names: ['left_wheel_joint']
+    wheel_separation: 0.169
+    wheel_radius: 0.040
+
+    wheel_separation_multiplier: 1.0
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 1.0 
 
     # Obtained from https://wiki.ros.org/diff_drive_controller
     pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
@@ -40,8 +44,7 @@ imu_broadcaster:
 
     sensor_name: mpu6050
     frame_id: imu_link
-   
-    # 500 data points used to calculated covariances
-    static_covariance_orientation: [3.83997e-05, 0.0, 0.0, 6.46961e-05, 0.0, 0.0, 5.36936e-06, 0.0, 0.0]
-    static_covariance_angular_velocity: [2.08886e-06, 0.0, 0.0, 7.21758e-05, 0.0, 0.0, 2.46344e-06, 0.0, 0.0]
-    static_covariance_linear_acceleration: [0.00584827, 0.0, 0.0, 0.00387499, 0.0, 0.0, 0.0330879, 0.0, 0.0]
+    # 500 data points used to calculate covariances
+    static_covariance_orientation: [3.14547e-11, 0.0, 0.0, 1.74432e-11, 0.0, 0.0, 0.00342877, 0.0, 0.0]
+    static_covariance_angular_velocity: [8.58032e-09, 0.0, 0.0, 1.39056e-17, 0.0, 0.0, 2.33753e-14, 0.0, 0.0]
+    static_covariance_linear_acceleration: [9.43424e-06, 0.0, 0.0, 3.85032e-09, 0.0, 0.0, 2.37034e-09, 0.0, 0.0]
