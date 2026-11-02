@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>hema_description</name>
+  <version>0.1.0</version>
+  <description>Descrição modular Xacro do Hema V4, com malhas CAD e simulação ROS 2.</description>
+  <maintainer email="lucasmiranda04@usp.br">LukaF275</maintainer>
+  <!-- Código gerado: Apache-2.0. As malhas CAD conservam os direitos do titular. -->
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>controller_manager_msgs</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>velocity_controllers</exec_depend>
+  <exec_depend>position_controllers</exec_depend>
+  <exec_depend>effort_controllers</exec_depend>
+  <exec_depend>rosgraph_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Pares padrão: Ubuntu 24.04/Jazzy/Harmonic ou Ubuntu 22.04/Humble/Classic. -->
+  <exec_depend condition="$ROS_DISTRO == 'jazzy'">ros_gz_sim</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == 'jazzy'">ros_gz_bridge</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == 'jazzy'">gz_ros2_control</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == 'humble'">gazebo_ros</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == 'humble'">gazebo_ros2_control</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_model_path="${prefix}/.."/>
+  </export>
+</package>

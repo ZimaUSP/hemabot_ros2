@@ -1,0 +1,296 @@
+source_sha256: e5117d457cbf26679bcbcf77052c3f51f84f6fc7c28a5b13a154e61587ee3ce8
+source_meshes: 227
+cad_origin_mm:
+- 1177.6824798583984
+- 1410.248779296875
+- 2214.512939453125
+cad_to_ros_rotation:
+- - 0.0
+  - 0.0
+  - -1.0
+- - -1.0
+  - 0.0
+  - 0.0
+- - 0.0
+  - 1.0
+  - 0.0
+wheel_radius: 0.07937084960937502
+wheel_width: 0.035981781005859415
+wheel_separation: 0.4095114440917969
+caster_radius: 0.025
+caster_width: 0.0228
+caster_z_adjust: -0.005623657226562578
+links:
+  base_link:
+    mass: 16.184620692333844
+    com: -0.003212077266 -0.0009470634264 0.1252185141
+    origin: 0 0 0
+    ixx: 0.7330885748911383
+    ixy: 0.004750661486855011
+    ixz: 0.01714332500997646
+    iyy: 0.7915716515531488
+    iyz: -0.0009077941928319815
+    izz: 1.2040375167176847
+    box_size: 0.6271097412 0.555000061 0.34
+    box_center: 0.01105487061 1.525878912e-08 0.1239998779
+    materials:
+    - abs
+    - aluminium
+    - electronics
+    - pla
+    - steel
+    meshes:
+    - file: base_link_abs.stl
+      material: hema_abs
+    - file: base_link_aluminium.stl
+      material: hema_aluminium
+    - file: base_link_electronics.stl
+      material: hema_electronics
+    - file: base_link_pla.stl
+      material: hema_pla
+    - file: base_link_steel.stl
+      material: hema_steel
+  left_wheel_link:
+    mass: 2.870300415203136
+    com: -3.591044867e-09 0.001097136377 7.158959166e-06
+    origin: 2.220446049e-16 0.2047557526 0
+    ixx: 0.0047450499132023925
+    ixy: 5.8648615843651004e-12
+    ixz: 2.616188030887412e-11
+    iyy: 0.008088808937962341
+    iyz: 1.1366053450418672e-06
+    izz: 0.004745154415526768
+    box_size: 0.1587416992 0.111000061 0.1587416992
+    box_center: 0 -0.0242557373 0
+    materials:
+    - motor_composite
+    meshes:
+    - file: left_wheel_link_motor_composite.stl
+      material: hema_rubber
+  right_wheel_link:
+    mass: 2.870300594579396
+    com: -3.918789616e-09 -0.001097166581 7.158257813e-06
+    origin: 2.220446049e-16 -0.2047556915 0
+    ixx: 0.004745050384565494
+    ixy: -5.1657913533692747e-11
+    ixz: -7.173053056856067e-11
+    iyy: 0.008088810173522476
+    iyz: -1.136591443838343e-06
+    izz: 0.004745154893186448
+    box_size: 0.1587416992 0.111 0.1587416992
+    box_center: 0 0.02425567627 0
+    materials:
+    - motor_composite
+    meshes:
+    - file: right_wheel_link_motor_composite.stl
+      material: hema_rubber
+  caster_front_right_fork_link:
+    mass: 0.027633248756080364
+    com: 0.01137680671 -0.0002658865564 -0.01294848672
+    origin: 0.1839000244 -0.1548499908 -0.018
+    ixx: 7.431482359356237e-06
+    ixy: 6.320124914419747e-08
+    ixz: 2.1268221371627115e-06
+    iyy: 7.214739021027575e-06
+    iyz: -1.3220460196778278e-07
+    izz: 6.518548619069923e-06
+    box_size: 0.04098828125 0.0325 0.0358963623
+    box_center: 0.004505859375 -0.00025 -0.01794818115
+    materials:
+    - steel
+    meshes:
+    - file: caster_front_right_fork_link_steel.stl
+      material: hema_steel
+  caster_rear_right_fork_link:
+    mass: 0.02763315965288204
+    com: 0.01137679792 -0.0002658962079 -0.01294851955
+    origin: -0.1835999756 -0.1548499908 -0.018
+    ixx: 7.431472025584683e-06
+    ixy: 6.320245231423248e-08
+    ixz: 2.12681866560105e-06
+    iyy: 7.214706826900255e-06
+    iyz: -1.322068582239601e-07
+    izz: 6.518500021839266e-06
+    box_size: 0.04098828125 0.0325 0.0358963623
+    box_center: 0.004505737305 -0.00025 -0.01794818115
+    materials:
+    - steel
+    meshes:
+    - file: caster_rear_right_fork_link_steel.stl
+      material: hema_steel
+  caster_rear_left_fork_link:
+    mass: 0.027633776041676397
+    com: 0.01137692697 -0.0002660115614 -0.01294864007
+    origin: -0.1835999756 0.1551500397 -0.018
+    ixx: 7.431628872550572e-06
+    ixy: 6.321636232412891e-08
+    ixz: 2.1268422653450867e-06
+    iyy: 7.214799661186451e-06
+    iyz: -1.3222063292409364e-07
+    izz: 6.518633185977304e-06
+    box_size: 0.04098828125 0.0325 0.0358963623
+    box_center: 0.004505737305 -0.0002500305176 -0.01794818115
+    materials:
+    - steel
+    meshes:
+    - file: caster_rear_left_fork_link_steel.stl
+      material: hema_steel
+  caster_front_left_fork_link:
+    mass: 0.02763386514801464
+    com: 0.01137693576 -0.0002660019112 -0.01294860724
+    origin: 0.1839000244 0.1551500397 -0.018
+    ixx: 7.431639206995605e-06
+    ixy: 6.321515935740534e-08
+    ixz: 2.126845737025202e-06
+    iyy: 7.214831855877673e-06
+    iyz: -1.322183770502555e-07
+    izz: 6.518681784096023e-06
+    box_size: 0.04098828125 0.0325 0.0358963623
+    box_center: 0.004505859375 -0.0002500305176 -0.01794818115
+    materials:
+    - steel
+    meshes:
+    - file: caster_front_left_fork_link_steel.stl
+      material: hema_steel
+  caster_front_right_wheel_link:
+    mass: 0.027591739534919647
+    com: -7.183084183e-09 4.888686678e-11 5.5073529e-09
+    origin: 0.2037600098 -0.1548499908 -0.04874719238
+    ixx: 5.112062305696199e-06
+    ixy: -1.395380901483053e-15
+    ixz: 4.126114538268431e-15
+    iyy: 8.888983615926515e-06
+    iyz: 2.0912418934074083e-14
+    izz: 5.112059636340084e-06
+    box_size: 0.05 0.02280004883 0.05
+    box_center: 0 0 0
+    materials:
+    - nylon
+    meshes:
+    - file: caster_front_right_wheel_link_nylon.stl
+      material: hema_nylon
+    joint_origin: 0.01985998535 0 -0.03074719238
+  caster_rear_right_wheel_link:
+    mass: 0.02759172022929503
+    com: -1.128026156e-08 4.869757375e-11 5.502618153e-09
+    origin: -0.1637399902 -0.1548499908 -0.04874719238
+    ixx: 5.112061944073011e-06
+    ixy: -2.9131315940647507e-15
+    ixz: 4.429390714565893e-15
+    iyy: 8.888983678889608e-06
+    iyz: 5.45023786662143e-14
+    izz: 5.1120588881896885e-06
+    box_size: 0.05 0.02280004883 0.05
+    box_center: 0 0 0
+    materials:
+    - nylon
+    meshes:
+    - file: caster_rear_right_wheel_link_nylon.stl
+      material: hema_nylon
+    joint_origin: 0.01985998535 0 -0.03074719238
+  caster_rear_left_wheel_link:
+    mass: 0.02759174581537037
+    com: -1.128149271e-08 7.491978787e-09 5.504543044e-09
+    origin: -0.1637399902 0.1551500092 -0.04874719238
+    ixx: 5.112068327456878e-06
+    ixy: -2.8901187676790355e-15
+    ixz: 4.8676389440303674e-15
+    iyy: 8.88899280158554e-06
+    iyz: 5.3706153137416475e-14
+    izz: 5.112065271856164e-06
+    box_size: 0.05 0.02280004883 0.05
+    box_center: 0 0 0
+    materials:
+    - nylon
+    meshes:
+    - file: caster_rear_left_wheel_link_nylon.stl
+      material: hema_nylon
+    joint_origin: 0.01985998535 -3.051757813e-08 -0.03074719238
+  caster_front_left_wheel_link:
+    mass: 0.02759176512110103
+    com: -7.184295742e-09 7.492182041e-09 5.509273489e-09
+    origin: 0.2037600098 0.1551500092 -0.04874719238
+    ixx: 5.11206868909407e-06
+    ixy: -1.379673734267406e-15
+    ixz: 4.564484528719073e-15
+    iyy: 8.888992738680893e-06
+    iyz: 2.011683265045364e-14
+    izz: 5.112066020057942e-06
+    box_size: 0.05 0.02280004883 0.05
+    box_center: 0 0 0
+    materials:
+    - nylon
+    meshes:
+    - file: caster_front_left_wheel_link_nylon.stl
+      material: hema_nylon
+    joint_origin: 0.01985998535 -3.051757813e-08 -0.03074719238
+  slide_left_middle_link:
+    mass: 0.20073362751823484
+    com: 0.0005545852912 1.105437342e-07 -0.002187580475
+    origin: 0.01539996338 0.1381951447 0.1913499146
+    ixx: 2.894144728419028e-05
+    ixy: 1.5704082982735777e-11
+    ixz: -3.757670411180941e-08
+    iyy: 0.003855947218456821
+    iyz: -2.9625690373142065e-11
+    izz: 0.00388158095414214
+    box_size: 0.4820001221 0.03160980225 0.01070007324
+    box_center: 0 0 0
+    materials:
+    - steel
+    meshes:
+    - file: slide_left_middle_link_steel.stl
+      material: hema_steel
+  slide_right_middle_link:
+    mass: 0.20073343225685802
+    com: 0.0005545847251 1.217342113e-08 -0.002187586449
+    origin: 0.01539996338 -0.1368049469 0.1913499146
+    ixx: 2.8941438218903584e-05
+    ixy: -4.645844099012107e-12
+    ixz: -3.757729422398505e-08
+    iyy: 0.003855943543894958
+    iyz: 3.992730100130281e-11
+    izz: 0.0038815772714141427
+    box_size: 0.4820001221 0.03160986328 0.01070007324
+    box_center: 0 0 0
+    materials:
+    - steel
+    meshes:
+    - file: slide_right_middle_link_steel.stl
+      material: hema_steel
+  slide_left_inner_link:
+    mass: 0.10854811507279
+    com: 0.001111268583 2.788744069e-09 0.001450662071
+    origin: 0.01539996338 0.1374999847 0.1945993652
+    ixx: 5.338245007167594e-06
+    ixy: 3.2794878789699594e-13
+    ixz: -1.1457678593937364e-07
+    iyy: 0.002199397582143458
+    iyz: 4.253045787076497e-13
+    izz: 0.0022042220343394987
+    box_size: 0.4980001221 0.019 0.005801025391
+    box_center: 0 0 0
+    materials:
+    - steel
+    meshes:
+    - file: slide_left_inner_link_steel.stl
+      material: hema_steel
+    joint_origin: 0 -0.0006951599121 0.003249450684
+  slide_right_inner_link:
+    mass: 0.10854826714666979
+    com: 0.001111266829 -4.112272856e-09 0.00145065927
+    origin: 0.01539996338 -0.1375000153 0.1945993652
+    ixx: 5.338255259310603e-06
+    ixy: -4.1095356054052143e-13
+    ixz: -1.1457710352188943e-07
+    iyy: 0.002199400735519126
+    iyz: -1.6917174268409112e-12
+    izz: 0.002204225196258435
+    box_size: 0.4980001221 0.019 0.005801025391
+    box_center: 0 0 0
+    materials:
+    - steel
+    meshes:
+    - file: slide_right_inner_link_steel.stl
+      material: hema_steel
+    joint_origin: 0 -0.0006950683594 0.003249450684

@@ -1,5 +1,23 @@
 # 🏥 Robô de Entregas Hospitalar
 
+## Hema V4 no Gazebo — modelo CAD disponível
+
+O robô desta montagem está em [`src/hema_description`](src/hema_description/README.md), com malhas incluídas, Xacro modular, inércias, colisões e controle ROS 2. A documentação explica como compilar, abrir no Gazebo e mover as rodas.
+
+Após clonar este repositório, em Ubuntu 22.04/ROS 2 Humble:
+
+```bash
+source /opt/ros/humble/setup.bash
+rosdep install --from-paths src/hema_description --ignore-src --rosdistro humble -r -y
+colcon build --packages-select hema_description
+source install/local_setup.bash
+ros2 launch hema_description simulation.launch.py backend:=classic gui:=true
+```
+
+Para ROS 2 Jazzy/Gazebo Harmonic e os comandos de movimento, veja o [guia do Hema CAD](src/hema_description/README.md). Este pacote é independente dos pacotes MiniHema descritos nas seções seguintes.
+
+---
+
 ## 📖 Contexto do Projeto
 
 Foi a partir do **Dr. Oscar Fujita**, Diretor do **Núcleo de Inovação e Tecnologia (INTEC)**, que surgiu a demanda pelo **robô hospitalar**.  

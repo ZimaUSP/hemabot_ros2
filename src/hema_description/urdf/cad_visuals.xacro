@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="visuals_base_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/base_link_abs.stl" scale="1 1 1"/></geometry>
+      <material name="hema_abs"/>
+    </visual>
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/base_link_aluminium.stl" scale="1 1 1"/></geometry>
+      <material name="hema_aluminium"/>
+    </visual>
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/base_link_electronics.stl" scale="1 1 1"/></geometry>
+      <material name="hema_electronics"/>
+    </visual>
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/base_link_pla.stl" scale="1 1 1"/></geometry>
+      <material name="hema_pla"/>
+    </visual>
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/base_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_left_wheel_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/left_wheel_link_motor_composite.stl" scale="1 1 1"/></geometry>
+      <material name="hema_rubber"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_right_wheel_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/right_wheel_link_motor_composite.stl" scale="1 1 1"/></geometry>
+      <material name="hema_rubber"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_front_right_fork_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_front_right_fork_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_rear_right_fork_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_rear_right_fork_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_rear_left_fork_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_rear_left_fork_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_front_left_fork_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_front_left_fork_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_front_right_wheel_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_front_right_wheel_link_nylon.stl" scale="1 1 1"/></geometry>
+      <material name="hema_nylon"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_rear_right_wheel_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_rear_right_wheel_link_nylon.stl" scale="1 1 1"/></geometry>
+      <material name="hema_nylon"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_rear_left_wheel_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_rear_left_wheel_link_nylon.stl" scale="1 1 1"/></geometry>
+      <material name="hema_nylon"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_caster_front_left_wheel_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/caster_front_left_wheel_link_nylon.stl" scale="1 1 1"/></geometry>
+      <material name="hema_nylon"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_slide_left_middle_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/slide_left_middle_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_slide_right_middle_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/slide_right_middle_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_slide_left_inner_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/slide_left_inner_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="visuals_slide_right_inner_link" params="">
+    <visual>
+      <geometry><mesh filename="package://hema_description/meshes/slide_right_inner_link_steel.stl" scale="1 1 1"/></geometry>
+      <material name="hema_steel"/>
+    </visual>
+  </xacro:macro>
+</robot>

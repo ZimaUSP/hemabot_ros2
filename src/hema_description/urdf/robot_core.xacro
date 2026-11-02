@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- SI; +X frente (sensores ultrassonicos), +Y esquerda, +Z cima.
+       Malhas exportadas em metros e ja expressas no referencial de cada elo.
+       Massa/tensor padrao integram volumes individuais com densidade presumida.
+       primitive conserva massa/CoM, substituindo apenas o tensor por uma forma simples. -->
+  <xacro:macro name="hema_inertia" params="cfg factor shape:='box' radius:=0 length:=0">
+    <xacro:property name="m" value="${cfg['mass'] * mass_scale * float(factor)}"/>
+    <xacro:if value="${inertia_mode == 'mesh'}">
+      <xacro:inertial_tensor mass="${m}" xyz="${cfg['com']}"
+        ixx="${cfg['ixx'] * mass_scale * float(factor)}" ixy="${cfg['ixy'] * mass_scale * float(factor)}"
+        ixz="${cfg['ixz'] * mass_scale * float(factor)}" iyy="${cfg['iyy'] * mass_scale * float(factor)}"
+        iyz="${cfg['iyz'] * mass_scale * float(factor)}" izz="${cfg['izz'] * mass_scale * float(factor)}"/>
+    </xacro:if>
+    <xacro:if value="${inertia_mode == 'primitive'}">
+      <xacro:if value="${shape == 'cylinder'}">
+        <xacro:inertia_cylinder mass="${m}" radius="${radius}" length="${length}" xyz="${cfg['com']}" rpy="${pi/2} 0 0"/>
+      </xacro:if>
+      <xacro:if value="${shape == 'box'}">
+        <xacro:inertia_box mass="${m}" x="${float(cfg['box_size'].split()[0])}"
+          y="${float(cfg['box_size'].split()[1])}" z="${float(cfg['box_size'].split()[2])}" xyz="${cfg['com']}"/>
+      </xacro:if>
+    </xacro:if>
+  </xacro:macro>
+
+  <xacro:macro name="hema_box_collision" params="cfg">
+    <collision><origin xyz="${cfg['box_center']}"/><geometry><box size="${cfg['box_size']}"/></geometry></collision>
+  </xacro:macro>
+  <xacro:macro name="hema_wheel_collision" params="radius length">
+    <collision><origin xyz="0 0 0" rpy="${pi/2} 0 0"/><geometry><cylinder radius="${radius}" length="${length}"/></geometry></collision>
+  </xacro:macro>
+
+  <xacro:macro name="hema_drive_wheel" params="side">
+    <xacro:property name="name" value="${side + '_wheel_link'}"/>
+    <xacro:property name="cfg" value="${cad['links'][name]}"/>
+    <link name="${name}">
+      <xacro:hema_inertia cfg="${cfg}" factor="$(arg drive_mass_scale)" shape="cylinder" radius="${cad['wheel_radius']}" length="${cad['wheel_width']}"/>
+      <xacro:call macro="${'visuals_' + name}"/>
+      <xacro:hema_wheel_collision radius="${cad['wheel_radius']}" length="${cad['wheel_width']}"/>
+    </link>
+    <joint name="${side}_wheel_joint" type="continuous">
+      <parent link="base_link"/><child link="${name}"/>
+      <origin xyz="${cfg['origin']}"/><axis xyz="0 1 0"/>
+      <limit effort="$(arg wheel_effort)" velocity="$(arg wheel_velocity)"/>
+      <dynamics damping="$(arg wheel_damping)" friction="$(arg wheel_friction)"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="hema_caster" params="corner">
+    <xacro:property name="fork" value="${'caster_' + corner + '_fork_link'}"/>
+    <xacro:property name="wheel" value="${'caster_' + corner + '_wheel_link'}"/>
+    <xacro:property name="f" value="${cad['links'][fork]}"/>
+    <xacro:property name="w" value="${cad['links'][wheel]}"/>
+    <link name="${fork}">
+      <xacro:hema_inertia cfg="${f}" factor="$(arg caster_mass_scale)"/>
+      <xacro:call macro="${'visuals_' + fork}"/>
+      <!-- Garfo sem colisao: a roda representa o contato; evita preencher o vao do garfo. -->
+    </link>
+    <joint name="caster_${corner}_swivel_joint" type="continuous">
+      <parent link="base_link"/><child link="${fork}"/>
+      <origin xyz="${f['origin'].split()[0]} ${f['origin'].split()[1]} ${float(f['origin'].split()[2]) + float('$(arg caster_z_adjust)')}"/>
+      <axis xyz="0 0 1"/><limit effort="2.0" velocity="20.0"/>
+      <dynamics damping="$(arg caster_damping)" friction="$(arg caster_friction)"/>
+    </joint>
+    <link name="${wheel}">
+      <xacro:hema_inertia cfg="${w}" factor="$(arg caster_mass_scale)" shape="cylinder" radius="${cad['caster_radius']}" length="${cad['caster_width']}"/>
+      <xacro:call macro="${'visuals_' + wheel}"/>
+      <xacro:hema_wheel_collision radius="${cad['caster_radius']}" length="${cad['caster_width']}"/>
+    </link>
+    <joint name="caster_${corner}_wheel_joint" type="continuous">
+      <parent link="${fork}"/><child link="${wheel}"/>
+      <origin xyz="${w['joint_origin']}"/><axis xyz="0 1 0"/>
+      <limit effort="2.0" velocity="40.0"/>
+      <dynamics damping="$(arg caster_damping)" friction="$(arg caster_friction)"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="hema_slide_stage" params="side stage parent origin">
+    <xacro:property name="name" value="${'slide_' + side + '_' + stage + '_link'}"/>
+    <xacro:property name="cfg" value="${cad['links'][name]}"/>
+    <link name="${name}">
+      <xacro:hema_inertia cfg="${cfg}" factor="$(arg slide_mass_scale)"/>
+      <xacro:call macro="${'visuals_' + name}"/>
+      <xacro:hema_box_collision cfg="${cfg}"/>
+    </link>
+    <!-- Curso 250 mm/estagio e sentido +X sao hipoteses, nao limites de mates CAD.
+         Trilhos nao acoplados por mimic; nenhum atuador foi identificado. -->
+    <joint name="slide_${side}_${stage}_joint" type="${'prismatic' if '$(arg articulate_slides)' in ['true','1','True'] else 'fixed'}">
+      <parent link="${parent}"/><child link="${name}"/><origin xyz="${origin}"/>
+      <xacro:if value="$(arg articulate_slides)">
+        <axis xyz="1 0 0"/><limit lower="0" upper="$(arg slide_stage_travel)" effort="50" velocity="0.1"/>
+        <dynamics damping="$(arg slide_damping)" friction="$(arg slide_friction)"/>
+      </xacro:if>
+    </joint>
+  </xacro:macro>
+  <xacro:macro name="hema_slide" params="side">
+    <xacro:hema_slide_stage side="${side}" stage="middle" parent="base_link" origin="${cad['links']['slide_' + side + '_middle_link']['origin']}"/>
+    <xacro:hema_slide_stage side="${side}" stage="inner" parent="slide_${side}_middle_link" origin="${cad['links']['slide_' + side + '_inner_link']['joint_origin']}"/>
+  </xacro:macro>
+
+  <xacro:macro name="hema_core" params="">
+    <link name="base_link">
+      <xacro:hema_inertia cfg="${cad['links']['base_link']}" factor="$(arg base_mass_scale)"/>
+      <xacro:visuals_base_link/>
+      <!-- Envelope conservador unico: detalhes internos/cavidades nao sao colisao. -->
+      <xacro:hema_box_collision cfg="${cad['links']['base_link']}"/>
+    </link>
+    <xacro:hema_drive_wheel side="left"/><xacro:hema_drive_wheel side="right"/>
+    <xacro:hema_caster corner="front_left"/><xacro:hema_caster corner="front_right"/>
+    <xacro:hema_caster corner="rear_left"/><xacro:hema_caster corner="rear_right"/>
+    <xacro:hema_slide side="left"/><xacro:hema_slide side="right"/>
+    <!-- Referencial virtual na ponta do trilho interno esquerdo, sem massa.
+         Nao representa uma garra inexistente no CAD nem acopla os dois trilhos. -->
+    <link name="tool0"/>
+    <joint name="tool0_joint" type="fixed">
+      <parent link="slide_left_inner_link"/><child link="tool0"/><origin xyz="0.249 0 0"/>
+    </joint>
+  </xacro:macro>
+</robot>

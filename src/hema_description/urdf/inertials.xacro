@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--
+    Convenções: massa em kg, comprimentos/xyz em m, rpy em rad e inércia em kg.m².
+    xyz localiza o centro de massa em relação à origem do elo; rpy orienta o
+    referencial da inércia em relação ao elo. O tensor URDF é SEMPRE calculado
+    no centro de massa e expresso nesse referencial, não na origem do elo.
+    Os produtos de inércia são os elementos fora da diagonal do tensor.
+
+    O teorema dos eixos paralelos só deve ser usado ao combinar sólidos em um
+    único elo: leve cada tensor a um referencial comum, some as contribuições
+    e recalcule o tensor no CoM combinado. Não some m*d² ao tensor emitido
+    simplesmente porque xyz é diferente de zero: o simulador trata essa pose.
+    Massas e dimensões fornecidas às macros devem ser estritamente positivas.
+  -->
+
+  <!-- Tensor centroidal completo, por exemplo obtido do volume de uma malha. -->
+  <xacro:macro name="inertial_tensor"
+               params="mass xyz ixx ixy ixz iyy iyz izz rpy:='0 0 0'">
+    <inertial>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <mass value="${mass}"/>
+      <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}"
+               iyy="${iyy}" iyz="${iyz}" izz="${izz}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- Caixa maciça homogênea: x, y, z são dimensões totais, não semieixos. -->
+  <xacro:macro name="inertia_box"
+               params="mass x y z xyz:='0 0 0' rpy:='0 0 0'">
+    <xacro:inertial_tensor mass="${mass}" xyz="${xyz}" rpy="${rpy}"
+      ixx="${mass * (y*y + z*z) / 12.0}" ixy="0.0" ixz="0.0"
+      iyy="${mass * (x*x + z*z) / 12.0}" iyz="0.0"
+      izz="${mass * (x*x + y*y) / 12.0}"/>
+  </xacro:macro>
+
+  <!--
+    Cilindro maciço homogêneo com eixo de simetria no +Z local da inércia.
+    Para um cilindro no eixo Y do elo, por exemplo, use rpy="${pi/2} 0 0".
+    length é o comprimento total; radius é o raio externo do cilindro maciço.
+  -->
+  <xacro:macro name="inertia_cylinder"
+               params="mass radius length xyz:='0 0 0' rpy:='0 0 0'">
+    <xacro:inertial_tensor mass="${mass}" xyz="${xyz}" rpy="${rpy}"
+      ixx="${mass * (3.0*radius*radius + length*length) / 12.0}"
+      ixy="0.0" ixz="0.0"
+      iyy="${mass * (3.0*radius*radius + length*length) / 12.0}"
+      iyz="0.0" izz="${mass * radius*radius / 2.0}"/>
+  </xacro:macro>
+
+  <!-- Esfera maciça homogênea; rpy é aceito por consistência da interface. -->
+  <xacro:macro name="inertia_sphere"
+               params="mass radius xyz:='0 0 0' rpy:='0 0 0'">
+    <xacro:inertial_tensor mass="${mass}" xyz="${xyz}" rpy="${rpy}"
+      ixx="${2.0 * mass * radius*radius / 5.0}" ixy="0.0" ixz="0.0"
+      iyy="${2.0 * mass * radius*radius / 5.0}" iyz="0.0"
+      izz="${2.0 * mass * radius*radius / 5.0}"/>
+  </xacro:macro>
+</robot>

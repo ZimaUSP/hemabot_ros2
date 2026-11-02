@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot name="hema" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Caminhos relativos permitem expandir o Xacro mesmo fora de um overlay ROS. -->
+  <xacro:arg name="cad_file" default="../config/cad_parameters.yaml"/>
+  <xacro:property name="cad" value="${xacro.load_yaml('$(arg cad_file)')}"/>
+  <xacro:arg name="backend" default="harmonic"/>
+  <xacro:arg name="command_interface" default="velocity"/>
+  <xacro:arg name="controllers_file" default="${xacro.abs_filename('../config/controllers_$(arg command_interface).yaml')}"/>
+  <xacro:arg name="inertia_mode" default="mesh"/>
+  <xacro:arg name="mass_scale" default="1.0"/>
+  <xacro:arg name="base_mass_scale" default="1.0"/>
+  <xacro:arg name="drive_mass_scale" default="1.0"/>
+  <xacro:arg name="caster_mass_scale" default="1.0"/>
+  <xacro:arg name="slide_mass_scale" default="1.0"/>
+  <xacro:arg name="articulate_slides" default="false"/>
+  <xacro:arg name="slide_stage_travel" default="0.25"/>
+  <xacro:arg name="caster_z_adjust" default="${cad['caster_z_adjust']}"/>
+  <xacro:arg name="wheel_effort" default="12.0"/>
+  <xacro:arg name="wheel_velocity" default="12.0"/>
+  <xacro:arg name="wheel_damping" default="0.03"/>
+  <xacro:arg name="wheel_friction" default="0.01"/>
+  <xacro:arg name="caster_damping" default="0.002"/>
+  <xacro:arg name="caster_friction" default="0.001"/>
+  <xacro:arg name="slide_damping" default="10.0"/>
+  <xacro:arg name="slide_friction" default="2.0"/>
+  <xacro:arg name="wheel_mu" default="0.9"/>
+  <xacro:arg name="caster_mu" default="0.5"/>
+  <xacro:arg name="contact_kp" default="100000.0"/>
+  <xacro:arg name="contact_kd" default="100.0"/>
+  <xacro:property name="backend" value="$(arg backend)"/>
+  <xacro:property name="command_interface" value="$(arg command_interface)"/>
+  <xacro:property name="inertia_mode" value="$(arg inertia_mode)"/>
+  <!-- Rejeitar selecoes invalidas antes de produzir uma descricao incompleta. -->
+  <xacro:property name="backend_valid" value="${dict(harmonic=1, classic=1, none=1)[backend]}"/>
+  <xacro:property name="interface_valid" value="${dict(position=1, velocity=1, effort=1)[command_interface]}"/>
+  <xacro:property name="inertia_valid" value="${dict(mesh=1, primitive=1)[inertia_mode]}"/>
+  <xacro:property name="mass_scale" value="${float('$(arg mass_scale)') * backend_valid * interface_valid * inertia_valid}"/>
+  <xacro:include filename="inertials.xacro"/>
+  <xacro:include filename="materials.xacro"/>
+  <xacro:include filename="cad_visuals.xacro"/>
+  <xacro:include filename="robot_core.xacro"/>
+  <xacro:include filename="gazebo_config.xacro"/>
+  <xacro:hema_materials/>
+  <xacro:hema_core/>
+  <xacro:hema_gazebo_config backend="${backend}" command_interface="${command_interface}"
+    controllers_file="$(arg controllers_file)" wheel_effort="$(arg wheel_effort)"
+    wheel_velocity="$(arg wheel_velocity)" wheel_mu="$(arg wheel_mu)" caster_mu="$(arg caster_mu)"
+    contact_kp="$(arg contact_kp)" contact_kd="$(arg contact_kd)" articulate_slides="$(arg articulate_slides)"/>
+</robot>

@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "command_units": "rad/s",
+  "expected_movable_joints": [
+    "left_wheel_joint",
+    "right_wheel_joint",
+    "caster_front_left_swivel_joint",
+    "caster_front_left_wheel_joint",
+    "caster_front_right_swivel_joint",
+    "caster_front_right_wheel_joint",
+    "caster_rear_left_swivel_joint",
+    "caster_rear_left_wheel_joint",
+    "caster_rear_right_swivel_joint",
+    "caster_rear_right_wheel_joint"
+  ],
+  "checks": {
+    "controllers_active": true,
+    "velocity_controller_type": true,
+    "streams_and_command_subscriber": true,
+    "wheel_velocity_tracks_command": true,
+    "wheel_velocities_comparable": true,
+    "wheels_stop": true,
+    "expected_joints_present": true,
+    "exported_states_finite": true,
+    "clock_advances": true
+  },
+  "errors": [],
+  "controllers": {
+    "joint_state_broadcaster": {
+      "state": "active",
+      "type": "joint_state_broadcaster/JointStateBroadcaster"
+    },
+    "wheel_controller": {
+      "state": "active",
+      "type": "velocity_controllers/JointGroupVelocityController"
+    }
+  },
+  "optional_entity_state": {
+    "status": "skipped",
+    "reason": "service unavailable"
+  },
+  "moving_mean_wheel_velocity": {
+    "left_wheel_joint": 1.8850649210252521,
+    "right_wheel_joint": 1.8954371864967128
+  },
+  "stopped_mean_wheel_velocity": {
+    "left_wheel_joint": -2.6053574715366368e-05,
+    "right_wheel_joint": -1.5460675162930214e-05
+  },
+  "stop_command_sent": true,
+  "elapsed_wall_seconds": 16.311327139999946,
+  "joint_state_messages": 709,
+  "received_joint_names": [
+    "caster_front_left_swivel_joint",
+    "caster_front_left_wheel_joint",
+    "caster_front_right_swivel_joint",
+    "caster_front_right_wheel_joint",
+    "caster_rear_left_swivel_joint",
+    "caster_rear_left_wheel_joint",
+    "caster_rear_right_swivel_joint",
+    "caster_rear_right_wheel_joint",
+    "left_wheel_joint",
+    "right_wheel_joint"
+  ],
+  "nonfinite_exported_interfaces": [],
+  "passive_effort_unavailable": [
+    "caster_front_left_swivel_joint",
+    "caster_front_left_wheel_joint",
+    "caster_front_right_swivel_joint",
+    "caster_front_right_wheel_joint",
+    "caster_rear_left_swivel_joint",
+    "caster_rear_left_wheel_joint",
+    "caster_rear_right_swivel_joint",
+    "caster_rear_right_wheel_joint"
+  ],
+  "clock_start": 0.1,
+  "clock_end": 7.7
+}

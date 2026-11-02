@@ -1,0 +1,271 @@
+{
+  "xacro_version": "2.1.1",
+  "variants": 36,
+  "mass_kg": 22.764686164410268,
+  "links": 16,
+  "joints": 15,
+  "checks": [
+    {
+      "backend": "none",
+      "interface": "velocity",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "velocity",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "velocity",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "velocity",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "position",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "position",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "position",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "position",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "effort",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "effort",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "effort",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "none",
+      "interface": "effort",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "velocity",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "velocity",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "velocity",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "velocity",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "position",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "position",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "position",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "position",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "effort",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "effort",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "effort",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "classic",
+      "interface": "effort",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "velocity",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "velocity",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "velocity",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "velocity",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "position",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "position",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "position",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "position",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "effort",
+      "slides": false,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "effort",
+      "slides": false,
+      "inertia": "primitive",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "effort",
+      "slides": true,
+      "inertia": "mesh",
+      "pass_": true
+    },
+    {
+      "backend": "harmonic",
+      "interface": "effort",
+      "slides": true,
+      "inertia": "primitive",
+      "pass_": true
+    }
+  ],
+  "tests": [
+    "tree",
+    "assets",
+    "positive_definite_tensors",
+    "principal_moment_triangle",
+    "cad_frames",
+    "coplanar_contacts",
+    "passive_and_actuated_interfaces",
+    "mass_scaling"
+  ]
+}

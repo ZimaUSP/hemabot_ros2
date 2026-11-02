@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Propriedades de contato por elo. Os coeficientes sao hipoteses ajustaveis.
+       mu1/mu2 sao convertidos em surface/friction/ode e tambem lidos por DART.
+       kp/kd/minDepth/maxVel sao exclusivos do ramo Classic (motor ODE). -->
+  <xacro:macro name="hema_contact" params="link backend mu contact_kp contact_kd classic_material:=''">
+    <gazebo reference="${link}">
+      <mu1>${mu}</mu1>
+      <mu2>${mu}</mu2>
+      <selfCollide>false</selfCollide>
+      <maxContacts>8</maxContacts>
+      <xacro:if value="${backend == 'classic'}">
+        <kp>${contact_kp}</kp>
+        <kd>${contact_kd}</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <xacro:if value="${classic_material != ''}">
+          <material>${classic_material}</material>
+        </xacro:if>
+      </xacro:if>
+    </gazebo>
+  </xacro:macro>
+
+  <!-- Rodas continuous: nao ha batentes de posicao. Limites de velocidade e
+       torque permanecem na junta URDF e na interface de comando correspondente.
+       A resposta do motor e idealizada: nao representa um motor identificado. -->
+  <xacro:macro name="hema_control_joint" params="joint command_interface wheel_effort wheel_velocity">
+    <joint name="${joint}">
+      <command_interface name="${command_interface}">
+        <xacro:if value="${command_interface == 'velocity'}">
+          <param name="min">${-float(wheel_velocity)}</param>
+          <param name="max">${float(wheel_velocity)}</param>
+        </xacro:if>
+        <xacro:if value="${command_interface == 'effort'}">
+          <param name="min">${-float(wheel_effort)}</param>
+          <param name="max">${float(wheel_effort)}</param>
+        </xacro:if>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Sensoriamento virtual dos graus de liberdade passivos: publicar o estado
+       permite reconstruir TF sem aplicar qualquer comando nessas juntas. -->
+  <xacro:macro name="hema_passive_joint_state" params="joint">
+    <joint name="${joint}">
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="hema_caster_joint_states" params="corner">
+    <xacro:hema_passive_joint_state joint="caster_${corner}_swivel_joint"/>
+    <xacro:hema_passive_joint_state joint="caster_${corner}_wheel_joint"/>
+  </xacro:macro>
+
+  <xacro:macro name="hema_gazebo_config" params="backend command_interface controllers_file wheel_effort wheel_velocity wheel_mu caster_mu contact_kp contact_kd articulate_slides:=false">
+    <!-- backend=none produz apenas URDF: nao carrega plugins nem ros2_control. -->
+    <xacro:if value="${backend != 'none'}">
+      <xacro:hema_contact link="base_link" backend="${backend}" mu="0.5"
+                          contact_kp="${contact_kp}" contact_kd="${contact_kd}"/>
+      <xacro:hema_contact link="left_wheel_link" backend="${backend}" mu="${wheel_mu}"
+                          contact_kp="${contact_kp}" contact_kd="${contact_kd}" classic_material="Gazebo/Black"/>
+      <xacro:hema_contact link="right_wheel_link" backend="${backend}" mu="${wheel_mu}"
+                          contact_kp="${contact_kp}" contact_kd="${contact_kd}" classic_material="Gazebo/Black"/>
+      <xacro:hema_contact link="caster_front_left_wheel_link" backend="${backend}" mu="${caster_mu}"
+                          contact_kp="${contact_kp}" contact_kd="${contact_kd}" classic_material="Gazebo/Black"/>
+      <xacro:hema_contact link="caster_front_right_wheel_link" backend="${backend}" mu="${caster_mu}"
+                          contact_kp="${contact_kp}" contact_kd="${contact_kd}" classic_material="Gazebo/Black"/>
+      <xacro:hema_contact link="caster_rear_left_wheel_link" backend="${backend}" mu="${caster_mu}"
+                          contact_kp="${contact_kp}" contact_kd="${contact_kd}" classic_material="Gazebo/Black"/>
+      <xacro:hema_contact link="caster_rear_right_wheel_link" backend="${backend}" mu="${caster_mu}"
+                          contact_kp="${contact_kp}" contact_kd="${contact_kd}" classic_material="Gazebo/Black"/>
+
+      <!-- As cores RGBA de materials.xacro sao preservadas no Harmonic.
+           Scripts de material Gazebo/* sao aplicados somente no Classic. -->
+      <ros2_control name="HemaSimulationSystem" type="system">
+        <hardware>
+          <xacro:if value="${backend == 'harmonic'}">
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+          </xacro:if>
+          <xacro:if value="${backend == 'classic'}">
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+          </xacro:if>
+        </hardware>
+        <xacro:hema_control_joint joint="left_wheel_joint" command_interface="${command_interface}"
+                                 wheel_effort="${wheel_effort}" wheel_velocity="${wheel_velocity}"/>
+        <xacro:hema_control_joint joint="right_wheel_joint" command_interface="${command_interface}"
+                                 wheel_effort="${wheel_effort}" wheel_velocity="${wheel_velocity}"/>
+        <xacro:hema_caster_joint_states corner="front_left"/>
+        <xacro:hema_caster_joint_states corner="front_right"/>
+        <xacro:hema_caster_joint_states corner="rear_left"/>
+        <xacro:hema_caster_joint_states corner="rear_right"/>
+        <xacro:if value="${articulate_slides}">
+          <xacro:hema_passive_joint_state joint="slide_left_middle_joint"/>
+          <xacro:hema_passive_joint_state joint="slide_left_inner_joint"/>
+          <xacro:hema_passive_joint_state joint="slide_right_middle_joint"/>
+          <xacro:hema_passive_joint_state joint="slide_right_inner_joint"/>
+        </xacro:if>
+      </ros2_control>
+
+      <!-- Cada plugin instancia seu controller_manager. Nao iniciar outro
+           ros2_control_node para esta mesma instancia de simulacao. -->
+      <xacro:if value="${backend == 'harmonic'}">
+        <gazebo>
+          <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <parameters>${controllers_file}</parameters>
+            <hold_joints>false</hold_joints>
+          </plugin>
+        </gazebo>
+      </xacro:if>
+      <xacro:if value="${backend == 'classic'}">
+        <gazebo>
+          <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+            <parameters>${controllers_file}</parameters>
+            <hold_joints>false</hold_joints>
+          </plugin>
+        </gazebo>
+      </xacro:if>
+    </xacro:if>
+  </xacro:macro>
+</robot>

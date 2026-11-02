@@ -1,0 +1,228 @@
+﻿source,link,material,density_kg_m3,raw_watertight,volume_method,volume_m3,mass_kg
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Acabamento_do_lidar-1.STL,base_link,pla,1240.0,True,closed_stl,0.000866583741920977,1.0745638399820114
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-1 M3F.STEP-1.STL,base_link,steel,7850.0,False,convex_hull_proxy_open_stl,1.3381544357889474e-07,0.0010504512320943238
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-1 M3F.STEP-2.STL,base_link,steel,7850.0,False,convex_hull_proxy_open_stl,1.3381587917965547e-07,0.0010504546515602954
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-2 M3F.STEP-1.STL,base_link,steel,7850.0,False,convex_hull_proxy_open_stl,1.3381574195883028e-07,0.0010504535743768178
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-2 M3F.STEP-2.STL,base_link,steel,7850.0,False,convex_hull_proxy_open_stl,1.3381569747355436e-07,0.0010504532251674017
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 ___switch_assem.STEP-1 Miros switch.STEP-1.STL,base_link,abs,1040.0,False,convex_hull_proxy_open_stl,6.877395813551906e-06,0.0071524916460939825
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 ___switch_assem.STEP-2 Miros switch.STEP-1.STL,base_link,abs,1040.0,False,convex_hull_proxy_open_stl,6.877399752944193e-06,0.007152495743061961
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-1 M3 Spring washer.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,4.8687504080790154e-09,3.821969070342027e-05
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-1 M3 Spring washer.STEP-2.STL,base_link,steel,7850.0,True,closed_stl,4.868766290617186e-09,3.821981538134491e-05
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-2 M3 Spring washer.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,4.868756822675919e-09,3.821974105800596e-05
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-2 M3 Spring washer.STEP-2.STL,base_link,steel,7850.0,True,closed_stl,4.868824214748284e-09,3.8220270085774034e-05
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 axis.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,2.318421055579177e-07,0.001819960528629654
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 buckle axis.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,7.082167744637358e-08,0.0005559501679540327
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 buckle axis.STEP-2.STL,base_link,steel,7850.0,True,closed_stl,7.082167744636032e-08,0.0005559501679539285
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 buckle.STEP-1.STL,base_link,abs,1040.0,True,closed_stl,2.371920139454342e-07,0.0002466796945032516
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 connector.STEP-1.STL,base_link,abs,1040.0,True,closed_stl,1.681477507119369e-07,0.00017487366074041437
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 connector.STEP-2.STL,base_link,abs,1040.0,True,closed_stl,1.6814835127471481e-07,0.0001748742853257034
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emerg_stop_button_bottom_45.STEP-1.STL,base_link,abs,1040.0,True,closed_stl,1.489174693364297e-05,0.015487416810988688
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emerg_stop_button_top_45.STEP-1.STL,base_link,abs,1040.0,True,closed_stl,4.157989616193466e-06,0.004324309200841205
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emergency dial bottom.STEP-1.STL,base_link,abs,1040.0,True,closed_stl,1.169447910456204e-05,0.012162258268744522
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emergency dial top.STEP-1.STL,base_link,abs,1040.0,True,closed_stl,3.108160463128751e-06,0.003232486881653901
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 ill_stecker.STEP-1.STL,base_link,abs,1040.0,False,convex_hull_proxy_open_stl,5.146307334698848e-07,0.0005352159628086801
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 nut.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,1.6908580618986916e-06,0.01327323578590473
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 plastic stick.STEP-1.STL,base_link,abs,1040.0,False,convex_hull_proxy_open_stl,3.2823773040314806e-05,0.0341367239619274
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 pod.STEP-1.STL,base_link,abs,1040.0,True,closed_stl,1.0036116583307734e-05,0.010437561246640043
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 spring.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,3.573664743952417e-07,0.0028053268240026473
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 switch base.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,9.062725029231289e-06,0.07114239147946562
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Carenagem_Módulo_1_V3-1.STL,base_link,pla,1240.0,True,closed_stl,0.00437323620676395,5.422812896387297
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-1.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123438067571777e-05,0.0300332827824438
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-11.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123461633539753e-05,0.030033346410557334
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-12.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123481819697113e-05,0.030033400913182205
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-13.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123491113021163e-05,0.03003342600515714
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-14.STL,base_link,aluminium,2700.0,True,closed_stl,1.112351044695953e-05,0.030033478206790733
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-15.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123448040780044e-05,0.03003330971010612
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-16.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123466816009666e-05,0.030033360403226097
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-17.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123502682730524e-05,0.030033457243372415
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-18.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123485469682565e-05,0.030033410768142924
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-19.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123476322236875e-05,0.030033386070039563
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-2.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123469547358785e-05,0.03003336777786872
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-20.STL,base_link,aluminium,2700.0,True,closed_stl,1.112350117985406e-05,0.030033453185605963
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-21.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123487230764822e-05,0.03003341552306502
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-22.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123524770995547e-05,0.030033516881687976
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-23.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123484793988607e-05,0.03003340894376924
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-24.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123462978185393e-05,0.03003335004110056
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-25.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123442601690914e-05,0.030033295024565466
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-26.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123418990829018e-05,0.03003323127523835
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-27.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123465120374516e-05,0.030033355825011192
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-3.STL,base_link,aluminium,2700.0,True,closed_stl,1.112342077253328e-05,0.030033236085839854
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-4.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123477069195038e-05,0.030033388086826603
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-5.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123459131324146e-05,0.030033339654575195
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-7.STL,base_link,aluminium,2700.0,True,closed_stl,1.1123442601690965e-05,0.030033295024565605
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-8.STL,base_link,aluminium,2700.0,True,closed_stl,1.112347694498672e-05,0.030033387751464143
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Hoverboardwheel-1.STL,left_wheel_link,motor_composite,3000.0,False,closed_stl_small_holes_repaired,0.000956766805067712,2.870300415203136
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Hoverboardwheel-2.STL,right_wheel_link,motor_composite,3000.0,False,closed_stl_small_holes_repaired,0.0009567668648597986,2.870300594579396
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-1 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL,base_link,steel,7850.0,True,closed_stl,7.495009038494528e-05,0.5883582095218204
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-2 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL,base_link,steel,7850.0,True,closed_stl,7.495011268265565e-05,0.5883583845588468
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-3 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL,base_link,steel,7850.0,True,closed_stl,7.495016470198316e-05,0.5883587929105678
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-4 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL,base_link,steel,7850.0,True,closed_stl,7.495018699900061e-05,0.5883589679421548
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-2.STL,base_link,steel,7850.0,True,closed_stl,5.245845565935183e-07,0.004117988769259119
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-3.STL,base_link,steel,7850.0,True,closed_stl,5.24587225415856e-07,0.0041180097195144694
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-4.STL,base_link,steel,7850.0,True,closed_stl,5.245848354821334e-07,0.004117990958534747
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-6.STL,base_link,steel,7850.0,True,closed_stl,5.24587504147106e-07,0.004118011907554783
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-2.STL,base_link,steel,7850.0,True,closed_stl,5.24586881709627e-07,0.004118007021420572
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-3.STL,base_link,steel,7850.0,True,closed_stl,5.245845377780325e-07,0.004117988621557555
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-4.STL,base_link,steel,7850.0,True,closed_stl,5.245850230231184e-07,0.004117992430731479
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-6.STL,base_link,steel,7850.0,True,closed_stl,5.245876588706536e-07,0.004118013122134631
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-2.STL,base_link,steel,7850.0,True,closed_stl,5.245876368521986e-07,0.0041180129492897595
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-3.STL,base_link,steel,7850.0,True,closed_stl,5.245868329076301e-07,0.004118006638324897
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-4.STL,base_link,steel,7850.0,True,closed_stl,5.245850662507389e-07,0.0041179927700683
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-6.STL,base_link,steel,7850.0,True,closed_stl,5.245866389360682e-07,0.004118005115648135
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-2.STL,base_link,steel,7850.0,True,closed_stl,5.24589962073064e-07,0.004118031202273552
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-3.STL,base_link,steel,7850.0,True,closed_stl,5.245841453959836e-07,0.004117985541358471
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-4.STL,base_link,steel,7850.0,True,closed_stl,5.245852537387528e-07,0.00411799424184921
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-6.STL,base_link,steel,7850.0,True,closed_stl,5.24586793542475e-07,0.004118006329308429
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1.STL,caster_front_right_fork_link,steel,7850.0,True,closed_stl,7.011350250491533e-07,0.0055039099466358534
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1_1.STL,caster_rear_right_fork_link,steel,7850.0,True,closed_stl,7.011391428779029e-07,0.005503942271591538
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1_2.STL,caster_rear_left_fork_link,steel,7850.0,True,closed_stl,7.011397363728239e-07,0.005503946930526667
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1_3.STL,caster_front_left_fork_link,steel,7850.0,True,closed_stl,7.011356184334405e-07,0.005503914604702508
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,8.432824648282218e-06,0.06619767348901541
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1_1.STL,base_link,steel,7850.0,True,closed_stl,8.432822089305325e-06,0.0661976534010468
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1_2.STL,base_link,steel,7850.0,True,closed_stl,8.432826194992813e-06,0.06619768563069359
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1_3.STL,base_link,steel,7850.0,True,closed_stl,8.432828754086067e-06,0.06619770571957563
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1.STL,caster_front_right_wheel_link,nylon,1150.0,True,closed_stl,2.399281698688665e-05,0.027591739534919647
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1_1.STL,caster_rear_right_wheel_link,nylon,1150.0,True,closed_stl,2.3992800199386984e-05,0.02759172022929503
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1_2.STL,caster_rear_left_wheel_link,nylon,1150.0,True,closed_stl,2.3992822448148146e-05,0.02759174581537037
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1_3.STL,caster_front_left_wheel_link,nylon,1150.0,True,closed_stl,2.3992839235740025e-05,0.02759176512110103
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_DO_MEIO_1.STEP-1.STL,slide_left_middle_link,steel,7850.0,True,closed_stl,2.5571162741176414e-05,0.20073362751823484
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_DO_MEIO_1.STEP-1_1.STL,slide_right_middle_link,steel,7850.0,True,closed_stl,2.5571137867115673e-05,0.20073343225685802
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_EXTERNA_1.STEP-1.STL,base_link,steel,7850.0,True,closed_stl,3.106806624818186e-05,0.2438843200482276
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_EXTERNA_1.STEP-1_1.STL,base_link,steel,7850.0,True,closed_stl,3.1067987944913885e-05,0.243883705367574
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_INTERNO_1.STEP-1.STL,slide_left_inner_link,steel,7850.0,True,closed_stl,1.3827785359591082e-05,0.10854811507279
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_INTERNO_1.STEP-1_1.STL,slide_right_inner_link,steel,7850.0,True,closed_stl,1.3827804732059845e-05,0.10854826714666979
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1.STL,caster_front_right_fork_link,steel,7850.0,True,closed_stl,2.8190240521585362e-06,0.02212933880944451
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1_1.STL,caster_rear_right_fork_link,steel,7850.0,True,closed_stl,2.8190085836038857e-06,0.022129217381290502
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1_2.STL,caster_rear_left_fork_link,steel,7850.0,True,closed_stl,2.8190865109744875e-06,0.02212982911114973
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1_3.STL,caster_front_left_fork_link,steel,7850.0,True,closed_stl,2.8191019800397617e-06,0.02212995054331213
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-1.STL,base_link,aluminium,2700.0,True,closed_stl,2.9731378378718745e-05,0.08027472162254061
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-2.STL,base_link,aluminium,2700.0,True,closed_stl,2.973149753659896e-05,0.08027504334881719
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-3.STL,base_link,aluminium,2700.0,True,closed_stl,2.9731516525150085e-05,0.08027509461790523
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-4.STL,base_link,aluminium,2700.0,True,closed_stl,2.973134216740834e-05,0.08027462385200251
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-5.STL,base_link,aluminium,2700.0,True,closed_stl,2.973132674238753e-05,0.08027458220444633
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-6.STL,base_link,aluminium,2700.0,True,closed_stl,2.9731308595836917e-05,0.08027453320875967
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x230-1.STL,base_link,aluminium,2700.0,True,closed_stl,6.838313035715186e-05,0.18463445196431003
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x230-2.STL,base_link,aluminium,2700.0,True,closed_stl,6.838285149570504e-05,0.1846336990384036
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x440-1.STL,base_link,aluminium,2700.0,True,closed_stl,0.0001308189912652954,0.35321127641629757
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-2.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014568521372698302,0.3933500770628542
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-3.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014568445240333887,0.39334802148901493
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-4.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014568514048859363,0.3933498793192028
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-7.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014568455662045566,0.39334830287523026
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-8.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014568521372698291,0.39335007706285385
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-9.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014568464808538658,0.3933485498305438
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x500-1.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014865663595937072,0.40137291709030093
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x500-2.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014865656112572766,0.4013727150394647
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x500-3.STL,base_link,aluminium,2700.0,True,closed_stl,0.00014865803749571083,0.40137670123841923
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-1.STL,base_link,steel,7850.0,True,closed_stl,5.245883304199813e-07,0.004118018393796853
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-101.STL,base_link,steel,7850.0,True,closed_stl,5.245866928832971e-07,0.004118005539133883
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-102.STL,base_link,steel,7850.0,True,closed_stl,5.245858573002815e-07,0.00411799897980721
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-103.STL,base_link,steel,7850.0,True,closed_stl,5.245852131581729e-07,0.004117993923291657
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-104.STL,base_link,steel,7850.0,True,closed_stl,5.245863020251269e-07,0.0041180024708972465
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-106.STL,base_link,steel,7850.0,True,closed_stl,5.245826386734259e-07,0.004117973713586393
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-107.STL,base_link,steel,7850.0,True,closed_stl,5.245845513180371e-07,0.0041179887278465915
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-11.STL,base_link,steel,7850.0,True,closed_stl,5.245869765265405e-07,0.004118007765733343
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-12.STL,base_link,steel,7850.0,True,closed_stl,5.245857144135613e-07,0.004117997858146456
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-13.STL,base_link,steel,7850.0,True,closed_stl,5.245866999935842e-07,0.004118005594949636
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-14.STL,base_link,steel,7850.0,True,closed_stl,5.245774245436405e-07,0.004117932782667579
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-17.STL,base_link,steel,7850.0,True,closed_stl,5.245852761878283e-07,0.004117994418074452
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-18.STL,base_link,steel,7850.0,True,closed_stl,5.24579862983301e-07,0.004117951924418913
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-19.STL,base_link,steel,7850.0,True,closed_stl,5.245849227016923e-07,0.004117991643208285
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-2.STL,base_link,steel,7850.0,True,closed_stl,5.245794171512117e-07,0.004117948424637012
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-20.STL,base_link,steel,7850.0,True,closed_stl,5.245859573109016e-07,0.004117999764890577
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-21.STL,base_link,steel,7850.0,True,closed_stl,5.245786041001788e-07,0.004117942042186404
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-22.STL,base_link,steel,7850.0,True,closed_stl,5.245865306771609e-07,0.004118004265815713
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-23.STL,base_link,steel,7850.0,True,closed_stl,5.245865306771617e-07,0.00411800426581572
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-24.STL,base_link,steel,7850.0,True,closed_stl,5.245792523393388e-07,0.00411794713086381
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-25.STL,base_link,steel,7850.0,True,closed_stl,5.245871036441837e-07,0.004118008763606842
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-26.STL,base_link,steel,7850.0,True,closed_stl,5.245830196401438e-07,0.004117976704175129
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-27.STL,base_link,steel,7850.0,True,closed_stl,5.245777725428238e-07,0.004117935514461167
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-28.STL,base_link,steel,7850.0,True,closed_stl,5.245869934308117e-07,0.004118007898431872
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-29.STL,base_link,steel,7850.0,True,closed_stl,5.245851837775442e-07,0.004117993692653722
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-30.STL,base_link,steel,7850.0,True,closed_stl,5.24579956471556e-07,0.004117952658301715
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-31.STL,base_link,steel,7850.0,True,closed_stl,5.245877005194793e-07,0.004118013449077912
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-32.STL,base_link,steel,7850.0,True,closed_stl,5.245784600410592e-07,0.004117940911322315
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-33.STL,base_link,steel,7850.0,True,closed_stl,5.24586815528999e-07,0.004118006501902642
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-34.STL,base_link,steel,7850.0,True,closed_stl,5.245777890637764e-07,0.004117935644150645
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-35.STL,base_link,steel,7850.0,True,closed_stl,5.245842987642292e-07,0.004117986745299199
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-36.STL,base_link,steel,7850.0,True,closed_stl,5.24582165383529e-07,0.004117969998260703
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-37.STL,base_link,steel,7850.0,True,closed_stl,5.245826386734291e-07,0.004117973713586419
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-38.STL,base_link,steel,7850.0,True,closed_stl,5.245845513180379e-07,0.004117988727846598
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-39.STL,base_link,steel,7850.0,True,closed_stl,5.245791557748439e-07,0.004117946372832525
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-40.STL,base_link,steel,7850.0,True,closed_stl,5.245833185512098e-07,0.004117979050626997
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-41.STL,base_link,steel,7850.0,True,closed_stl,5.245863839986151e-07,0.004118003114389129
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-42.STL,base_link,steel,7850.0,True,closed_stl,5.245818997767018e-07,0.004117967913247109
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-43.STL,base_link,steel,7850.0,True,closed_stl,5.245794394141192e-07,0.004117948599400835
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-45.STL,base_link,steel,7850.0,True,closed_stl,5.245844087149584e-07,0.004117987608412423
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-46.STL,base_link,steel,7850.0,True,closed_stl,5.245834498840651e-07,0.004117980081589911
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-47.STL,base_link,steel,7850.0,True,closed_stl,5.245795517258251e-07,0.004117949481047728
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-48.STL,base_link,steel,7850.0,True,closed_stl,5.245889006356212e-07,0.004118022869989627
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-49.STL,base_link,steel,7850.0,True,closed_stl,5.24584512156486e-07,0.0041179884204284155
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-7.STL,base_link,steel,7850.0,True,closed_stl,5.245835183053124e-07,0.004117980618696703
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-73.STL,base_link,steel,7850.0,True,closed_stl,5.245820739905916e-07,0.0041179692808261436
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-74.STL,base_link,steel,7850.0,True,closed_stl,5.245806250949635e-07,0.004117957906995463
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-75.STL,base_link,steel,7850.0,True,closed_stl,5.245777502441458e-07,0.004117935339416545
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-76.STL,base_link,steel,7850.0,True,closed_stl,5.245795012111575e-07,0.004117949084507586
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-77.STL,base_link,steel,7850.0,True,closed_stl,5.245791374307727e-07,0.004117946228831566
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-78.STL,base_link,steel,7850.0,True,closed_stl,5.245773864359988e-07,0.00411793248352259
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-79.STL,base_link,steel,7850.0,True,closed_stl,5.245851020863949e-07,0.0041179930513782
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-8.STL,base_link,steel,7850.0,True,closed_stl,5.245889264580866e-07,0.00411802307269598
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-80.STL,base_link,steel,7850.0,True,closed_stl,5.245865509717976e-07,0.004118004425128611
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-81.STL,base_link,steel,7850.0,True,closed_stl,5.245869383513897e-07,0.004118007466058409
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-82.STL,base_link,steel,7850.0,True,closed_stl,5.245879311878714e-07,0.00411801525982479
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-83.STL,base_link,steel,7850.0,True,closed_stl,5.245878546600056e-07,0.004118014659081045
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-84.STL,base_link,steel,7850.0,True,closed_stl,5.245868615723361e-07,0.004118006863342839
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-91.STL,base_link,steel,7850.0,True,closed_stl,5.245774591661545e-07,0.004117933054454313
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-92.STL,base_link,steel,7850.0,True,closed_stl,5.245829456253287e-07,0.004117976123158831
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-93.STL,base_link,steel,7850.0,True,closed_stl,5.245778904273937e-07,0.004117936439855041
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-94.STL,base_link,steel,7850.0,True,closed_stl,5.245771473462979e-07,0.004117930606668438
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-95.STL,base_link,steel,7850.0,True,closed_stl,5.245805812034328e-07,0.004117957562446948
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-96.STL,base_link,steel,7850.0,True,closed_stl,5.245797351402388e-07,0.004117950920850874
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-97.STL,base_link,steel,7850.0,True,closed_stl,5.245847463263511e-07,0.004117990258661856
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-98.STL,base_link,steel,7850.0,True,closed_stl,5.245845239833851e-07,0.004117988513269573
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-99.STL,base_link,steel,7850.0,True,closed_stl,5.245844087149601e-07,0.004117987608412437
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-1.STL,base_link,steel,7850.0,True,closed_stl,9.321365306675348e-07,0.0073172717657401486
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-10.STL,base_link,steel,7850.0,True,closed_stl,9.321382681243269e-07,0.007317285404775966
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-13.STL,base_link,steel,7850.0,True,closed_stl,9.3214227499812e-07,0.007317316858735242
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-14.STL,base_link,steel,7850.0,True,closed_stl,9.32140428297231e-07,0.007317302362133263
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-15.STL,base_link,steel,7850.0,True,closed_stl,9.321459329053525e-07,0.007317345573307018
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-16.STL,base_link,steel,7850.0,True,closed_stl,9.321419921591959e-07,0.007317314638449688
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-17.STL,base_link,steel,7850.0,True,closed_stl,9.321399107873324e-07,0.00731729829968056
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-18.STL,base_link,steel,7850.0,True,closed_stl,9.321389626264533e-07,0.0073172908566176585
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-19.STL,base_link,steel,7850.0,True,closed_stl,9.321378481239172e-07,0.00731728210777275
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-2.STL,base_link,steel,7850.0,True,closed_stl,9.321378669440684e-07,0.007317282255510937
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-20.STL,base_link,steel,7850.0,True,closed_stl,9.321354499384687e-07,0.007317263282016979
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-21.STL,base_link,steel,7850.0,True,closed_stl,9.321378481238999e-07,0.007317282107772614
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-22.STL,base_link,steel,7850.0,True,closed_stl,9.321425437107423e-07,0.0073173189681293264
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-23.STL,base_link,steel,7850.0,True,closed_stl,9.321396681368469e-07,0.007317296394874248
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-24.STL,base_link,steel,7850.0,True,closed_stl,9.321414516046561e-07,0.007317310395096551
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-25.STL,base_link,steel,7850.0,True,closed_stl,9.321422549039219e-07,0.007317316700995787
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-26.STL,base_link,steel,7850.0,True,closed_stl,9.321442466676311e-07,0.007317332336340904
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-27.STL,base_link,steel,7850.0,True,closed_stl,9.321411196812725e-07,0.007317307789497989
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-28.STL,base_link,steel,7850.0,True,closed_stl,9.321369299590492e-07,0.007317274900178536
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-29.STL,base_link,steel,7850.0,True,closed_stl,9.321395799815575e-07,0.007317295702855226
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-30.STL,base_link,steel,7850.0,True,closed_stl,9.321448032371464e-07,0.0073173367054116
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-31.STL,base_link,steel,7850.0,True,closed_stl,9.321408130824812e-07,0.0073173053826974775
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-32.STL,base_link,steel,7850.0,True,closed_stl,9.321426229476688e-07,0.0073173195901392
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-33.STL,base_link,steel,7850.0,True,closed_stl,9.321408096626506e-07,0.007317305355851807
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-34.STL,base_link,steel,7850.0,True,closed_stl,9.321401041746093e-07,0.007317299817770683
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-35.STL,base_link,steel,7850.0,True,closed_stl,9.321365914866252e-07,0.007317272243170008
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-36.STL,base_link,steel,7850.0,True,closed_stl,9.321379274167051e-07,0.007317282730221136
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-37.STL,base_link,steel,7850.0,True,closed_stl,9.321379274167178e-07,0.0073172827302212355
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-38.STL,base_link,steel,7850.0,True,closed_stl,9.321393171250744e-07,0.007317293639431834
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-39.STL,base_link,steel,7850.0,True,closed_stl,9.321353892087859e-07,0.007317262805288969
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-4.STL,base_link,steel,7850.0,True,closed_stl,9.321397827118365e-07,0.0073172972942879165
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-40.STL,base_link,steel,7850.0,True,closed_stl,9.321419429630289e-07,0.0073173142522597765
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-41.STL,base_link,steel,7850.0,True,closed_stl,9.321439839229033e-07,0.007317330273794791
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-42.STL,base_link,steel,7850.0,True,closed_stl,9.321395788639568e-07,0.007317295694082061
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-45.STL,base_link,steel,7850.0,True,closed_stl,9.321419429629743e-07,0.007317314252259348
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-46.STL,base_link,steel,7850.0,True,closed_stl,9.321459329053795e-07,0.007317345573307229
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-47.STL,base_link,steel,7850.0,True,closed_stl,9.321353892087863e-07,0.007317262805288972
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-48.STL,base_link,steel,7850.0,True,closed_stl,9.321357149183889e-07,0.007317265362109353
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-5.STL,base_link,steel,7850.0,True,closed_stl,9.321437726542427e-07,0.007317328615335805
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-9.STL,base_link,steel,7850.0,True,closed_stl,9.321401145234614e-07,0.007317299899009172
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Suporte_do_motor_V4-1.STL,base_link,aluminium,2700.0,True,closed_stl,4.4963019338974435e-05,0.12140015221523097
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Suporte_do_motor_V4-2.STL,base_link,aluminium,2700.0,True,closed_stl,4.496298399861355e-05,0.12140005679625658
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-1 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_RIM.STEP-1.STL,base_link,electronics,1800.0,True,closed_stl,9.44697922334988e-07,0.0017004562602029785
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-1 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_SNAP.STEP-1.STL,base_link,electronics,1800.0,True,closed_stl,6.0261331947333685e-06,0.010847039750520064
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-2 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_RIM.STEP-1.STL,base_link,electronics,1800.0,True,closed_stl,9.446905991517137e-07,0.0017004430784730846
+Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-2 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_SNAP.STEP-1.STL,base_link,electronics,1800.0,True,closed_stl,6.0261366260832535e-06,0.010847045926949857

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="hema_world">
+    <gravity>0 0 -9.81</gravity>
+    <physics name="hema_physics" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <!-- Não há sensores funcionais inferidos do CAD. /clock é ligado pelo launch. -->
+    <scene><ambient>0.45 0.45 0.45 1</ambient><background>0.82 0.87 0.92 1</background></scene>
+    <light name="main_light" type="directional">
+      <pose>0 0 8 0 0 0</pose>
+      <diffuse>0.85 0.85 0.85 1</diffuse>
+      <specular>0.15 0.15 0.15 1</specular>
+      <direction>-0.4 0.2 -1</direction>
+      <cast_shadows>true</cast_shadows>
+      <attenuation><range>100</range><constant>1</constant><linear>0</linear><quadratic>0</quadratic></attenuation>
+    </light>
+    <model name="floor">
+      <static>true</static>
+      <link name="floor_link">
+        <collision name="floor_collision">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+          <surface><friction><ode><mu>0.8</mu><mu2>0.8</mu2></ode></friction></surface>
+        </collision>
+        <visual name="floor_visual">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+          <material><ambient>0.55 0.58 0.61 1</ambient><diffuse>0.65 0.68 0.71 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

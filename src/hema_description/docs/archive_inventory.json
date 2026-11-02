@@ -1,0 +1,1482 @@
+[
+  {
+    "path": "Hema_V4/Componentes eletrônicos/HEM_Botão_de_Emergência.SLDASM",
+    "bytes": 11171682,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes eletrônicos/HEM_Hoverboardwheel.SLDPRT",
+    "bytes": 895308,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes eletrônicos/HEM_JetsonNano.SLDASM",
+    "bytes": 26844213,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes eletrônicos/HEM_Raspberry.SLDASM",
+    "bytes": 12027712,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes eletrônicos/HEM_RPlidar.SLDASM",
+    "bytes": 11113914,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes eletrônicos/HEM_Sensor_Ultrassônico.SLDASM",
+    "bytes": 205511,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Acabamento_do_lidar.SLDPRT",
+    "bytes": 306747,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Carenagem_Módulo_1_V1.SLDPRT",
+    "bytes": 204196,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Carenagem_Módulo_1_V2.SLDPRT",
+    "bytes": 204331,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Carenagem_Módulo_1_V3.SLDPRT",
+    "bytes": 836531,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Carenagem_Módulo_1_V3_Sem_Pintura.SLDPRT",
+    "bytes": 804224,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30.SLDPRT",
+    "bytes": 161754,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Cubo_do_Eixo_V1.SLDPRT",
+    "bytes": 161657,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Montagem _Corrediça_500mm.SLDASM",
+    "bytes": 460722,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Parafuso_M6X12_cabeça_chata.SLDPRT",
+    "bytes": 130439,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_PF30-01 - Perfil 3030 básico.SLDPRT",
+    "bytes": 354601,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_PF30-01 - Perfil 30x30x100.SLDPRT",
+    "bytes": 353083,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_PF30-01 - Perfil 30x30x230.SLDPRT",
+    "bytes": 346748,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_PF30-01 - Perfil 30x30x440.SLDPRT",
+    "bytes": 335086,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_PF30-01 - Perfil 30x30x490.SLDPRT",
+    "bytes": 330001,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_PF30-01 - Perfil 30x30x500.SLDPRT",
+    "bytes": 334567,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_PF30-01 - Perfil 30x30x550.SLDPRT",
+    "bytes": 333075,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Porca_T_M6.SLDPRT",
+    "bytes": 122667,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Rodizio_Giratório_2in_V2.SLDASM",
+    "bytes": 594433,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Suporte_do_motor_V1.SLDPRT",
+    "bytes": 108261,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Suporte_do_motor_V2.SLDPRT",
+    "bytes": 138481,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Suporte_do_motor_V3.SLDPRT",
+    "bytes": 112274,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Suporte_do_motor_V4.SLDPRT",
+    "bytes": 137424,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Suporte_do_Rodízio_Giratório_V1.SLDPRT",
+    "bytes": 104561,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/HEM_Tampa_do_acesso_eletrônico.SLDPRT",
+    "bytes": 68620,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/parte.de.baixo.suporte.v2.SLDPRT",
+    "bytes": 2673815,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/parte.de.baixo.v3.SLDPRT",
+    "bytes": 61923,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Componentes estruturais/parte.de.cima.do.suporte.SLDPRT",
+    "bytes": 1608881,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/Foto.png",
+    "bytes": 70680,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Acabamento_do_lidar-1.STL",
+    "bytes": 317284,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 axis.STEP-1.STL",
+    "bytes": 15084,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 buckle axis.STEP-1.STL",
+    "bytes": 26684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 buckle axis.STEP-2.STL",
+    "bytes": 26684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 buckle.STEP-1.STL",
+    "bytes": 23484,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 connector.STEP-1.STL",
+    "bytes": 5284784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 connector.STEP-2.STL",
+    "bytes": 5284784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emergency dial bottom.STEP-1.STL",
+    "bytes": 776384,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emergency dial top.STEP-1.STL",
+    "bytes": 492084,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emerg_stop_button_bottom_45.STEP-1.STL",
+    "bytes": 400384,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 emerg_stop_button_top_45.STEP-1.STL",
+    "bytes": 295584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 ill_stecker.STEP-1.STL",
+    "bytes": 823884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-1 M3F.STEP-1.STL",
+    "bytes": 3584584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-1 M3F.STEP-2.STL",
+    "bytes": 3584584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-2 M3F.STEP-1.STL",
+    "bytes": 3584584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 Micro_switch_assem.STEP-2 M3F.STEP-2.STL",
+    "bytes": 3584584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 nut.STEP-1.STL",
+    "bytes": 435684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 plastic stick.STEP-1.STL",
+    "bytes": 666684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 pod.STEP-1.STL",
+    "bytes": 3405584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 spring.STEP-1.STL",
+    "bytes": 4667984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 switch base.STEP-1.STL",
+    "bytes": 1132784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-1 M3 Spring washer.STEP-1.STL",
+    "bytes": 655784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-1 M3 Spring washer.STEP-2.STL",
+    "bytes": 655784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-2 M3 Spring washer.STEP-1.STL",
+    "bytes": 655784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 __tch_assem.STEP-2 M3 Spring washer.STEP-2.STL",
+    "bytes": 655784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 ___switch_assem.STEP-1 Miros switch.STEP-1.STL",
+    "bytes": 276084,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Botão_de_Emergência-1 Assem2.STEP-1 ___switch_assem.STEP-2 Miros switch.STEP-1.STL",
+    "bytes": 276084,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Carenagem_Módulo_1_V3-1.STL",
+    "bytes": 730984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-1.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-11.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-12.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-13.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-14.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-15.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-16.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-17.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-18.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-19.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-2.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-20.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-21.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-22.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-23.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-24.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-25.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-26.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-27.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-3.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-4.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-5.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-7.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_CT38-07-30_CANTONEIRA 38X38X28_BASE 30-8.STL",
+    "bytes": 90184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Hoverboardwheel-1.STL",
+    "bytes": 970584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Hoverboardwheel-2.STL",
+    "bytes": 970584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-1 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL",
+    "bytes": 55184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-2 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL",
+    "bytes": 55184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-3 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL",
+    "bytes": 55184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__-4 HEM_Suporte_do_Rodízio_Giratório_V1-1.STL",
+    "bytes": 55184,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1.STL",
+    "bytes": 231784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1_1.STL",
+    "bytes": 231784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1_2.STL",
+    "bytes": 231784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__Giratório_2in_V2.STEP-1 eixo_roda.STEP-1_3.STL",
+    "bytes": 231784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-2.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-3.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-4.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-1 HEM_Parafuso_M6X12_cabeça_chata-6.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-2.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-3.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-4.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-2 HEM_Parafuso_M6X12_cabeça_chata-6.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-2.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-3.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-4.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-3 HEM_Parafuso_M6X12_cabeça_chata-6.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-2.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-3.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-4.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__G_V2-4 HEM_Parafuso_M6X12_cabeça_chata-6.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1.STL",
+    "bytes": 172984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1_1.STL",
+    "bytes": 172984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1_2.STL",
+    "bytes": 172984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 base.STEP-1_3.STL",
+    "bytes": 172984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1.STL",
+    "bytes": 378584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1_1.STL",
+    "bytes": 378584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1_2.STL",
+    "bytes": 378584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__izio_Giratório_2in_V2.STEP-1 roda.STEP-1_3.STL",
+    "bytes": 378584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_DO_MEIO_1.STEP-1.STL",
+    "bytes": 36684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_DO_MEIO_1.STEP-1_1.STL",
+    "bytes": 36684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_EXTERNA_1.STEP-1.STL",
+    "bytes": 293584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_EXTERNA_1.STEP-1_1.STL",
+    "bytes": 293584,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_INTERNO_1.STEP-1.STL",
+    "bytes": 98684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__mm.STEP-1 HEM_CORREDICA_INTERNO_1.STEP-1_1.STL",
+    "bytes": 98684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1.STL",
+    "bytes": 166784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1_1.STL",
+    "bytes": 166784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1_2.STL",
+    "bytes": 166784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Monta__o_Giratório_2in_V2.STEP-1 Suporte.STEP-1_3.STL",
+    "bytes": 166784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-1.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-101.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-102.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-103.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-104.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-106.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-107.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-11.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-12.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-13.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-14.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-17.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-18.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-19.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-2.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-20.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-21.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-22.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-23.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-24.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-25.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-26.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-27.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-28.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-29.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-30.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-31.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-32.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-33.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-34.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-35.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-36.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-37.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-38.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-39.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-40.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-41.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-42.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-43.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-45.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-46.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-47.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-48.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-49.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-7.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-73.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-74.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-75.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-76.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-77.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-78.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-79.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-8.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-80.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-81.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-82.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-83.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-84.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-91.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-92.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-93.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-94.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-95.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-96.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-97.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-98.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Parafuso_M6X12_cabeça_chata-99.STL",
+    "bytes": 155884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-1.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-2.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-3.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-4.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-5.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x100-6.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x230-1.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x230-2.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x440-1.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-2.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-3.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-4.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-7.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-8.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x490-9.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x500-1.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x500-2.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_PF30-01 - Perfil 30x30x500-3.STL",
+    "bytes": 161884,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-1.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-10.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-13.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-14.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-15.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-16.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-17.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-18.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-19.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-2.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-20.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-21.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-22.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-23.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-24.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-25.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-26.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-27.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-28.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-29.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-30.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-31.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-32.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-33.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-34.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-35.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-36.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-37.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-38.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-39.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-4.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-40.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-41.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-42.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-45.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-46.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-47.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-48.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-5.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Porca_T_M6-9.STL",
+    "bytes": 17684,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Suporte_do_motor_V4-1.STL",
+    "bytes": 60784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Montagem_da_Estrutura_V3-1 HEM_Suporte_do_motor_V4-2.STL",
+    "bytes": 60784,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-1 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_RIM.STEP-1.STL",
+    "bytes": 99084,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-1 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_SNAP.STEP-1.STL",
+    "bytes": 19984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-2 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_RIM.STEP-1.STL",
+    "bytes": 99084,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEMA.stl/HEM_Montagem_V3 - HEM_Sensor_Ultrassônico-2 HEM_Sensor_Ultrassônico.STEP-1 SENSOR_SNAP.STEP-1.STL",
+    "bytes": 19984,
+    "used": true
+  },
+  {
+    "path": "Hema_V4/HEM_Carenagem_Modulo_2_V1.SLDPRT",
+    "bytes": 94627,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Carenagem_Modulo_2_V2.SLDPRT",
+    "bytes": 133988,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/AllInOne.fgd",
+    "bytes": 1154248,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/AllInOne.fgs",
+    "bytes": 8244,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Assembly_Sequence.txt",
+    "bytes": 281,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/HEM_Carenagem_Módulo_1_V3-0.16-7.5.STL",
+    "bytes": 1025484,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Partes numeradas/AllInOne.fgd",
+    "bytes": 1341808,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Partes numeradas/AllInOne.fgs",
+    "bytes": 8244,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Partes numeradas/Assembly_Sequence.txt",
+    "bytes": 281,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Partes numeradas/Project.fid",
+    "bytes": 7,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_01.stl",
+    "bytes": 114484,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_02.stl",
+    "bytes": 35884,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_03.stl",
+    "bytes": 145884,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_04.stl",
+    "bytes": 136184,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_05.stl",
+    "bytes": 23784,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_06.stl",
+    "bytes": 28284,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_07.stl",
+    "bytes": 17384,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_08.stl",
+    "bytes": 141484,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_09.stl",
+    "bytes": 78884,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_10.stl",
+    "bytes": 11884,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_11.stl",
+    "bytes": 1884,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_12.stl",
+    "bytes": 418084,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_13.stl",
+    "bytes": 35384,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_14.stl",
+    "bytes": 148484,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_15.stl",
+    "bytes": 127284,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_16.stl",
+    "bytes": 127384,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Part_17.stl",
+    "bytes": 10584,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/Project.fid",
+    "bytes": 7,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Cortes_da_Carenagem_para_Impressão/SrcMesh.stl",
+    "bytes": 1025484,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Montagem_da_Estrutura_V2.SLDASM",
+    "bytes": 3404269,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Montagem_da_Estrutura_V3.SLDASM",
+    "bytes": 3295751,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Montagem_SRG_+_RG_V2.SLDASM",
+    "bytes": 652918,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Montagem_V1.SLDASM",
+    "bytes": 442047,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Montagem_V2.SLDASM",
+    "bytes": 2590837,
+    "used": false
+  },
+  {
+    "path": "Hema_V4/HEM_Montagem_V3.SLDASM",
+    "bytes": 14017110,
+    "used": false
+  }
+]
