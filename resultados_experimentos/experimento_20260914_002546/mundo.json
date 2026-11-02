@@ -1,0 +1,7 @@
+{
+  "world_file": "./src/d_hospital_gazebo2/worlds/pea.world",
+  "physics_engine": "ode",
+  "max_step_size": "0.001",
+  "real_time_update_rate": "1000",
+  "real_time_factor_configurado": "1.0"
+}

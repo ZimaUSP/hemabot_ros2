@@ -17,5 +17,19 @@
             <publish_odom_tf>true</publish_odom_tf>
             <publish_wheel_tf>false</publish_wheel_tf>
         </plugin>
+
+        <!-- Ground truth: pose exata do robo no mundo, sem ruido, direto do motor de fisica.
+             Util para comparar com /odom (que tem drift) e calcular erro (ATE/RPE). -->
+        <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+            <ros>
+                <namespace>/</namespace>
+                <remapping>odom:=ground_truth/state</remapping>
+            </ros>
+            <body_name>base_footprint</body_name>
+            <frame_name>world</frame_name>
+            <update_rate>50.0</update_rate>
+            <gaussian_noise>0.0</gaussian_noise>
+        </plugin>
     </gazebo>
 </robot>
+

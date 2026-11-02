@@ -1,0 +1,7 @@
+{
+  "posicao_inicial": {"x": "-9.999291451875301", "y": "0.0004445497554869891", "z": "0.0025970178896092475"},
+  "orientacao_inicial_quaternion": {"x": "0.00012178069604755059", "y": "-0.023594184704248653", "z": "N/A", "w": "N/A"},
+  "orientacao_inicial_yaw_rad": "N/A",
+  "velocidade_linear_inicial_x": "0.0005724682319294955",
+  "velocidade_angular_inicial_z": "5.2161752075466425e-06"
+}

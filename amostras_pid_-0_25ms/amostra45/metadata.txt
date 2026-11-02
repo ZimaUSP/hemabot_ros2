@@ -1,0 +1,15 @@
+velocidade_ms=-0.25
+velocidade_nome=-0_25
+distancia_alvo_m=5.0
+tempo_estimado_s=20.0000
+tempo_real_execucao_s=24.655943521
+timeout_seguranca_s=45.0000
+controlador=lateral_pid_controller
+kp=0.8
+ki=0.0
+kd=0.15
+kh=0.6
+ekf_ativo=0
+ekf_detectado=0
+amostra=45
+timestamp=2026-09-16T14:09:50-03:00

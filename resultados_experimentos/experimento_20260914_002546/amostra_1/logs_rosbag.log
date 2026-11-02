@@ -1,0 +1,15 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1789356415.451006704] [rosbag2_recorder]: Press SPACE for pausing/resuming
+[INFO] [1789356415.465987606] [rosbag2_storage]: Opened database './resultados_experimentos/experimento_20260914_002546/amostra_1/rosbag/rosbag_0.db3' for READ_WRITE.
+[INFO] [1789356415.473816979] [rosbag2_recorder]: Listening for topics...
+[INFO] [1789356415.473900462] [rosbag2_recorder]: Event publisher thread: Starting
+[INFO] [1789356415.515016024] [rosbag2_recorder]: Subscribed to topic '/tf'
+[INFO] [1789356415.534997474] [rosbag2_recorder]: Subscribed to topic '/scan'
+[INFO] [1789356415.546070358] [rosbag2_recorder]: Subscribed to topic '/joint_states'
+[INFO] [1789356415.546883109] [rosbag2_recorder]: Recording...
+[INFO] [1789356415.567137195] [rosbag2_recorder]: Subscribed to topic '/odom'
+[INFO] [1789356415.690908115] [rosbag2_recorder]: Subscribed to topic '/tf_static'
+[INFO] [1789356422.701142855] [rosbag2_recorder]: Subscribed to topic '/cmd_vel'
+[INFO] [1789356422.701396990] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+[INFO] [1789356469.194246355] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1789356469.207929754] [rosbag2_recorder]: Event publisher thread: Exiting
+[INFO] [1789356469.208938677] [rosbag2_recorder]: Recording stopped

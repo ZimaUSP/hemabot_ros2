@@ -1,0 +1,10 @@
+amostra=17
+classificacao=concluida
+tempo_real_execucao_s=20.276103288
+execucao_incompleta=0
+mensagens_odom=4681
+hz_odom=95.580
+hz_imu=N/A
+hz_scan=4.795
+hz_joint_states=10.001
+timestamp=2026-09-14T01:06:15-03:00

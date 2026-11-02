@@ -1,0 +1,13 @@
+lateral_pid_controller:
+  ros__parameters:
+    linear_velocity: 0.25       # m/s — mesma magnitude usada em amostras_-0_25ms (ajuste o sinal se necessário)
+    kp: 0.8                     # ganho proporcional sobre e_y
+    ki: 0.0                     # comece com 0; ligue só se sobrar erro residual constante
+    kd: 0.35                    # amortece oscilação vinda do termo proporcional
+    kh: 1.0                     # amortecimento por erro de rumo (yaw)
+    max_angular_z: 0.5          # rad/s
+    integral_limit: 0.5         # anti-windup
+    control_frequency: 30.0     # Hz — mesmo update_rate do controller_manager
+    goal_distance: 5.0          # m — mesma distância alvo do experimento; 0.0 = desativa parada automática
+    odom_topic: /odom
+    cmd_vel_topic: /cmd_vel

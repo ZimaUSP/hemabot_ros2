@@ -2,23 +2,29 @@ rosbag2_bagfile_information:
   version: 5
   storage_identifier: sqlite3
   duration:
-    nanoseconds: 25059303483
+    nanoseconds: 23947144257
   starting_time:
-    nanoseconds_since_epoch: 1784075595842811107
-  message_count: 2862
+    nanoseconds_since_epoch: 1789572570104888174
+  message_count: 4010
   topics_with_message_count:
     - topic_metadata:
         name: /cmd_vel
         type: geometry_msgs/msg/Twist
         serialization_format: cdr
         offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 1\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
-      message_count: 541
+      message_count: 551
+    - topic_metadata:
+        name: /ground_truth/state
+        type: nav_msgs/msg/Odometry
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 1153
     - topic_metadata:
         name: /odom
         type: nav_msgs/msg/Odometry
         serialization_format: cdr
         offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
-      message_count: 2321
+      message_count: 2306
   compression_format: ""
   compression_mode: ""
   relative_file_paths:
@@ -26,7 +32,7 @@ rosbag2_bagfile_information:
   files:
     - path: amostra29_0.db3
       starting_time:
-        nanoseconds_since_epoch: 1784075595842811107
+        nanoseconds_since_epoch: 1789572570104888174
       duration:
-        nanoseconds: 25059303483
-      message_count: 2862
+        nanoseconds: 23947144257
+      message_count: 4010

@@ -18,12 +18,18 @@ def generate_launch_description():
     pkg_gazebo_ros = FindPackageShare(package="gazebo_ros").find("gazebo_ros")
     gazebo_params_file = os.path.join(pkg_path, "config/gazebo_params.yaml")
 
+    pkg_navigation = FindPackageShare(package="d_hospital_navigation2").find(
+        "d_hospital_navigation2"
+    )
+    ekf_params_file = os.path.join(pkg_navigation, "config/ekf.yaml")
+
     world_filename = "pea.world"
     world_path = os.path.join(pkg_path, "worlds", world_filename)
 
     use_sim_time = LaunchConfiguration("use_sim_time")
     use_ros2_control = LaunchConfiguration("use_ros2_control")
     world = LaunchConfiguration("world")
+    use_robot_localization = LaunchConfiguration("use_robot_localization")
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         name="use_sim_time",
@@ -41,6 +47,12 @@ def generate_launch_description():
         name="world",
         default_value=world_path,
         description="src/d_hospital_gazebo2/worlds/turtlebot3_world.world",
+    )
+
+    declare_use_robot_localization_cmd = DeclareLaunchArgument(
+        name="use_robot_localization",
+        default_value="True",
+        description="Use robot_localization package if true",
     )
 
 
@@ -78,6 +90,28 @@ def generate_launch_description():
         arguments=["joint_broadcaster", "--controller-manager", "/controller_manager"],
     )
 
+    # Spawn diff_controller — faltava neste launch file. Sem ele, nada
+    # escuta o /cmd_vel publicado pelo lateral_pid_controller e o robô
+    # fica parado mesmo com o Gazebo rodando normalmente.
+    start_diff_controller_cmd = Node(
+        condition=IfCondition(use_ros2_control),
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_controller", "--controller-manager", "/controller_manager"],
+    )
+
+    # Start robot localization using an Extended Kalman Filter
+    # (espelha hospital.py: remapeia /odometry/filtered -> /odom, então
+    # /odom só tem publisher quando use_robot_localization=True — ver
+    # aviso equivalente no experimento_pid.sh)
+    start_robot_localization_cmd = Node(
+        condition=IfCondition(use_robot_localization),
+        package="robot_localization",
+        executable="ekf_node",
+        parameters=[ekf_params_file],
+        remappings=[("/odometry/filtered", "/odom")],
+    )
+
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -86,11 +120,13 @@ def generate_launch_description():
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_use_ros2_control_cmd)
     ld.add_action(declare_world_cmd)
+    ld.add_action(declare_use_robot_localization_cmd)
 
     # Add any actions
     ld.add_action(start_robot_state_publisher_cmd)
     ld.add_action(start_gazebo_cmd)
     ld.add_action(start_spawner_cmd)
+    ld.add_action(start_diff_controller_cmd)
     ld.add_action(start_joint_broadcaster_cmd)
+    ld.add_action(start_robot_localization_cmd)
     return ld
-

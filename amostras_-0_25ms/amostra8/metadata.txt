@@ -3,4 +3,4 @@ velocidade_nome=-0_25
 distancia_alvo_m=5.0
 tempo_movimento_s=20.0000
 amostra=8
-timestamp=2026-07-14T21:22:24-03:00
+timestamp=2026-09-16T12:18:31-03:00

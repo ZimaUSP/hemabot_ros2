@@ -31,7 +31,7 @@ do
 
         # Inicia gravação do bag dentro da pasta da velocidade
         # Grava também /cmd_vel para registar a velocidade em cada amostra
-        ros2 bag record -o "${DIR_AMOSTRAS}/amostra${i}" /odom /cmd_vel &
+        ros2 bag record -o "${DIR_AMOSTRAS}/amostra${i}" /odom /cmd_vel /ground_truth/state &
 
         BAG_PID=$!
 

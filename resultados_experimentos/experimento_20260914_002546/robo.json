@@ -1,0 +1,8 @@
+{
+  "urdf_file": "./src/d_hospital_description/urdf/robot.urdf",
+  "controllers_yaml": "./src/d_hospital_description/config/controllers.yaml",
+  "aviso_ambiguidade_controllers_yaml": "ATENÇÃO: 2 arquivos controllers.yaml encontrados no workspace com possíveis valores DIFERENTES (./src/d_hospital_description/config/controllers.yaml;./src/minihema_launch/config/controllers.yaml;). Usado: ./src/d_hospital_description/config/controllers.yaml. Confirme manualmente qual é o efetivamente carregado pelo seu launch antes de citar wheel_radius/wheel_separation em relatório científico.",
+  "wheel_radius_m": "0.0325",
+  "wheel_separation_m": "0.165",
+  "massa_total_kg_aprox": "1.4700"
+}
