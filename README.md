@@ -1,4 +1,35 @@
-# 🏥 Robô de Entregas Hospitalar
+<div align="center">
+
+<h1 id="topo">🏥 Robô de Entregas Hospitalar</h1>
+
+<p><strong>Robótica hospitalar com ROS 2, sensores, mapeamento e navegação.</strong></p>
+
+<p>
+  <a href="https://docs.ros.org/en/humble/">
+    <img src="https://img.shields.io/badge/ROS%202-Humble-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS 2 Humble">
+  </a>
+  <img src="https://img.shields.io/badge/Sistema-Windows%20%7C%20Linux-0078D4?style=flat-square" alt="Windows ou Linux">
+  <img src="https://img.shields.io/badge/Aplicativo-em%20desenvolvimento-F2A900?style=flat-square" alt="Aplicativo em desenvolvimento">
+  <a href="https://github.com/ZimaUSP/hemabot_ros2/stargazers">
+    <img src="https://img.shields.io/github/stars/ZimaUSP/hemabot_ros2?style=flat-square" alt="GitHub Stars">
+  </a>
+  <a href="https://github.com/ZimaUSP/hemabot_ros2/issues">
+    <img src="https://img.shields.io/github/issues/ZimaUSP/hemabot_ros2?style=flat-square" alt="GitHub Issues">
+  </a>
+</p>
+
+<p>
+  <a href="#-contexto-do-projeto">Contexto</a> •
+  <a href="#-requisitos">Requisitos</a> •
+  <a href="#-instalação">Instalação</a> •
+  <a href="#-como-executar">Execução</a> •
+  <a href="#-estrutura-do-projeto">Estrutura</a> •
+  <a href="#-contribuindo">Contribuição</a>
+</p>
+
+</div>
+
+---
 
 ## 📖 Contexto do Projeto
 
@@ -19,8 +50,10 @@ O sistema lê os comandos de teclado e envia instruções para o robô, que se m
 
 A comunicação pode ocorrer de duas formas:
 
-- **Serial (USB)** – conexão direta com o microcontrolador.
-- **Wi-Fi (Socket TCP/UDP)** – controle remoto via rede.
+| Canal | Conexão | Finalidade |
+| --- | --- | --- |
+| **Serial** | USB | Conexão direta com o microcontrolador |
+| **Wi-Fi** | Socket TCP/UDP | Controle remoto via rede |
 
 Ambas as formas de comunicação, incluindo os comandos “F”, “B”, “L”, “R” e “S”, fazem parte do projeto.
 
@@ -32,8 +65,10 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 
 ### 💻 No computador:
 
-- **Sistema operacional:** Windows ou Linux.
-- **ROS 2:** Humble.
+| Item | Requisito |
+| --- | --- |
+| Sistema operacional | Windows ou Linux |
+| ROS 2 | Humble |
 
 <!-- TODO: confirmar as dependências adicionais necessárias no computador. -->
 
@@ -63,8 +98,8 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 
 3. Conecte o robô ao computador via **USB** ou conecte ambos à **mesma rede Wi-Fi**. Para acesso remoto pela rede Wi-Fi, use SSH:
 
-   <!-- ATENÇÃO: O comando SSH aplica-se à conexão pela rede Wi-Fi, não à conexão USB. -->
-   <!-- SEGURANÇA: Confirme se o usuário e o IP ainda são válidos. Não publique senhas, chaves privadas ou outras credenciais no repositório. -->
+   > [!IMPORTANT]
+   > O comando SSH aplica-se somente à conexão pela rede Wi-Fi, não à conexão USB.
 
    ```bash
    ssh -X hemabot@192.168.1.155
@@ -72,9 +107,15 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 
 4. Digite a senha solicitada.
 
-**Observação:** o PC deve estar conectado à rede Zima 5G.
+> [!CAUTION]
+> Não publique senhas, chaves privadas ou outras credenciais no repositório.
+
+> [!NOTE]
+> O PC deve estar conectado à rede Zima 5G.
 
 <!-- TODO: confirmar se “Zima 5G”, o usuário hemabot e o IP 192.168.1.155 são requisitos atuais do ambiente. -->
+
+---
 
 ## ▶️ Como Executar
 
@@ -84,9 +125,6 @@ Caso tenha alterado o código, execute o comando `colcon build` na raiz do works
 
 ```bash
 colcon build
-```
-
-```bash
 source install/setup.bash
 ```
 
@@ -96,9 +134,10 @@ Por fim, insira o seguinte comando:
 ros2 launch minihema_launch minihema_launch.py
 ```
 
-A partir daqui, todos os dados recebidos via sensores passam a ser compartilhados.
+> [!NOTE]
+> Após o launch, os dados dos sensores ativos passam a ser compartilhados pelos nós ROS 2. A câmera não está em uso no fluxo atual.
 
-A câmera não está em uso no fluxo atual.
+---
 
 ## ⌨️ Comandos via Teclado
 
@@ -114,7 +153,8 @@ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: v}, angular: {z: w
 
 Inserindo valores numéricos em `v` e `w`, a movimentação será realizada.
 
-<!-- NOTA: No fluxo ROS 2, /cmd_vel é uma entrada do twist_mux, que encaminha comandos ao diff_controller. Os comandos “F”, “B”, “L”, “R” e “S” pertencem às formas de comunicação Serial/USB e Wi-Fi/Socket. -->
+> [!NOTE]
+> No fluxo ROS 2, `/cmd_vel` é uma entrada do `twist_mux`, que encaminha comandos ao `diff_controller`. Os comandos “F”, “B”, “L”, “R” e “S” pertencem às formas de comunicação Serial/USB e Wi-Fi/Socket.
 
 ### Usando o pacote teleop_twist_keyboard
 
@@ -126,7 +166,11 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 No terminal, serão mostradas todas as teclas de movimentação:
 
-<img width="328" height="289" alt="image" src="https://github.com/user-attachments/assets/0c0c217f-d6a1-4c0f-b5a9-ef426f77b278" />
+<p align="center">
+  <img width="328" height="289" alt="Teclas de movimentação do teleop_twist_keyboard" src="https://github.com/user-attachments/assets/0c0c217f-d6a1-4c0f-b5a9-ef426f77b278" />
+</p>
+
+---
 
 ## 🛑 Desligando com Segurança
 
@@ -138,6 +182,9 @@ No terminal, serão mostradas todas as teclas de movimentação:
 ## 🧱 Estrutura do Projeto
 
 O repositório está organizado como um workspace ROS 2. A estrutura abaixo apresenta seus principais arquivos, pacotes e diretórios:
+
+<details>
+<summary><strong>📂 Visualizar a árvore do workspace</strong></summary>
 
 ```text
 hemabot_ros2/
@@ -207,6 +254,8 @@ hemabot_ros2/
         └── package.xml
 ```
 
+</details>
+
 ---
 
 ## ⚠️ Possíveis Erros e Soluções
@@ -221,6 +270,9 @@ hemabot_ros2/
 
 ## 🤝 Contribuindo
 
+> [!TIP]
+> Correções, melhorias na documentação e novas funcionalidades são bem-vindas.
+
 1. Faça um fork do projeto.
 2. Crie uma nova branch:
 
@@ -234,11 +286,19 @@ hemabot_ros2/
 
 ## 🎥 Exemplo em Ação
 
-<!-- Espaço reservado para adicionar futuramente a demonstração do robô. -->
+<div align="center">
 
-[A PREENCHER]
+<p><strong>🎬 Demonstração em preparação</strong></p>
+
+<sub>Este espaço está reservado para adicionar futuramente uma demonstração do robô.</sub>
+
+</div>
+
+---
 
 ## 📝 Pendências de Revisão
 
-- Confirmar as dependências adicionais necessárias no computador.
-- Validar o usuário `hemabot`, o IP `192.168.1.155` e a exigência da rede Zima 5G.
+- [ ] Confirmar as dependências adicionais necessárias no computador.
+- [ ] Validar o usuário `hemabot`, o IP `192.168.1.155` e a exigência da rede Zima 5G.
+
+<p align="right"><a href="#topo">⬆️ Voltar ao início</a></p>
