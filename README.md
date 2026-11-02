@@ -59,6 +59,25 @@ Ambas as formas de comunicação, incluindo os comandos “F”, “B”, “L�
 
 O código foi estruturado de forma modular, permitindo adaptação para plataformas como **Raspberry Pi** e **Jetson Nano**.
 
+<!-- Substitua os espaços abaixo pelas imagens correspondentes quando estiverem disponíveis. -->
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <strong>🖼️ Design geral</strong><br><br>
+      <sub>Espaço reservado para uma imagem de apresentação do MiniHema.</sub>
+    </td>
+    <td align="center" width="33%">
+      <strong>📐 Vista lateral</strong><br><br>
+      <sub>Espaço reservado para uma imagem lateral ou desenho técnico do robô.</sub>
+    </td>
+    <td align="center" width="33%">
+      <strong>⚙️ Componentes internos</strong><br><br>
+      <sub>Espaço reservado para uma imagem dos sensores e componentes internos.</sub>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## ⚙️ Requisitos
@@ -107,8 +126,7 @@ O código foi estruturado de forma modular, permitindo adaptação para platafor
 
 4. Digite a senha solicitada.
 
-> [!CAUTION]
-> Não publique senhas, chaves privadas ou outras credenciais no repositório.
+**Segurança:** não publique senhas, chaves privadas ou outras credenciais no repositório.
 
 > [!NOTE]
 > O PC deve estar conectado à rede Zima 5G.
@@ -270,8 +288,7 @@ hemabot_ros2/
 
 ## 🤝 Contribuindo
 
-> [!TIP]
-> Correções, melhorias na documentação e novas funcionalidades são bem-vindas.
+Correções, melhorias na documentação e novas funcionalidades são bem-vindas.
 
 1. Faça um fork do projeto.
 2. Crie uma nova branch:
