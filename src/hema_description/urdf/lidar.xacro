@@ -2,8 +2,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!--
     LiDAR 2D compacto assumido dentro do acabamento semicircular já presente no CAD.
-    O +X de lidar_link aponta para o centro da abertura traseira; portanto o sensor
-    cobre somente esse semiplano (180 graus), de -pi/2 a +pi/2.
+    O +X de lidar_link aponta para o centro da abertura frontal; portanto o sensor
+    cobre somente o semiplano dianteiro (180 graus), de -pi/2 a +pi/2.
   -->
   <xacro:macro name="hema_lidar" params="backend">
     <link name="lidar_link">

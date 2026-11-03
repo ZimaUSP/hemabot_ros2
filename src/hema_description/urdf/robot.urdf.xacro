@@ -27,7 +27,7 @@
   <xacro:arg name="caster_mu" default="0.5"/>
   <xacro:arg name="contact_kp" default="100000.0"/>
   <xacro:arg name="contact_kd" default="100.0"/>
-  <!-- LiDAR no centro do acabamento traseiro de 180 graus existente no CAD. -->
+  <!-- LiDAR no centro da abertura frontal de 180 graus existente no CAD. -->
   <xacro:arg name="lidar_xyz" default="-0.1508 0 0.106"/>
   <xacro:arg name="lidar_yaw" default="${pi}"/>
   <xacro:arg name="lidar_mass" default="0.20"/>

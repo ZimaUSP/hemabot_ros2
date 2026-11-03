@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <!-- SI; +X frente (sensores ultrassonicos), +Y esquerda, +Z cima.
+  <!-- SI; no referencial CAD preservado, -X aponta para a frente fisica
+       (abertura do LiDAR), -Y para a esquerda fisica e +Z para cima.
        Malhas exportadas em metros e ja expressas no referencial de cada elo.
        Massa/tensor padrao integram volumes individuais com densidade presumida.
        primitive conserva massa/CoM, substituindo apenas o tensor por uma forma simples. -->

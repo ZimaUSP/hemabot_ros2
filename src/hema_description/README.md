@@ -56,7 +56,7 @@ O modelo usa `/wheel_controller/commands`, não `/cmd_vel`. O launch também ace
 
 ## LiDAR interno de 180 graus
 
-O LiDAR fica no centro do acabamento semicircular traseiro existente no CAD, em `(-0.1508, 0, 0.106) m` no `base_link`, orientado para trás. A varredura cobre de −90° a +90° no referencial `lidar_link`, com 361 amostras, 10 Hz e alcance de 0,15 a 12 m.
+O LiDAR fica no centro da abertura semicircular frontal existente no CAD, em `(-0.1508, 0, 0.106) m` no `base_link`, orientado para a frente física do robô. No referencial CAD preservado pelo modelo, essa frente corresponde a `−X` de `base_link`; por isso `lidar_link` usa yaw `π`. A varredura cobre de −90° a +90° no referencial `lidar_link`, com 361 amostras, 10 Hz e alcance de 0,15 a 12 m.
 
 ```bash
 ros2 topic echo /scan --once

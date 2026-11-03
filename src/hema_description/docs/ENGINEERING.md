@@ -32,7 +32,9 @@ R = [ 0  0 -1
       0  1  0 ]
 ```
 
-O sistema resultante tem +X para a frente, identificada pelo lado dos sensores ultrassônicos; +Y para a esquerda; +Z para cima. `base_link` fica no ponto médio do eixo das rodas motrizes. Não existe junta fixa com o mundo: a base participa da dinâmica livre do simulador.
+O modelo conserva o referencial derivado do CAD: a frente física, identificada pela abertura do LiDAR, fica em `−X` de `base_link`; a esquerda física fica em `−Y`; e `+Z` aponta para cima. `base_link` fica no ponto médio do eixo das rodas motrizes. Não existe junta fixa com o mundo: a base participa da dinâmica livre do simulador.
+
+Essa convenção preserva as malhas e a cinemática já validadas, mas difere da REP-103, que espera `+X` para a frente. Ao integrar odometria, Nav2 ou outros componentes que assumem REP-103, deve-se introduzir um quadro de navegação girado em `π` em torno de `Z` ou reorientar `base_link` de forma coordenada. Os nomes `caster_front_*` e `caster_rear_*` foram mantidos por compatibilidade com a primeira exportação; no robô físico, os conjuntos em `x<0` são os dianteiros.
 
 Em `config/cad_parameters.yaml`, `origin` é a origem do elo expressa em `base_link` na pose CAD original. `com` é o centro de massa em coordenadas locais do próprio elo. `joint_origin`, quando presente, é a translação em relação ao elo pai. Os referenciais locais mantêm a orientação do sistema ROS; as malhas já receberam a rotação `R` e a translação para seu elo. A origem visual é, portanto, zero.
 
@@ -44,8 +46,8 @@ Em `config/cad_parameters.yaml`, `origin` é a origem do elo expressa em `base_l
 | Largura de contato da banda da roda | `0.0359817810059` |
 | Distância entre planos médios das rodas | `0.409511444092` |
 | Raio/largura das rodas dos rodízios | `0.025 / 0.0228` |
-| Pivôs dianteiros dos rodízios, pose CAD | `x=0.1839000244`, `y=+0.1551500397/-0.1548499908`, `z=-0.018` |
-| Pivôs traseiros dos rodízios, pose CAD | `x=-0.1835999756`, mesmos `y` e `z` |
+| Pivôs dianteiros físicos dos rodízios, pose CAD | `x=-0.1835999756`, `y=+0.1551500397/-0.1548499908`, `z=-0.018` |
+| Pivôs traseiros físicos dos rodízios, pose CAD | `x=0.1839000244`, mesmos `y` e `z` |
 | Eixo da roda em relação ao garfo do rodízio | aproximadamente `(0.01985998535, 0, -0.03074719238)` |
 | Corrediça intermediária esquerda/direita em `base_link` | `(0.01539996338, +0.1381951447/-0.1368049469, 0.1913499146)` |
 | Corrediça interna esquerda/direita em `base_link` | `(0.01539996338, +0.1374999847/-0.1375000153, 0.1945993652)` |
@@ -87,9 +89,9 @@ O ZIP contém arquivos nativos com nomes de Jetson Nano, Raspberry e RPLidar, ma
 
 ## LiDAR interno e abertura de 180 graus
 
-O acabamento `HEM_Acabamento_do_lidar-1.STL` ocupa `x=[-0.2881,-0.0135] m`, `y=[-0.2633,+0.2633] m` e `z=[0.0830,0.1290] m`, formando a referência geométrica semicircular na metade traseira. O LiDAR simulado foi colocado no centro desse acabamento, em `(-0.1508,0,0.106) m`, com yaw `π`: o +X de `lidar_link` aponta para trás no `base_link`.
+O acabamento `HEM_Acabamento_do_lidar-1.STL` ocupa `x=[-0.2881,-0.0135] m`, `y=[-0.2633,+0.2633] m` e `z=[0.0830,0.1290] m`, formando a abertura semicircular frontal. O LiDAR simulado foi colocado no centro desse acabamento, em `(-0.1508,0,0.106) m`, com yaw `π`: o `+X` de `lidar_link` coincide com a frente física, isto é, com `−X` de `base_link`.
 
-A faixa angular é `[-π/2,+π/2]` no quadro do sensor, totalizando exatamente 180° voltados para a abertura traseira. A configuração padrão publica `sensor_msgs/msg/LaserScan` em `/scan`, com 361 amostras, 10 Hz, alcance de 0,15 a 12 m, resolução de 0,01 m e ruído gaussiano de 0,01 m. Esses números são parâmetros de simulação e não especificações extraídas do `HEM_RPlidar.SLDASM`.
+A faixa angular é `[-π/2,+π/2]` no quadro do sensor, totalizando exatamente 180° voltados para a abertura frontal. A configuração padrão publica `sensor_msgs/msg/LaserScan` em `/scan`, com 361 amostras, 10 Hz, alcance de 0,15 a 12 m, resolução de 0,01 m e ruído gaussiano de 0,01 m. Esses números são parâmetros de simulação e não especificações extraídas do `HEM_RPlidar.SLDASM`.
 
 O antigo envelope único de colisão da base atravessava o vão do sensor. Ele foi dividido em uma caixa inferior terminando em `z=0.075 m` e uma superior começando em `z=0.135 m`. O vão de 60 mm permite que os feixes horizontais saiam da carenagem sem detectar o próprio proxy de colisão. A aparência continua usando as malhas CAD completas. O elo do LiDAR não tem colisão própria porque o raio nasce no seu centro; a carenagem fornece a proteção externa.
 
