@@ -24,7 +24,7 @@ EXPECTED = WHEELS + [
 def run(args):
     import rclpy
     from rclpy.qos import qos_profile_sensor_data
-    from sensor_msgs.msg import JointState
+    from sensor_msgs.msg import JointState, LaserScan
     from rosgraph_msgs.msg import Clock
     from std_msgs.msg import Float64MultiArray
     from controller_manager_msgs.srv import ListControllers
@@ -42,6 +42,7 @@ def run(args):
     bad_states = set()
     samples = []
     clock_values = []
+    scans = []
     passive_unavailable_effort = set()
     state_messages = 0
     node = None
@@ -69,6 +70,16 @@ def run(args):
 
     def on_clock(msg):
         clock_values.append(msg.clock.sec + msg.clock.nanosec * 1e-9)
+
+    def on_scan(msg):
+        scans.append({
+            'frame_id': msg.header.frame_id,
+            'angle_min': float(msg.angle_min),
+            'angle_max': float(msg.angle_max),
+            'range_min': float(msg.range_min),
+            'range_max': float(msg.range_max),
+            'ranges': [float(value) for value in msg.ranges],
+        })
 
     def pump(seconds, predicate=None):
         until = min(time.monotonic() + seconds, deadline)
@@ -100,6 +111,7 @@ def run(args):
         node = rclpy.create_node('hema_runtime_smoke')
         node.create_subscription(JointState, '/joint_states', on_states, qos_profile_sensor_data)
         node.create_subscription(Clock, '/clock', on_clock, qos_profile_sensor_data)
+        node.create_subscription(LaserScan, '/scan', on_scan, qos_profile_sensor_data)
         publisher = node.create_publisher(Float64MultiArray, '/wheel_controller/commands', 10)
         manager = node.create_client(ListControllers, '/controller_manager/list_controllers')
         ready = pump(min(15.0, args.timeout - 8.0), manager.service_is_ready)
@@ -123,11 +135,36 @@ def run(args):
         report['checks']['velocity_controller_type'] = wheel_type == 'velocity_controllers/JointGroupVelocityController'
         if not controllers_ready or not report['checks']['velocity_controller_type']:
             raise RuntimeError('Expected active joint_state_broadcaster and velocity wheel_controller')
-        streams_ready = pump(3.0, lambda: set(EXPECTED) <= received_names and
-                             len(clock_values) >= 2 and publisher.get_subscription_count() > 0)
+        streams_ready = pump(4.0, lambda: set(EXPECTED) <= received_names and
+                             len(clock_values) >= 2 and len(scans) >= 2 and
+                             publisher.get_subscription_count() > 0)
         report['checks']['streams_and_command_subscriber'] = streams_ready
         if not streams_ready:
-            raise RuntimeError('Missing joint states, simulation clock, or command subscriber')
+            raise RuntimeError('Missing joint states, /scan, simulation clock, or command subscriber')
+        scan = scans[-1]
+        scan_ranges = scan['ranges']
+        report['lidar'] = {
+            'frame_id': scan['frame_id'],
+            'samples': len(scan_ranges),
+            'angle_min': scan['angle_min'],
+            'angle_max': scan['angle_max'],
+            'field_of_view_degrees': math.degrees(scan['angle_max'] - scan['angle_min']),
+            'range_min': scan['range_min'],
+            'range_max': scan['range_max'],
+            'messages': len(scans),
+        }
+        report['checks']['lidar_frame'] = scan['frame_id'] == 'lidar_link'
+        report['checks']['lidar_samples'] = len(scan_ranges) == 361
+        report['checks']['lidar_180_degrees'] = (
+            abs(scan['angle_min'] + math.pi / 2) < 1e-5 and
+            abs(scan['angle_max'] - math.pi / 2) < 1e-5)
+        report['checks']['lidar_ranges_valid'] = bool(scan_ranges) and all(
+            not math.isnan(value) and
+            (math.isinf(value) or scan['range_min'] <= value <= scan['range_max'])
+            for value in scan_ranges)
+        report['checks']['lidar_not_blocked_by_body'] = not any(
+            math.isfinite(value) and value <= scan['range_min'] + 0.02
+            for value in scan_ranges)
         if deadline - time.monotonic() < 4.5:
             raise RuntimeError('Insufficient remaining timeout for movement and stop verification')
 
@@ -214,6 +251,7 @@ def run(args):
             'passive_effort_unavailable': sorted(passive_unavailable_effort),
             'clock_start': clock_values[0] if clock_values else None,
             'clock_end': clock_values[-1] if clock_values else None,
+            'scan_messages': len(scans),
         })
         if report['errors']:
             report['passed'] = False

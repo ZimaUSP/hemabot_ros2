@@ -1,9 +1,9 @@
 {
-  "xacro_version": "2.1.1",
+  "xacro_version": "see installed distribution",
   "variants": 36,
-  "mass_kg": 22.764686164410268,
-  "links": 16,
-  "joints": 15,
+  "mass_kg": 22.964686164410267,
+  "links": 17,
+  "joints": 16,
   "checks": [
     {
       "backend": "none",
@@ -266,6 +266,7 @@
     "cad_frames",
     "coplanar_contacts",
     "passive_and_actuated_interfaces",
+    "lidar_180_degrees",
     "mass_scaling"
   ]
 }

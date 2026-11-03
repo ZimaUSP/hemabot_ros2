@@ -30,6 +30,27 @@
     <collision><origin xyz="0 0 0" rpy="${pi/2} 0 0"/><geometry><cylinder radius="${radius}" length="${length}"/></geometry></collision>
   </xacro:macro>
 
+  <!-- Divide o envelope da base acima e abaixo da abertura horizontal do LiDAR.
+       Isso evita que o sensor interno encontre o antigo envelope sólido da base. -->
+  <xacro:macro name="hema_base_collisions" params="cfg">
+    <xacro:property name="sx" value="${float(cfg['box_size'].split()[0])}"/>
+    <xacro:property name="sy" value="${float(cfg['box_size'].split()[1])}"/>
+    <xacro:property name="sz" value="${float(cfg['box_size'].split()[2])}"/>
+    <xacro:property name="cz" value="${float(cfg['box_center'].split()[2])}"/>
+    <xacro:property name="zlo" value="${cz - sz/2}"/>
+    <xacro:property name="zhi" value="${cz + sz/2}"/>
+    <xacro:property name="gap_lo" value="${float('$(arg lidar_opening_z_min)')}"/>
+    <xacro:property name="gap_hi" value="${float('$(arg lidar_opening_z_max)')}"/>
+    <collision name="base_lower_collision">
+      <origin xyz="${cfg['box_center'].split()[0]} ${cfg['box_center'].split()[1]} ${(zlo + gap_lo)/2}"/>
+      <geometry><box size="${sx} ${sy} ${gap_lo - zlo}"/></geometry>
+    </collision>
+    <collision name="base_upper_collision">
+      <origin xyz="${cfg['box_center'].split()[0]} ${cfg['box_center'].split()[1]} ${(gap_hi + zhi)/2}"/>
+      <geometry><box size="${sx} ${sy} ${zhi - gap_hi}"/></geometry>
+    </collision>
+  </xacro:macro>
+
   <xacro:macro name="hema_drive_wheel" params="side">
     <xacro:property name="name" value="${side + '_wheel_link'}"/>
     <xacro:property name="cfg" value="${cad['links'][name]}"/>
@@ -102,8 +123,8 @@
     <link name="base_link">
       <xacro:hema_inertia cfg="${cad['links']['base_link']}" factor="$(arg base_mass_scale)"/>
       <xacro:visuals_base_link/>
-      <!-- Envelope conservador unico: detalhes internos/cavidades nao sao colisao. -->
-      <xacro:hema_box_collision cfg="${cad['links']['base_link']}"/>
+      <!-- Envelopes conservadores separados pela abertura horizontal do LiDAR. -->
+      <xacro:hema_base_collisions cfg="${cad['links']['base_link']}"/>
     </link>
     <xacro:hema_drive_wheel side="left"/><xacro:hema_drive_wheel side="right"/>
     <xacro:hema_caster corner="front_left"/><xacro:hema_caster corner="front_right"/>

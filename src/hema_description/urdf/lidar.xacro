@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--
+    LiDAR 2D compacto assumido dentro do acabamento semicircular já presente no CAD.
+    O +X de lidar_link aponta para o centro da abertura traseira; portanto o sensor
+    cobre somente esse semiplano (180 graus), de -pi/2 a +pi/2.
+  -->
+  <xacro:macro name="hema_lidar" params="backend">
+    <link name="lidar_link">
+      <xacro:inertia_cylinder mass="${float('$(arg lidar_mass)') * mass_scale}" radius="$(arg lidar_radius)"
+        length="$(arg lidar_height)"/>
+      <visual name="lidar_body_visual">
+        <origin xyz="0 0 0"/>
+        <geometry>
+          <cylinder radius="$(arg lidar_radius)" length="$(arg lidar_height)"/>
+        </geometry>
+        <material name="hema_electronics"/>
+      </visual>
+      <visual name="lidar_window_visual">
+        <origin xyz="0 0 ${float('$(arg lidar_height)') * 0.51}"/>
+        <geometry>
+          <cylinder radius="${float('$(arg lidar_radius)') * 0.82}" length="0.002"/>
+        </geometry>
+        <material name="hema_red"/>
+      </visual>
+      <!-- Sem colisão própria: o feixe nasce no centro do sensor e a carenagem o protege. -->
+    </link>
+
+    <joint name="lidar_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="lidar_link"/>
+      <origin xyz="$(arg lidar_xyz)" rpy="0 0 $(arg lidar_yaw)"/>
+    </joint>
+
+    <xacro:if value="${backend != 'none'}">
+      <gazebo reference="lidar_joint">
+        <preserveFixedJoint>true</preserveFixedJoint>
+      </gazebo>
+    </xacro:if>
+
+    <!-- Gazebo Classic / ROS 2 Humble. -->
+    <xacro:if value="${backend == 'classic'}">
+      <gazebo reference="lidar_link">
+        <sensor name="hema_lidar" type="ray">
+          <always_on>true</always_on>
+          <visualize>$(arg lidar_visualize)</visualize>
+          <update_rate>$(arg lidar_update_rate)</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>$(arg lidar_samples)</samples>
+                <resolution>1</resolution>
+                <min_angle>${-pi/2}</min_angle>
+                <max_angle>${pi/2}</max_angle>
+              </horizontal>
+            </scan>
+            <range>
+              <min>$(arg lidar_min_range)</min>
+              <max>$(arg lidar_max_range)</max>
+              <resolution>$(arg lidar_range_resolution)</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>$(arg lidar_noise_stddev)</stddev>
+            </noise>
+          </ray>
+          <plugin name="hema_lidar_ros" filename="libgazebo_ros_ray_sensor.so">
+            <ros>
+              <remapping>~/out:=scan</remapping>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
+            <frame_name>lidar_link</frame_name>
+          </plugin>
+        </sensor>
+      </gazebo>
+    </xacro:if>
+
+    <!-- Gazebo Harmonic / ROS 2 Jazzy; /scan é ligado ao ROS pelo launch. -->
+    <xacro:if value="${backend == 'harmonic'}">
+      <gazebo reference="lidar_link">
+        <sensor name="hema_lidar" type="gpu_lidar">
+          <topic>scan</topic>
+          <always_on>true</always_on>
+          <visualize>$(arg lidar_visualize)</visualize>
+          <update_rate>$(arg lidar_update_rate)</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>$(arg lidar_samples)</samples>
+                <resolution>1</resolution>
+                <min_angle>${-pi/2}</min_angle>
+                <max_angle>${pi/2}</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <resolution>1</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>$(arg lidar_min_range)</min>
+              <max>$(arg lidar_max_range)</max>
+              <resolution>$(arg lidar_range_resolution)</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>$(arg lidar_noise_stddev)</stddev>
+            </noise>
+          </lidar>
+        </sensor>
+      </gazebo>
+    </xacro:if>
+  </xacro:macro>
+</robot>

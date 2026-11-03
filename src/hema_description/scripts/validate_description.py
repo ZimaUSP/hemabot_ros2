@@ -19,7 +19,7 @@ def vector(text):
 def check(root, backend, interface, articulated, model):
     links={e.get('name'):e for e in root.findall('link')}
     joints={e.get('name'):e for e in root.findall('joint')}
-    assert len(links)==16 and len(joints)==15
+    assert len(links)==17 and len(joints)==16
     children=[j.find('child').get('link') for j in joints.values()]
     assert len(set(children))==len(children)
     assert set(links)-set(children)=={'base_link'}
@@ -53,7 +53,9 @@ def check(root, backend, interface, articulated, model):
             g=list(geom)[0]
             dims=vector(g.get('size')) if g.tag=='box' else np.array([float(g.get('radius')),float(g.get('length'))])
             assert (dims>0).all()
-    assert abs(total-sum(v['mass'] for v in model['links'].values()))<1e-8
+    cad_mass=sum(v['mass'] for v in model['links'].values())
+    lidar_mass=float(links['lidar_link'].find('inertial/mass').get('value'))
+    assert abs(total-cad_mass-lidar_mass)<1e-8
     for j in joints.values():
         t=j.get('type')
         if t=='fixed':continue
@@ -75,13 +77,15 @@ def check(root, backend, interface, articulated, model):
     assert np.ptp(floor)<1e-8, floor
     assert poses['left_wheel_link'][1]>0>poses['right_wheel_link'][1]
     assert abs(poses['left_wheel_link'][1]-poses['right_wheel_link'][1]-model['wheel_separation'])<1e-9
+    assert np.allclose(poses['lidar_link'], [-0.1508, 0.0, 0.106], atol=1e-9)
     for name,cfg in model['links'].items():
         original=vector(cfg['origin'])
         if name.startswith('caster_'):original[2]+=model['caster_z_adjust']
         assert np.allclose(poses[name],original,atol=1e-9),name
     control=root.find('ros2_control')
+    lidar_sensors=root.findall("gazebo[@reference='lidar_link']/sensor")
     if backend=='none':
-        assert control is None and not root.findall('gazebo/plugin')
+        assert control is None and not root.findall('gazebo/plugin') and not lidar_sensors
     else:
         assert control is not None
         controlled=control.findall('joint')
@@ -93,6 +97,22 @@ def check(root, backend, interface, articulated, model):
         assert len(root.findall('gazebo/plugin'))==1
         plugin=root.find('gazebo/plugin').get('filename')
         assert ('libgz_ros2_control-system.so' if backend=='harmonic' else 'libgazebo_ros2_control.so')==plugin
+        assert len(lidar_sensors)==1
+        sensor=lidar_sensors[0]
+        assert sensor.get('type')==('gpu_lidar' if backend=='harmonic' else 'ray')
+        ray=sensor.find('lidar') if backend=='harmonic' else sensor.find('ray')
+        horizontal=ray.find('scan/horizontal')
+        assert int(horizontal.findtext('samples'))==361
+        assert np.isclose(float(horizontal.findtext('min_angle')), -np.pi/2)
+        assert np.isclose(float(horizontal.findtext('max_angle')), np.pi/2)
+        assert np.isclose(float(ray.findtext('range/min')), 0.15)
+        assert np.isclose(float(ray.findtext('range/max')), 12.0)
+        if backend=='classic':
+            assert sensor.find('plugin').get('filename')=='libgazebo_ros_ray_sensor.so'
+            assert sensor.findtext('plugin/output_type')=='sensor_msgs/LaserScan'
+            assert sensor.findtext('plugin/frame_name')=='lidar_link'
+        else:
+            assert sensor.findtext('topic')=='scan'
     return total
 
 
@@ -116,10 +136,10 @@ def main():
         assert np.isclose(float(b.find('mass').get('value')),2*float(a.find('mass').get('value')))
         assert a.find('origin').attrib==b.find('origin').attrib
         assert all(np.isclose(float(b.find('inertia').get(k)),2*float(v)) for k,v in a.find('inertia').attrib.items())
-    report=dict(xacro_version=getattr(xacro,'__version__','see installed distribution'),variants=len(results),mass_kg=mass,links=16,joints=15,checks=results,
-                tests=['tree','assets','positive_definite_tensors','principal_moment_triangle','cad_frames','coplanar_contacts','passive_and_actuated_interfaces','mass_scaling'])
+    report=dict(xacro_version=getattr(xacro,'__version__','see installed distribution'),variants=len(results),mass_kg=mass,links=17,joints=16,checks=results,
+                tests=['tree','assets','positive_definite_tensors','principal_moment_triangle','cad_frames','coplanar_contacts','passive_and_actuated_interfaces','lidar_180_degrees','mass_scaling'])
     (args.output/'validation.json').write_text(json.dumps(report,indent=2),encoding='utf8')
-    print(f'PASS: {len(results)} variants, 16 links, 15 joints, {mass:.6f} kg; assets, tensors, frames, contacts and control checked.')
+    print(f'PASS: {len(results)} variants, 17 links, 16 joints, {mass:.6f} kg; assets, tensors, frames, contacts, LiDAR and control checked.')
 
 
 if __name__=='__main__':main()

@@ -1,8 +1,8 @@
 # Hema V4: modelo CAD para ROS 2 e Gazebo
 
-Descrição pronta para compilar, com as malhas incluídas no Git. Não é necessário baixar o ZIP CAD original para usar o robô. São 227 peças agrupadas em 15 elos físicos e um referencial virtual `tool0`; a massa estimada é 22,765 kg.
+Descrição pronta para compilar, com as malhas incluídas no Git. Não é necessário baixar o ZIP CAD original para usar o robô. São 227 peças CAD agrupadas em 15 elos físicos, mais o elo do LiDAR e o referencial virtual `tool0`. A massa CAD estimada é 22,765 kg; o LiDAR assumido acrescenta 0,20 kg à simulação.
 
-Este pacote representa o Hema V4 e é independente dos pacotes `d_hospital_*`/MiniHema do repositório. Ele oferece simulação e controle direto das rodas. Não substitui os drivers do robô físico nem inclui navegação, odometria ou sensores simulados.
+Este pacote representa o Hema V4 e é independente dos pacotes `d_hospital_*`/MiniHema do repositório. Ele oferece simulação, controle direto das rodas e um LiDAR 2D de 180°. Não substitui os drivers do robô físico nem inclui navegação ou odometria.
 
 ## Instalar e abrir
 
@@ -54,6 +54,16 @@ ros2 topic pub --once /wheel_controller/commands std_msgs/msg/Float64MultiArray 
 
 O modelo usa `/wheel_controller/commands`, não `/cmd_vel`. O launch também aceita `command_interface:=position` ou `effort`, selecionando o YAML correspondente; nesses modos as unidades são rad e N·m.
 
+## LiDAR interno de 180 graus
+
+O LiDAR fica no centro do acabamento semicircular traseiro existente no CAD, em `(-0.1508, 0, 0.106) m` no `base_link`, orientado para trás. A varredura cobre de −90° a +90° no referencial `lidar_link`, com 361 amostras, 10 Hz e alcance de 0,15 a 12 m.
+
+```bash
+ros2 topic echo /scan --once
+```
+
+O tópico usa `sensor_msgs/msg/LaserScan`. No Classic, `gazebo_ros_ray_sensor` publica `/scan`; no Harmonic, o launch cria a ponte equivalente. A posição, a massa de 0,20 kg e o corpo cilíndrico de raio 35 mm são hipóteses de integração porque o arquivo nativo `HEM_RPlidar.SLDASM` não apareceu como malha funcional na exportação STL.
+
 ## Arquivos e parâmetros
 
 | Arquivo | Responsabilidade |
@@ -62,12 +72,13 @@ O modelo usa `/wheel_controller/commands`, não `/cmd_vel`. O launch também ace
 | `urdf/inertials.xacro` | Macros de caixa, cilindro, esfera e tensor completo |
 | `urdf/materials.xacro` | Cores reutilizáveis |
 | `urdf/robot_core.xacro` | Elos, juntas, origens e colisões |
+| `urdf/lidar.xacro` | LiDAR interno, campo de visão e plugins dos simuladores |
 | `urdf/gazebo_config.xacro` | Contatos, plugins e ros2_control |
 | `urdf/cad_visuals.xacro` | Instâncias visuais geradas |
 | `config/cad_parameters.yaml` | Dimensões, massas, CoMs e tensores |
 | `meshes/` | Malhas visuais, em metros |
 
-O launch expõe `backend`, `command_interface`, `articulate_slides`, `caster_z_adjust`, `spawn_z` e `gui`. As corrediças ficam fixas por padrão; `articulate_slides:=true` as torna passivas. O curso de 0,25 m por estágio é uma hipótese, não um limite confirmado de fabricação. Não há garra: `tool0` é um referencial virtual no trilho esquerdo.
+O launch expõe `backend`, `command_interface`, `articulate_slides`, `caster_z_adjust`, `spawn_z` e `gui`. O Xacro também permite ajustar pose, massa, dimensões, alcance, frequência, amostragem, ruído e visualização do LiDAR. As corrediças ficam fixas por padrão; `articulate_slides:=true` as torna passivas. O curso de 0,25 m por estágio é uma hipótese, não um limite confirmado de fabricação. Não há garra: `tool0` é um referencial virtual no trilho esquerdo.
 
 Para gerar URDF sem plugins:
 
@@ -97,8 +108,8 @@ Os resultados ficam em `src/hema_description/generated/`, ignorado pelo Git. O C
 python3 src/hema_description/scripts/runtime_smoke.py --output /tmp/hema_runtime.json
 ```
 
-O teste envia movimento e parada e verifica os estados das juntas. Ele não mede estabilidade prolongada ou fidelidade dinâmica ao robô real. Para refazer a análise CAD, instale `config/analysis-requirements.txt` em um ambiente Python separado e execute `scripts/analyze_cad.py` com o ZIP original. A simulação não depende dessas bibliotecas de análise.
+O teste envia movimento e parada, verifica os estados das juntas e confere o `/scan`, seu quadro, 361 amostras e campo de visão de 180°. Ele não mede estabilidade prolongada ou fidelidade dinâmica ao robô real. Para refazer a análise CAD, instale `config/analysis-requirements.txt` em um ambiente Python separado e execute `scripts/analyze_cad.py` com o ZIP original. A simulação não depende dessas bibliotecas de análise.
 
-Materiais, densidades e atuação foram estimados. Bateria, carga útil e eletrônica ausente do STL não foram inventadas. As colisões são simplificadas e a autocolisão está desativada. Os arquivos nativos SolidWorks e cortes redundantes de impressão não foram incluídos no pacote.
+Materiais, densidades, atuação e propriedades do LiDAR foram estimados. Bateria, carga útil e demais eletrônicos ausentes do STL não foram inventados. As colisões são simplificadas e a autocolisão está desativada. Os arquivos nativos SolidWorks e cortes redundantes de impressão não foram incluídos no pacote.
 
 O código adota Apache-2.0 conforme `package.xml`; as malhas mantêm os direitos do titular do CAD de origem. Publicar o pacote não atribui uma nova licença às malhas.

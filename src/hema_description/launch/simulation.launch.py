@@ -100,8 +100,11 @@ def _launch_setup(context):
         )
         extra_actions.append(Node(
             package='ros_gz_bridge', executable='parameter_bridge',
-            name='hema_clock_bridge', output='screen',
-            arguments=['/world/hema_world/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+            name='hema_sensor_bridge', output='screen',
+            arguments=[
+                '/world/hema_world/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+                '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
+            ],
             remappings=[('/world/hema_world/clock', '/clock')],
         ))
     else:

@@ -1,6 +1,6 @@
 # Hema V4 — memória de engenharia da descrição Xacro
 
-Esta descrição representa a montagem exportada em `Hema_V4/HEMA.stl/`: **227 peças, 15 elos físicos e o referencial virtual `tool0`**. A massa estimada é **22,764686 kg**, com os fatores de escala de massa em 1. A geometria foi medida; materiais, propriedades de atuação e parte da cinemática são hipóteses identificadas neste documento. O modelo não constitui uma identificação dinâmica do robô real.
+Esta descrição representa a montagem exportada em `Hema_V4/HEMA.stl/`: **227 peças e 15 elos físicos**, acrescidos do elo simulado `lidar_link` e do referencial virtual `tool0`. A massa CAD estimada é **22,764686 kg** e a massa simulada padrão é **22,964686 kg**, incluindo 0,20 kg assumidos para o LiDAR. A geometria CAD foi medida; materiais, propriedades de atuação, LiDAR e parte da cinemática são hipóteses identificadas neste documento. O modelo não constitui uma identificação dinâmica do robô real.
 
 ## Fonte e seleção da montagem
 
@@ -83,7 +83,15 @@ A carenagem PLA usa o volume sólido delimitado pela malha, preservando as cavid
 
 Os oito proxies convexos pertencem ao botão de emergência: quatro componentes `M3F`, dois `Miros switch`, um `ill_stecker` e um `plastic stick`. Somam **0,233602% da massa estimada**. A envoltória convexa pode preencher concavidades ou espaços vazios e não equivale a volume CAD exato. Nas duas rodas foram preenchidos apenas pequenos furos triangulares/quadrangulares aceitos pelo reparador; a superfície visual original foi preservada. A soma de volumes é uma soma de peças, não uma união booleana que desconta interpenetrações de montagem.
 
-O ZIP contém arquivos nativos com nomes de Jetson Nano, Raspberry e RPLidar, mas eles não aparecem como corpos identificáveis usados na exportação `HEMA.stl`. Não foi inventada massa para essas placas ou para um lidar completo a partir desses nomes. O acabamento do lidar foi contado como peça estrutural PLA. Também não foi identificada bateria na montagem STL. Carga útil, bateria, cabeamento adicional e eletrônica ausente exigem inclusão explícita de geometria, massa e CoM; a massa total documentada corresponde somente às 227 peças analisadas.
+O ZIP contém arquivos nativos com nomes de Jetson Nano, Raspberry e RPLidar, mas eles não aparecem como corpos identificáveis usados na exportação `HEMA.stl`. A análise CAD não atribuiu massa a esses nomes; o acabamento do lidar foi contado como peça estrutural PLA. Para atender à integração de simulação, `lidar_link` acrescenta separadamente um cilindro compacto assumido de 0,20 kg, raio 35 mm e altura 40 mm. Também não foi identificada bateria na montagem STL. Carga útil, bateria, cabeamento adicional e eletrônica ausente exigem inclusão explícita de geometria, massa e CoM.
+
+## LiDAR interno e abertura de 180 graus
+
+O acabamento `HEM_Acabamento_do_lidar-1.STL` ocupa `x=[-0.2881,-0.0135] m`, `y=[-0.2633,+0.2633] m` e `z=[0.0830,0.1290] m`, formando a referência geométrica semicircular na metade traseira. O LiDAR simulado foi colocado no centro desse acabamento, em `(-0.1508,0,0.106) m`, com yaw `π`: o +X de `lidar_link` aponta para trás no `base_link`.
+
+A faixa angular é `[-π/2,+π/2]` no quadro do sensor, totalizando exatamente 180° voltados para a abertura traseira. A configuração padrão publica `sensor_msgs/msg/LaserScan` em `/scan`, com 361 amostras, 10 Hz, alcance de 0,15 a 12 m, resolução de 0,01 m e ruído gaussiano de 0,01 m. Esses números são parâmetros de simulação e não especificações extraídas do `HEM_RPlidar.SLDASM`.
+
+O antigo envelope único de colisão da base atravessava o vão do sensor. Ele foi dividido em uma caixa inferior terminando em `z=0.075 m` e uma superior começando em `z=0.135 m`. O vão de 60 mm permite que os feixes horizontais saiam da carenagem sem detectar o próprio proxy de colisão. A aparência continua usando as malhas CAD completas. O elo do LiDAR não tem colisão própria porque o raio nasce no seu centro; a carenagem fornece a proteção externa.
 
 ## Elos e cadeia cinemática
 
@@ -106,6 +114,7 @@ Os nomes da tabela são os nomes reais emitidos pelo Xacro. As massas são anter
 | `slide_left_inner_link` | 0.108548 | Aço | `slide_left_inner_joint`: fixed / prismatic opcional | — / `(1,0,0)` | fixa / `[0,0.25] m` |
 | `slide_right_middle_link` | 0.200733 | Aço | `slide_right_middle_joint`: fixed / prismatic opcional | — / `(1,0,0)` | fixa / `[0,0.25] m` |
 | `slide_right_inner_link` | 0.108548 | Aço | `slide_right_inner_joint`: fixed / prismatic opcional | — / `(1,0,0)` | fixa / `[0,0.25] m` |
+| `lidar_link` | 0.200000 | Eletrônica composta assumida | `lidar_joint`: fixed | — | fixa |
 | `tool0` | 0, referencial | sem material físico | `tool0_joint`: fixed | — | fixa |
 
 `link_summary.csv` contém a mesma informação em formato tabular, acrescentando pai, esforço, velocidade, amortecimento e atrito. A soma usa as massas sem arredondamento do YAML.
@@ -119,6 +128,7 @@ base_link
   -> caster_<corner>_fork_link -> caster_<corner>_wheel_link  (quatro cantos)
   -> slide_left_middle_link -> slide_left_inner_link -> tool0
   -> slide_right_middle_link -> slide_right_inner_link
+  -> lidar_link
 ```
 
 `tool0` é apenas um referencial na ponta da corrediça interna esquerda, sem inércia, visual ou colisão. Não foi identificada garra, ferramenta atuada ou mecanismo ligando as pontas dos dois trilhos. Os trilhos esquerdo/direito não foram acoplados por `mimic`, e seu deslocamento opcional não implica um mecanismo físico confirmado.
@@ -163,10 +173,10 @@ Nos referenciais de simetria acima: Ixy = Ixz = Iyz = 0.
 
 ## Geometrias, contato e atuação
 
-As malhas visuais foram concatenadas por par `(elo, material)`, sem alterar a montagem, e são referenciadas por `package://hema_description/meshes/`. São malhas detalhadas para aparência; os proxies de volume dos STL abertos não substituem seus visuais. Colisões usam caixas para a base/corrediças e cilindros para as seis rodas. Os garfos não têm colisão para evitar preencher o vão da roda com uma caixa. A base usa um envelope conservador que não preserva suas cavidades internas. Essa simplificação limita interações com objetos atravessando vãos e com obstáculos tocando garfos.
+As malhas visuais foram concatenadas por par `(elo, material)`, sem alterar a montagem, e são referenciadas por `package://hema_description/meshes/`. São malhas detalhadas para aparência; os proxies de volume dos STL abertos não substituem seus visuais. Colisões usam duas caixas para a base separadas pelo vão do LiDAR, caixas para as corrediças e cilindros para as seis rodas. Os garfos não têm colisão para evitar preencher o vão da roda com uma caixa. Esses envelopes continuam conservadores fora da abertura do sensor e limitam interações com outras cavidades e com obstáculos tocando garfos.
 
 `gazebo_config.xacro` concentra atrito, contato, material Classic e controle. Valores iniciais: `wheel_mu=0.9`, `caster_mu=0.5`, base `mu=0.5`, sem autocolisão nos elos de contato. `contact_kp=100000` e `contact_kd=100` são configurações do ramo Classic/ODE; não há promessa de equivalência desses parâmetros no Harmonic. Os mundos usam passo de 0,001 s e gravidade `(0,0,-9.81)`.
 
 O controle entregue é ROS 2 em ambos os simuladores: `gz_ros2_control/GazeboSimSystem` no Harmonic e `gazebo_ros2_control/GazeboSystem` no Classic. Classic não implica ROS 1 neste pacote. Apenas `left_wheel_joint` e `right_wheel_joint` recebem interface de comando, selecionável entre `velocity`, `position` e `effort`, e estados `position`, `velocity`, `effort`. As juntas passivas recebem apenas estados, incluindo corrediças quando articuladas; `hold_joints=false` permite seu movimento passivo.
 
-Os YAML selecionam o controlador correspondente à interface das rodas. O modelo não contém transmissão eletromecânica identificada, drivers reais ou controle de sensores. Módulos CAD de ultrassom são geometria/massa; não foram inferidos alcance, ruído ou tópicos de sensores. Orientações de compilação, inicialização e a extensão dos testes executados são descritas no README do pacote.
+Os YAML selecionam o controlador correspondente à interface das rodas. O modelo não contém transmissão eletromecânica identificada nem drivers reais. O LiDAR é o único sensor funcional acrescentado; módulos CAD de ultrassom continuam sendo apenas geometria/massa, sem alcance, ruído ou tópicos inferidos. Orientações de compilação, inicialização e a extensão dos testes executados são descritas no README do pacote.

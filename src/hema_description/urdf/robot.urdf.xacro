@@ -27,6 +27,21 @@
   <xacro:arg name="caster_mu" default="0.5"/>
   <xacro:arg name="contact_kp" default="100000.0"/>
   <xacro:arg name="contact_kd" default="100.0"/>
+  <!-- LiDAR no centro do acabamento traseiro de 180 graus existente no CAD. -->
+  <xacro:arg name="lidar_xyz" default="-0.1508 0 0.106"/>
+  <xacro:arg name="lidar_yaw" default="${pi}"/>
+  <xacro:arg name="lidar_mass" default="0.20"/>
+  <xacro:arg name="lidar_radius" default="0.035"/>
+  <xacro:arg name="lidar_height" default="0.040"/>
+  <xacro:arg name="lidar_samples" default="361"/>
+  <xacro:arg name="lidar_update_rate" default="10.0"/>
+  <xacro:arg name="lidar_min_range" default="0.15"/>
+  <xacro:arg name="lidar_max_range" default="12.0"/>
+  <xacro:arg name="lidar_range_resolution" default="0.01"/>
+  <xacro:arg name="lidar_noise_stddev" default="0.01"/>
+  <xacro:arg name="lidar_visualize" default="true"/>
+  <xacro:arg name="lidar_opening_z_min" default="0.075"/>
+  <xacro:arg name="lidar_opening_z_max" default="0.135"/>
   <xacro:property name="backend" value="$(arg backend)"/>
   <xacro:property name="command_interface" value="$(arg command_interface)"/>
   <xacro:property name="inertia_mode" value="$(arg inertia_mode)"/>
@@ -39,9 +54,11 @@
   <xacro:include filename="materials.xacro"/>
   <xacro:include filename="cad_visuals.xacro"/>
   <xacro:include filename="robot_core.xacro"/>
+  <xacro:include filename="lidar.xacro"/>
   <xacro:include filename="gazebo_config.xacro"/>
   <xacro:hema_materials/>
   <xacro:hema_core/>
+  <xacro:hema_lidar backend="${backend}"/>
   <xacro:hema_gazebo_config backend="${backend}" command_interface="${command_interface}"
     controllers_file="$(arg controllers_file)" wheel_effort="$(arg wheel_effort)"
     wheel_velocity="$(arg wheel_velocity)" wheel_mu="$(arg wheel_mu)" caster_mu="$(arg caster_mu)"
