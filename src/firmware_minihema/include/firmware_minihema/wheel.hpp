@@ -14,6 +14,11 @@ class Wheel
     double velocity = 0.0;
     double rads_per_tick = 0.0;
 
+    // True while `velocity` comes from the interval between two pulses. False when the wheel is
+    // stopped or has just started (fewer than two pulses since standstill), when `velocity` is
+    // reported as zero although the true speed is unknown.
+    bool velocity_measured = false;
+
     // Estado do estimador de velocidade pelo intervalo entre pulsos
     unsigned int last_pulse_us = 0;
     bool has_pulse_reference = false;

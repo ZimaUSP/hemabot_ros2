@@ -21,7 +21,7 @@ add_library(minihema_hardware SHARED
   src/wheel.cpp 
   src/KeyesDriver.c
   src/motor_encoder.c
-  src/pid.cpp
+  src/wheel_speed_controller.cpp
 )
 
 target_include_directories(minihema_hardware PRIVATE include)
@@ -183,6 +183,21 @@ install(
   DESTINATION lib/${PROJECT_NAME}
 )
 
+
+# ------------------------------------------------------------------------------
+# Tests (pure C++, no ROS or wiringPi needed)
+# ------------------------------------------------------------------------------
+
+if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
+
+  ament_add_gtest(test_wheel_speed_controller
+    test/test_wheel_speed_controller.cpp
+    src/wheel_speed_controller.cpp
+    src/wheel.cpp
+  )
+  target_include_directories(test_wheel_speed_controller PRIVATE include)
+endif()
 
 # ------------------------------------------------------------------------------
 # Export the library

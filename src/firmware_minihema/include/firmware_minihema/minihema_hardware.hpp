@@ -19,7 +19,7 @@
 
 #include "motor_encoder.h"
 #include "wheel.hpp"
-#include "firmware_minihema/pid.hpp"
+#include "firmware_minihema/wheel_speed_controller.hpp"
 
 using hardware_interface::return_type;
 using hardware_interface::CallbackReturn;
@@ -30,23 +30,27 @@ namespace firmware_minihema
 class MinihemaHardware : public hardware_interface::SystemInterface
 {
 
+  // Defaults reproduce the open-loop calibration the robot used before the speed controller
+  // (26% dead zone, right motor needing 18% more duty than the left one).
   struct Config
   {
     std::string left_wheel_name = "left_wheel";
     std::string right_wheel_name = "right_wheel";
     int enc_ticks_per_rev = 12;
-    double loop_rate = 30.0;
-    double pid_p = 0.2; // Ganho proporcional Kp suavizado para encoders ópticos de 12 pulsos
-    double pid_i = 0.0;
-    double pid_d = 0.0;
-    double pid_max_input = 2.0;
-    double pid_max_windup = 1.0;
-    double velocity_timeout = 0.5;      // s sem pulsos para considerar a roda parada
-    double velocity_filter_alpha = 0.5; // EMA sobre a velocidade medida (1.0 desliga o filtro)
+
+    double velocity_timeout = 0.5;      // s without pulses to consider the wheel stopped
+    double velocity_filter_alpha = 0.5; // EMA on the measured speed (1.0 disables the filter)
+
+    MotorFeedforward left_feedforward{0.26, 0.0883};
+    MotorFeedforward right_feedforward{0.26, 0.1042};
+    // kp, ki, integral_limit, max_duty, rads_per_tick (derived from enc_ticks_per_rev), spin_up_time
+    WheelSpeedControllerConfig speed_controller{0.06, 0.15, 0.25, 1.0, 0.0, 0.2};
+
+    double loop_stall_warn_period = 0.15; // s between control cycles above which a stall is reported
   };
 
   public:
-    MinihemaHardware(); 
+    MinihemaHardware();
 
     CallbackReturn on_init(const hardware_interface::HardwareInfo & info) override;
 
@@ -65,15 +69,29 @@ class MinihemaHardware : public hardware_interface::SystemInterface
     return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
   private:
+    void load_config();
+
+    // Reports control cycles that arrive much later than expected. While the loop is stalled the
+    // motors keep their last duty and new velocity commands are not applied.
+    void report_loop_stall(double period_s);
+
+    void stop_motors();
+
     Config config_;
 
     Wheel left_wheel_;
     Wheel right_wheel_;
 
-    PIDController pid_left_;
-    PIDController pid_right_;
+    WheelSpeedController left_speed_controller_;
+    WheelSpeedController right_speed_controller_;
+
+    // Speeds the motors can reach according to their feedforward models
+    WheelSpeeds max_wheel_speeds_;
+
+    bool driving_ = false;
 
     rclcpp::Logger logger_;
+    rclcpp::Clock steady_clock_{RCL_STEADY_TIME}; // for log throttling only
 
 };
 

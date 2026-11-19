@@ -31,7 +31,9 @@ extern "C"{
 void handler(int signo);
 void add_left_wheel();
 void add_right_wheel();
-void set_motor_speeds(double left_wheel_command, double right_wheel_command);
+// Apply signed PWM duty cycles in [-1, 1] to the motors (positive drives forward, zero coasts).
+// No calibration happens here: dead zone and motor mismatch are handled by the speed controller.
+void set_motor_duties(double left_duty, double right_duty);
 void read_encoder_values(int *left_encoder_value, int *right_encoder_value);
 void read_encoder_snapshot(int *left_ticks, unsigned int *left_pulse_us,
                            int *right_ticks, unsigned int *right_pulse_us);

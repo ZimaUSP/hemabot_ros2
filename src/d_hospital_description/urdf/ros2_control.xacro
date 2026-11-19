@@ -9,10 +9,24 @@
           <param name='left_wheel_name'>left_wheel_joint</param>
           <param name='right_wheel_name'>right_wheel_joint</param>
 	  <param name='enc_ticks_per_rev'>12</param>
-	  <param name='loop_rate'>10.0</param>
-	  <param name='pid_p'>0.2</param>
+	  <!-- Wheel speed estimation from the interval between encoder pulses -->
 	  <param name='velocity_timeout'>0.5</param>
 	  <param name='velocity_filter_alpha'>0.5</param>
+	  <!-- Feedforward per motor: duty = static_duty + duty_per_rad_s * |speed| (duty in 0..1).
+	       static_duty is the dead zone; the right motor needs ~18% more duty than the left one.
+	       See firmware_minihema/README.md for how to calibrate these values. -->
+	  <param name='left_static_duty'>0.26</param>
+	  <param name='left_duty_per_rad_s'>0.0883</param>
+	  <param name='right_static_duty'>0.26</param>
+	  <param name='right_duty_per_rad_s'>0.1042</param>
+	  <!-- PI feedback on wheel speed (duty per rad/s, duty per rad) -->
+	  <param name='speed_kp'>0.06</param>
+	  <param name='speed_ki'>0.15</param>
+	  <param name='speed_integral_limit'>0.25</param>
+	  <param name='max_duty'>1.0</param>
+	  <param name='spin_up_time'>0.2</param>
+	  <!-- Warn when two control cycles are further apart than this (s) -->
+	  <param name='loop_stall_warn_period'>0.15</param>
       </hardware>
       <joint name='left_wheel_joint'>
         <command_interface name='velocity'>

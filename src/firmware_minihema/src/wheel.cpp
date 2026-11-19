@@ -23,6 +23,7 @@ void Wheel::reset_encoder(int ticks)
     encoder_ticks = ticks;
     position = calculate_encoder_angle();
     velocity = 0.0;
+    velocity_measured = false;
     has_pulse_reference = false;
 }
 
@@ -41,12 +42,15 @@ void Wheel::update(int ticks, unsigned int pulse_us, unsigned int now_us, double
         if (has_pulse_reference && interval_s > 0.0)
         {
             double raw_velocity = delta_ticks * rads_per_tick / interval_s;
-            velocity = alpha * raw_velocity + (1.0 - alpha) * velocity;
+            // The filter only blends real measurements: right after standstill there is no previous one
+            velocity = velocity_measured ? alpha * raw_velocity + (1.0 - alpha) * velocity : raw_velocity;
+            velocity_measured = true;
         }
         else
         {
             // Primeiro pulso depois de a roda estar parada: o intervalo inclui o tempo parado
             velocity = 0.0;
+            velocity_measured = false;
         }
 
         last_pulse_us = pulse_us;
@@ -60,6 +64,7 @@ void Wheel::update(int ticks, unsigned int pulse_us, unsigned int now_us, double
     {
         // Roda parada: descarta a referência para o próximo pulso não usar um intervalo antigo
         velocity = 0.0;
+        velocity_measured = false;
         has_pulse_reference = false;
     }
     else if (since_last_pulse_s > 0.0)

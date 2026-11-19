@@ -17,23 +17,24 @@ void handleSigint(int) {
 
 // Para os motores e imprime o estado final dos encoders antes de sair
 void safeShutdown(int x, int y) {
-    set_motor_speeds(0, 0);
+    set_motor_duties(0.0, 0.0);
     printf("\n[SHUTDOWN] Motores parados.\n");
     printf("[SHUTDOWN] Encoder esquerdo: %d | Encoder direito: %d\n", x, y);
 }
 
 // Executa um teste de movimento por uma duração, reportando velocidade
 // estimada via encoder antes/depois (pulsos por segundo)
-void runMotorTest(int leftSpeed, int rightSpeed, int durationMs, const char *label) {
+// Duties are signed fractions in [-1, 1] (see set_motor_duties)
+void runMotorTest(double leftDuty, double rightDuty, int durationMs, const char *label) {
     int xBefore = 0, yBefore = 0;
     int xAfter = 0, yAfter = 0;
 
     read_encoder_values(&xBefore, &yBefore);
 
-    printf("\n[TEST] %s -> set_motor_speeds(%d, %d) por %d ms\n",
-           label, leftSpeed, rightSpeed, durationMs);
+    printf("\n[TEST] %s -> set_motor_duties(%.2f, %.2f) por %d ms\n",
+           label, leftDuty, rightDuty, durationMs);
 
-    set_motor_speeds(leftSpeed, rightSpeed);
+    set_motor_duties(leftDuty, rightDuty);
 
     // Delay interrompível em pedaços de 100ms, para reagir ao Ctrl+C rapidamente
     int elapsed = 0;
@@ -42,7 +43,7 @@ void runMotorTest(int leftSpeed, int rightSpeed, int durationMs, const char *lab
         elapsed += 100;
     }
 
-    set_motor_speeds(0, 0);
+    set_motor_duties(0.0, 0.0);
     delay(200); // pequena pausa para o motor parar antes de ler o encoder
 
     read_encoder_values(&xAfter, &yAfter);
@@ -83,12 +84,12 @@ int main(int argc, char **argv) {
     // Bateria de testes: frente, ré, giro no eixo, e parada
     const int kTestDurationMs = 3000;
 
-    if (g_running) runMotorTest(40,  40,  kTestDurationMs, "Frente");
-    if (g_running) runMotorTest(0,   0,   1000,            "Parada");
-    if (g_running) runMotorTest(-100, -100, kTestDurationMs, "Ré");
-    if (g_running) runMotorTest(0,   0,   1000,            "Parada");
-    if (g_running) runMotorTest(100, -100,  kTestDurationMs, "Giro horário");
-    if (g_running) runMotorTest(-100, 100,  kTestDurationMs, "Giro anti-horário");
+    if (g_running) runMotorTest(0.4,  0.4,  kTestDurationMs, "Frente");
+    if (g_running) runMotorTest(0.0,  0.0,  1000,            "Parada");
+    if (g_running) runMotorTest(-1.0, -1.0, kTestDurationMs, "Ré");
+    if (g_running) runMotorTest(0.0,  0.0,  1000,            "Parada");
+    if (g_running) runMotorTest(1.0,  -1.0, kTestDurationMs, "Giro horário");
+    if (g_running) runMotorTest(-1.0, 1.0,  kTestDurationMs, "Giro anti-horário");
 
     int xFinal = 0, yFinal = 0;
     read_encoder_values(&xFinal, &yFinal);

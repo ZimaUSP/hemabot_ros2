@@ -1,25 +1,67 @@
 #include "firmware_minihema/minihema_hardware.hpp"
 #include "firmware_minihema/PinPlannerRasp.h"
 
+#include <optional>
+#include <stdexcept>
+#include <string>
+
 namespace firmware_minihema
 {
 
 namespace
 {
 
-// Limita o comando final ao sentido do comando da roda: a correção pode no máximo zerá-lo.
-// Com comando nulo na roda, a correção sozinha não aciona o motor.
-double limit_to_command_sign(double value, double command)
+using HardwareParameters = decltype(hardware_interface::HardwareInfo::hardware_parameters);
+
+std::string required_param(const HardwareParameters & params, const std::string & name)
 {
-    if (command > 1e-4)
+    const auto it = params.find(name);
+    if (it == params.end() || it->second.empty())
     {
-        return std::max(value, 0.0);
+        throw std::invalid_argument("missing required hardware parameter '" + name + "'");
     }
-    if (command < -1e-4)
+    return it->second;
+}
+
+double double_param(const HardwareParameters & params, const std::string & name, double default_value)
+{
+    const auto it = params.find(name);
+    if (it == params.end())
     {
-        return std::min(value, 0.0);
+        return default_value;
     }
-    return 0.0;
+    try
+    {
+        return std::stod(it->second);
+    }
+    catch (const std::exception &)
+    {
+        throw std::invalid_argument(
+            "hardware parameter '" + name + "' is not a number: '" + it->second + "'");
+    }
+}
+
+int int_param(const HardwareParameters & params, const std::string & name)
+{
+    const std::string value = required_param(params, name);
+    try
+    {
+        return std::stoi(value);
+    }
+    catch (const std::exception &)
+    {
+        throw std::invalid_argument("hardware parameter '" + name + "' is not an integer: '" + value + "'");
+    }
+}
+
+// The speed estimate only counts as a measurement once the encoder produced two pulses
+std::optional<double> measured_velocity(const Wheel & wheel)
+{
+    if (!wheel.velocity_measured)
+    {
+        return std::nullopt;
+    }
+    return wheel.velocity;
 }
 
 } // namespace
@@ -27,6 +69,48 @@ double limit_to_command_sign(double value, double command)
 MinihemaHardware::MinihemaHardware()
     : logger_(rclcpp::get_logger("MinihemaHardware"))
 {}
+
+void MinihemaHardware::load_config()
+{
+    const auto & params = info_.hardware_parameters;
+
+    config_.left_wheel_name = required_param(params, "left_wheel_name");
+    config_.right_wheel_name = required_param(params, "right_wheel_name");
+    config_.enc_ticks_per_rev = int_param(params, "enc_ticks_per_rev");
+    if (config_.enc_ticks_per_rev <= 0)
+    {
+        throw std::invalid_argument("enc_ticks_per_rev must be positive");
+    }
+
+    config_.velocity_timeout = double_param(params, "velocity_timeout", config_.velocity_timeout);
+    config_.velocity_filter_alpha = double_param(params, "velocity_filter_alpha", config_.velocity_filter_alpha);
+    if (!(config_.velocity_timeout > 0.0))
+    {
+        throw std::invalid_argument("velocity_timeout must be positive");
+    }
+    if (!(config_.velocity_filter_alpha > 0.0 && config_.velocity_filter_alpha <= 1.0))
+    {
+        throw std::invalid_argument("velocity_filter_alpha must be in (0, 1]");
+    }
+
+    auto & left_ff = config_.left_feedforward;
+    left_ff.static_duty = double_param(params, "left_static_duty", left_ff.static_duty);
+    left_ff.duty_per_rad_s = double_param(params, "left_duty_per_rad_s", left_ff.duty_per_rad_s);
+
+    auto & right_ff = config_.right_feedforward;
+    right_ff.static_duty = double_param(params, "right_static_duty", right_ff.static_duty);
+    right_ff.duty_per_rad_s = double_param(params, "right_duty_per_rad_s", right_ff.duty_per_rad_s);
+
+    auto & controller = config_.speed_controller;
+    controller.kp = double_param(params, "speed_kp", controller.kp);
+    controller.ki = double_param(params, "speed_ki", controller.ki);
+    controller.integral_limit = double_param(params, "speed_integral_limit", controller.integral_limit);
+    controller.max_duty = double_param(params, "max_duty", controller.max_duty);
+    controller.spin_up_time = double_param(params, "spin_up_time", controller.spin_up_time);
+    controller.rads_per_tick = 2.0 * M_PI / config_.enc_ticks_per_rev;
+
+    config_.loop_stall_warn_period = double_param(params, "loop_stall_warn_period", config_.loop_stall_warn_period);
+}
 
 CallbackReturn MinihemaHardware::on_init(const hardware_interface::HardwareInfo & info)
 {
@@ -37,48 +121,36 @@ CallbackReturn MinihemaHardware::on_init(const hardware_interface::HardwareInfo 
 
     RCLCPP_INFO(logger_, "Initializing...");
 
-    config_.left_wheel_name = info_.hardware_parameters["left_wheel_name"];
-    config_.right_wheel_name = info_.hardware_parameters["right_wheel_name"];
-    config_.enc_ticks_per_rev = std::stoi(info_.hardware_parameters["enc_ticks_per_rev"]);
-    config_.loop_rate = std::stod(info_.hardware_parameters["loop_rate"]); // Mantido para referência, se necessário em outro lugar
-
-    if (info_.hardware_parameters.find("pid_p") != info_.hardware_parameters.end())
+    try
     {
-        config_.pid_p = std::stod(info_.hardware_parameters["pid_p"]);
+        load_config();
+        // The constructors validate feedforward and controller configuration
+        left_speed_controller_ = WheelSpeedController(config_.left_feedforward, config_.speed_controller);
+        right_speed_controller_ = WheelSpeedController(config_.right_feedforward, config_.speed_controller);
     }
-    else if (info_.hardware_parameters.find("kp") != info_.hardware_parameters.end())
+    catch (const std::exception & error)
     {
-        config_.pid_p = std::stod(info_.hardware_parameters["kp"]);
+        RCLCPP_FATAL(logger_, "Invalid hardware configuration: %s", error.what());
+        return CallbackReturn::ERROR;
     }
-
-    if (info_.hardware_parameters.find("pid_i") != info_.hardware_parameters.end())
-    {
-        config_.pid_i = std::stod(info_.hardware_parameters["pid_i"]);
-    }
-
-    if (info_.hardware_parameters.find("pid_d") != info_.hardware_parameters.end())
-    {
-        config_.pid_d = std::stod(info_.hardware_parameters["pid_d"]);
-    }
-
-    if (info_.hardware_parameters.find("velocity_timeout") != info_.hardware_parameters.end())
-    {
-        config_.velocity_timeout = std::stod(info_.hardware_parameters["velocity_timeout"]);
-    }
-
-    if (info_.hardware_parameters.find("velocity_filter_alpha") != info_.hardware_parameters.end())
-    {
-        config_.velocity_filter_alpha = std::stod(info_.hardware_parameters["velocity_filter_alpha"]);
-    }
-
-    pid_left_.setupPID(config_.pid_p, config_.pid_i, config_.pid_d, 1.0 / config_.loop_rate, config_.pid_max_input, config_.pid_max_windup);
-    pid_right_.setupPID(config_.pid_p, config_.pid_i, config_.pid_d, 1.0 / config_.loop_rate, config_.pid_max_input, config_.pid_max_windup);
 
     left_wheel_.setup(config_.left_wheel_name, config_.enc_ticks_per_rev);
     right_wheel_.setup(config_.right_wheel_name, config_.enc_ticks_per_rev);
 
-    RCLCPP_INFO(logger_, "Finished initialization. Proportional control Kp = %f", config_.pid_p);
-    RCLCPP_INFO(logger_, "Velocity estimation: timeout = %f s, filter alpha = %f",
+    const auto & controller = config_.speed_controller;
+    max_wheel_speeds_ = WheelSpeeds{
+        config_.left_feedforward.max_speed(controller.max_duty),
+        config_.right_feedforward.max_speed(controller.max_duty)};
+
+    RCLCPP_INFO(logger_, "Speed controller: kp=%.4f ki=%.4f integral_limit=%.3f max_duty=%.2f spin_up_time=%.2f s",
+        controller.kp, controller.ki, controller.integral_limit, controller.max_duty, controller.spin_up_time);
+    RCLCPP_INFO(logger_, "Feedforward: left %.3f + %.4f*|w|, right %.3f + %.4f*|w| (duty, w in rad/s)",
+        config_.left_feedforward.static_duty, config_.left_feedforward.duty_per_rad_s,
+        config_.right_feedforward.static_duty, config_.right_feedforward.duty_per_rad_s);
+    RCLCPP_INFO(logger_, "Reachable wheel speed: left %.2f rad/s, right %.2f rad/s "
+        "(faster commands are scaled down keeping the left/right ratio)",
+        max_wheel_speeds_.left, max_wheel_speeds_.right);
+    RCLCPP_INFO(logger_, "Velocity estimation: timeout = %.3f s, filter alpha = %.2f",
         config_.velocity_timeout, config_.velocity_filter_alpha);
 
     return CallbackReturn::SUCCESS;
@@ -109,12 +181,12 @@ std::vector<hardware_interface::CommandInterface> MinihemaHardware::export_comma
 CallbackReturn MinihemaHardware::on_configure(const rclcpp_lifecycle::State & /*previous_state*/)
 {
     RCLCPP_INFO(logger_, "Configuring motors and encoders...");
-    
+
     wiringPiSetupGpio();
-    
+
     // Initialize motor driver
     Motor_Init();
-    
+
     // Setup GPIO encoder interrupt and direction pins
     pinMode(LEFT_WHL_ENC_D0, INPUT);
     pinMode(RIGHT_WHL_ENC_D0, INPUT);
@@ -136,40 +208,54 @@ CallbackReturn MinihemaHardware::on_activate(const rclcpp_lifecycle::State & /*p
 {
     RCLCPP_INFO(logger_, "Starting controller ...");
 
-    // Zera os comandos e estados ao ativar para evitar saltos bruscos
+    // Start from rest: no command, no learned integral, encoder positions in sync
     left_wheel_.command = 0.0;
     right_wheel_.command = 0.0;
 
-    // Sincroniza posições dos encoders e zera velocidades iniciais para evitar picos
     int left_ticks, right_ticks;
     unsigned int left_pulse_us, right_pulse_us;
     read_encoder_snapshot(&left_ticks, &left_pulse_us, &right_ticks, &right_pulse_us);
     left_wheel_.reset_encoder(left_ticks);
     right_wheel_.reset_encoder(right_ticks);
 
-    pid_left_.reset();
-    pid_right_.reset();
+    stop_motors();
 
     return CallbackReturn::SUCCESS;
 }
 
 CallbackReturn MinihemaHardware::on_deactivate(const rclcpp_lifecycle::State & /*previous_state*/)
-{   
+{
     RCLCPP_INFO(logger_, "Stopping Controller... Halting hardware!");
 
-    // CRÍTICO: Parada física do robô
-    set_motor_speeds(0.0, 0.0);
-    Motor_Stop(MOTORA);
-    Motor_Stop(MOTORB);
-
-    pid_left_.reset();
-    pid_right_.reset();
+    stop_motors();
 
     return CallbackReturn::SUCCESS;
 }
 
-return_type MinihemaHardware::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
+void MinihemaHardware::stop_motors()
 {
+    set_motor_duties(0.0, 0.0);
+    left_speed_controller_.reset();
+    right_speed_controller_.reset();
+    driving_ = false;
+}
+
+void MinihemaHardware::report_loop_stall(double period_s)
+{
+    if (period_s > config_.loop_stall_warn_period)
+    {
+        RCLCPP_WARN_THROTTLE(logger_, steady_clock_, 1000,
+            "Control loop stalled: %.0f ms between cycles (warning above %.0f ms). "
+            "Velocity commands are not applied while the loop is stalled; look for CPU overload "
+            "or blocking I/O in the read()/write() of the hardware components.",
+            period_s * 1e3, config_.loop_stall_warn_period * 1e3);
+    }
+}
+
+return_type MinihemaHardware::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & period)
+{
+    report_loop_stall(period.seconds());
+
     // Obtain encoder values and the time of the last pulse of each wheel
     int left_ticks, right_ticks;
     unsigned int left_pulse_us, right_pulse_us;
@@ -185,78 +271,34 @@ return_type MinihemaHardware::read(const rclcpp::Time & /*time*/, const rclcpp::
 }
 
 return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & period)
-{   
-    double delta_seconds = period.seconds();
+{
+    const double dt = period.seconds();
 
-    // Quando o comando for zero para ambas as rodas, desliga os motores e reseta os PIDs
-    if (std::abs(left_wheel_.command) < 1e-4 && std::abs(right_wheel_.command) < 1e-4)
+    const WheelSpeeds target = limit_preserving_curvature(
+        WheelSpeeds{left_wheel_.command, right_wheel_.command}, max_wheel_speeds_);
+
+    const double left_duty = left_speed_controller_.update(target.left, measured_velocity(left_wheel_), dt);
+    const double right_duty = right_speed_controller_.update(target.right, measured_velocity(right_wheel_), dt);
+
+    const bool driving = left_duty != 0.0 || right_duty != 0.0;
+    if (driving != driving_)
     {
-        pid_left_.reset();
-        pid_right_.reset();
-        set_motor_speeds(0.0, 0.0);
-        return return_type::OK;
+        RCLCPP_DEBUG(logger_, "%s (command L=%.2f R=%.2f rad/s)",
+            driving ? "Motors started" : "Motors stopped", left_wheel_.command, right_wheel_.command);
+        driving_ = driving;
     }
 
-    // Cálculo em malha aberta (feedforward de contagens por iteração delta_t)
-    double left_motor_counts_per_loop = (left_wheel_.command * delta_seconds) / left_wheel_.rads_per_tick;
-    double right_motor_counts_per_loop = (right_wheel_.command * delta_seconds) / right_wheel_.rads_per_tick;
-
-    // Erros individuais de velocidade em relação ao setpoint (rad/s)
-    double left_error = left_wheel_.command - left_wheel_.velocity;
-    double right_error = right_wheel_.command - right_wheel_.velocity;
-
-    // Erro diferencial lateral entre as rodas:
-    // Diferença desejada menos diferença real das velocidades
-    double target_diff = left_wheel_.command - right_wheel_.command;
-    double actual_diff = left_wheel_.velocity - right_wheel_.velocity;
-    double diff_error = target_diff - actual_diff; // Positivo quando a roda esquerda gira menos que a direita
-
-    // Correção:
-    // 1) Rastreamento individual via PIDController (correção = Kp * erro)
-    // 2) Compensação lateral diferencial atenuada para evitar oscilações cruzadas com encoders de baixa resolução
-    double left_pid = pid_left_.computeControl(left_wheel_.command, left_wheel_.velocity, delta_seconds);
-    double right_pid = pid_right_.computeControl(right_wheel_.command, right_wheel_.velocity, delta_seconds);
-
-    double left_correction = left_pid + (config_.pid_p * diff_error * 0.3);
-    double right_correction = right_pid - (config_.pid_p * diff_error * 0.3);
-
-    // Limita a correção do PID para não desestabilizar o feedforward balanceado dos motores
-    const double max_correction = 1.0; // rad/s
-    left_correction = std::clamp(left_correction, -max_correction, max_correction);
-    right_correction = std::clamp(right_correction, -max_correction, max_correction);
-
-    // Converte a correção de velocidade (rad/s) para contagens por loop e aplica ao comando final
-    double left_correction_counts = (left_correction * delta_seconds) / left_wheel_.rads_per_tick;
-    double right_correction_counts = (right_correction * delta_seconds) / right_wheel_.rads_per_tick;
-
-    left_motor_counts_per_loop += left_correction_counts;
-    right_motor_counts_per_loop += right_correction_counts;
-
-    // Impede que a correção do PID inverta o sentido do motor em relação ao comando.
-    // Inverter faria a zona morta saltar de +MIN_MOTOR_PWM para -MIN_MOTOR_PWM
-    // e a ISR passaria a contar os pulsos da roda ao contrário.
-    left_motor_counts_per_loop = limit_to_command_sign(left_motor_counts_per_loop, left_wheel_.command);
-    right_motor_counts_per_loop = limit_to_command_sign(right_motor_counts_per_loop, right_wheel_.command);
-
-    // Log periódico no terminal a cada ~1 segundo (20 iterações a 20Hz)
-    static int log_counter = 0;
-    if (++log_counter % 20 == 0)
+    if (driving)
     {
-        RCLCPP_INFO(logger_, 
-            "Kp=%.2f | Cmd: L=%.2f R=%.2f | Vel: L=%.2f R=%.2f | Corr: L=%.2f R=%.2f | Counts: L=%.2f R=%.2f",
-            config_.pid_p,
-            left_wheel_.command, right_wheel_.command,
+        RCLCPP_DEBUG_THROTTLE(logger_, steady_clock_, 1000,
+            "Target L=%.2f R=%.2f | Vel L=%.2f R=%.2f rad/s | Duty L=%.2f R=%.2f | Integral L=%.3f R=%.3f",
+            target.left, target.right,
             left_wheel_.velocity, right_wheel_.velocity,
-            left_correction, right_correction,
-            left_motor_counts_per_loop, right_motor_counts_per_loop);
+            left_duty, right_duty,
+            left_speed_controller_.integral(), right_speed_controller_.integral());
     }
 
-    DEBUG("Enviando comandos para o driver: left=%f (corr=%f), right=%f (corr=%f)\n", 
-          left_motor_counts_per_loop, left_correction_counts,
-          right_motor_counts_per_loop, right_correction_counts);
-
-    // Send commands to motor driver
-    set_motor_speeds(left_motor_counts_per_loop, right_motor_counts_per_loop);
+    set_motor_duties(left_duty, right_duty);
 
     return return_type::OK;
 }
@@ -266,5 +308,5 @@ return_type MinihemaHardware::write(const rclcpp::Time & /*time*/, const rclcpp:
 #include "pluginlib/class_list_macros.hpp"
 
 PLUGINLIB_EXPORT_CLASS(
-    firmware_minihema::MinihemaHardware, 
+    firmware_minihema::MinihemaHardware,
     hardware_interface::SystemInterface)

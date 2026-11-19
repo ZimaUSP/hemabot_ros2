@@ -79,54 +79,30 @@ void add_right_wheel(){
   }
 }
 
-// Calibração dos motores
-#define MIN_MOTOR_PWM 26.0          // Zona morta mínima para romper atrito estático imediatamente (sem atraso na partida)
-#define RIGHT_WHEEL_RATIO 1.18      // Razão balanceada da roda direita para andar reto sem puxar para a esquerda/direita
+// Drive one motor with a signed duty cycle in [-1, 1]. The duty is applied with 1% resolution,
+// which is what Motor_Run accepts.
+static void drive_motor(UBYTE motor, double duty, volatile int *encoder_direction) {
+  double magnitude = fabs(duty);
+  if (!(magnitude <= 1.0)) magnitude = 1.0;  // also catches NaN
 
-void set_motor_speeds(double left_wheel_command, double right_wheel_command) {
-  DIR left_motor_direction;
-  DIR right_motor_direction;
-
-  // Determina direções com base no comando
-  left_motor_direction = (left_wheel_command >= 0.0) ? FORWARD : BACKWARD;
-  right_motor_direction = (right_wheel_command >= 0.0) ? FORWARD : BACKWARD;
-
-  // Converte comando em magnitude base [0..100] com a compensação balanceada na roda direita
-  double left_mag = fabs(left_wheel_command) * 125.0;
-  double right_mag = fabs(right_wheel_command) * (125.0 * RIGHT_WHEEL_RATIO);
-
-  double left_motor_speed = 0.0;
-  double right_motor_speed = 0.0;
-
-  // Compensação de zona morta (deadband):
-  // Se o comando for não-nulo, inicia na faixa de torque útil (MIN_MOTOR_PWM)
-  // eliminando o atraso de partida (stiction lag)
-  if (left_mag > 1e-3) {
-    if (left_mag > 100.0) left_mag = 100.0;
-    left_motor_speed = MIN_MOTOR_PWM + (left_mag * (100.0 - MIN_MOTOR_PWM) / 100.0);
-  }
-  if (right_mag > 1e-3) {
-    if (right_mag > 100.0) right_mag = 100.0;
-    right_motor_speed = MIN_MOTOR_PWM + (right_mag * (100.0 - MIN_MOTOR_PWM) / 100.0);
+  int percent = (int)lround(magnitude * 100.0);
+  if (percent == 0) {
+    Motor_Stop(motor);
+    return;
   }
 
-  // Atualiza as variáveis de direção que as ISRs usam para saber se somam ou subtraem.
-  // Só muda quando o motor é acionado: parado, a roda ainda gira por inércia no último sentido.
-  if (left_motor_speed > 0.0) left_wheel_direction = left_motor_direction;
-  if (right_motor_speed > 0.0) right_wheel_direction = right_motor_direction;
+  DIR direction = (duty > 0.0) ? FORWARD : BACKWARD;
 
-  // Controla os motores físicos (se velocidade for zero, para imediatamente)
-  if (left_motor_speed <= 0.0) {
-    Motor_Stop(MOTORA);
-  } else {
-    Motor_Run(MOTORA, left_motor_direction, (int)round(left_motor_speed));
-  }
+  // The encoders are single-channel: the ISRs take the sign of each pulse from the driven
+  // direction. It only changes while the motor is driven, because a coasting wheel keeps
+  // turning the way it was going.
+  *encoder_direction = direction;
+  Motor_Run(motor, direction, (UWORD)percent);
+}
 
-  if (right_motor_speed <= 0.0) {
-    Motor_Stop(MOTORB);
-  } else {
-    Motor_Run(MOTORB, right_motor_direction, (int)round(right_motor_speed));
-  }
+void set_motor_duties(double left_duty, double right_duty) {
+  drive_motor(MOTORA, left_duty, &left_wheel_direction);
+  drive_motor(MOTORB, right_duty, &right_wheel_direction);
 }
 
 void handler(int signo) {
