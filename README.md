@@ -84,9 +84,14 @@ A partir daqui, todos os dados recebidos via sensores passam a ser compartilhado
 
 - Para uma mensagem diretamente através de um tópico do sistema, basta aplicar o seguinte comando:
   ```bash
-   ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: v}, angular: {z: w}}"
+   ros2 topic pub -r 10 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: v}, angular: {z: w}}"
    ```
 Inserindo valores numéricos a v e w, a movimentação será realizada.
+
+> O `-r 10` é necessário: sem ele o comando é publicado a 1 Hz, e o twist_mux e o
+> diff_drive_controller descartam comandos com mais de 0,5 s, então o robô anda e para de meio em
+> meio segundo. O próprio `ros2 topic pub` também leva de 1 a 3 s para começar a publicar na
+> Raspberry. Para medir o atraso real, veja `src/firmware_minihema/README.md`.
 
 ## Usando o pacote teleop_twist_keyboard 
 
