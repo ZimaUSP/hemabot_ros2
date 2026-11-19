@@ -7,4 +7,7 @@ log
 .claude/
 CLAUDE.md
 CLAUDE.local.md
-/docs/
+/docs/*
+!/docs/TUTORIAL_FRAME_GRABBER_A1M8_R5.md
+!/docs/frame-grabber-download.jpg
+!/docs/mapeando.md
