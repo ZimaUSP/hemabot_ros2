@@ -44,6 +44,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration("use_sim_time")
     use_ros2_control = LaunchConfiguration("use_ros2_control")
     use_robot_localization = LaunchConfiguration("use_robot_localization")
+    hardware_log_level = LaunchConfiguration("hardware_log_level")
 
     # Declare the launch arguments
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -62,6 +63,13 @@ def generate_launch_description():
         name="use_robot_localization",
         default_value="True",
         description="Use robot_localization package if true",
+    )
+
+    declare_hardware_log_level_cmd = DeclareLaunchArgument(
+        name="hardware_log_level",
+        default_value="info",
+        description="Log level of the motor hardware interface; 'debug' prints the wheel speed "
+        "controller state (target, measured speed, duty, integral) every second",
     )
 
     # -----------------------------------------------------------------
@@ -98,6 +106,7 @@ def generate_launch_description():
         executable="ros2_control_node",
         output="screen",
         parameters=[robot_description, controller_params_file],
+        arguments=["--ros-args", "--log-level", ["MinihemaHardware:=", hardware_log_level]],
     )
 
     # Spawn diff_controller
@@ -199,6 +208,7 @@ def generate_launch_description():
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_use_ros2_control_cmd)
     ld.add_action(declare_use_robot_localization_cmd)
+    ld.add_action(declare_hardware_log_level_cmd)
 
     # Add any actions
     ld.add_action(start_robot_state_publisher_cmd)
