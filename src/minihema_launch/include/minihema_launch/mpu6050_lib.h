@@ -47,7 +47,9 @@ extern "C" {
 	#include <linux/i2c-dev.h>
 	#include <i2c/smbus.h>
 }
+#include <chrono>
 #include <cmath>
+#include <mutex>
 #include <thread>
 
 #define _POSIX_C_SOURCE 200809L //Used for calculating time
@@ -111,6 +113,14 @@ class MPU6050 {
 		struct timespec start,end; //Create a time structure
 
 		bool _first_run = 1; //Variable for whether to set gyro angle to acceleration angle in compFilter
+
+		// Rate of the update thread. Without a pause it keeps the I2C bus permanently busy.
+		static constexpr std::chrono::milliseconds kUpdatePeriod{10};
+
+		// Guards the values the update thread shares with readers (angles and latest readings)
+		std::mutex _data_mutex;
+		float _latest_gyro[3] = {0, 0, 0};
+		float _latest_accel[3] = {0, 0, 0};
 	public:
 		MPU6050(int8_t addr);
 		MPU6050(int8_t addr, bool run_update_thread);
@@ -121,6 +131,11 @@ class MPU6050 {
 		void getOffsets(float *ax_off, float *ay_off, float *az_off, float *gr_off, float *gp_off, float *gy_off);
 		Quaternion getQuat(float *roll, float *pitch, float *yaw);
 		int getAngle(int axis, float *result);
+
+		// Latest gyroscope (rad/s) and accelerometer (m/s^2) readings taken by the update thread.
+		// They do not access the I2C bus, so they never block: use these from the ros2_control loop.
+		void getLatestGyro(float *roll, float *pitch, float *yaw);
+		void getLatestAccel(float *x, float *y, float *z);
 		bool calc_yaw;
 };
 

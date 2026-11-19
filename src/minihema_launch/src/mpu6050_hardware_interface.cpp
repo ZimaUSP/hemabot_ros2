@@ -68,9 +68,10 @@ return_type MPU6050Hardware::read(const rclcpp::Time & /*time*/, const rclcpp::D
 	// Obtain current quaternion from euler angles
 	quat = device.getQuat(&euler_angles[0], &euler_angles[1], &euler_angles[2]);
 
-	// Obtain current gyroscope and accelerometer values
-	device.getGyro(&gyro_values[0], &gyro_values[1], &gyro_values[2]);
-	device.getAccel(&accel_values[0], &accel_values[1], &accel_values[2]); 
+	// Latest gyroscope and accelerometer values cached by the MPU6050 update thread. Reading the
+	// sensor here would put blocking I2C transfers in the control loop, which also drives the motors.
+	device.getLatestGyro(&gyro_values[0], &gyro_values[1], &gyro_values[2]);
+	device.getLatestAccel(&accel_values[0], &accel_values[1], &accel_values[2]);
 
 	// Assign values to the state interfaces
 	// Orientation, angular velocity and linear acceleration conform the East North Up (ENU) coordinate frame

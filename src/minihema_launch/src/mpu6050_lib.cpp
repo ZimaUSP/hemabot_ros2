@@ -125,9 +125,26 @@ Quaternion MPU6050::getQuat(float *roll, float *pitch, float *yaw) {
 	return quat;
 }
 
+void MPU6050::getLatestGyro(float *roll, float *pitch, float *yaw) {
+	std::lock_guard<std::mutex> lock(_data_mutex);
+	*roll = _latest_gyro[0];
+	*pitch = _latest_gyro[1];
+	*yaw = _latest_gyro[2];
+}
+
+void MPU6050::getLatestAccel(float *x, float *y, float *z) {
+	std::lock_guard<std::mutex> lock(_data_mutex);
+	*x = _latest_accel[0];
+	*y = _latest_accel[1];
+	*z = _latest_accel[2];
+}
+
 int MPU6050::getAngle(int axis, float *result) {
 	if (axis >= 0 && axis <= 2) { //Check that the axis is in the valid range
-		*result = _angle[axis]; //Get the result
+		{
+			std::lock_guard<std::mutex> lock(_data_mutex);
+			*result = _angle[axis]; //Get the result
+		}
 
 		*result *= (M_PI / 180); // Convert from deg to rad
 		return 0;	
@@ -141,10 +158,15 @@ int MPU6050::getAngle(int axis, float *result) {
 
 void MPU6050::_update() { //Main update function - runs continuously
 	clock_gettime(CLOCK_REALTIME, &start); //Read current time into start variable
+	auto next_wake = std::chrono::steady_clock::now();
 
 	while (1) { //Loop forever
-		getGyro(&gr, &gp, &gy); //Get the data from the sensors
+		getGyro(&gr, &gp, &gy); //Get the data from the sensors (I2C, outside the lock)
 		getAccel(&ax, &ay, &az);
+
+		std::unique_lock<std::mutex> lock(_data_mutex);
+		_latest_gyro[0] = gr, _latest_gyro[1] = gp, _latest_gyro[2] = gy;
+		_latest_accel[0] = ax, _latest_accel[1] = ay, _latest_accel[2] = az;
 
 		//X (roll) axis
 		_accel_angle[0] = atan2(az, ay) * RAD_T_DEG - 90.0; //Calculate the angle with z and y convert to degrees and subtract 90 degrees to rotate
@@ -197,9 +219,19 @@ void MPU6050::_update() { //Main update function - runs continuously
 			_gyro_angle[2] = 0;
 		}
 
+		lock.unlock();
+
 		clock_gettime(CLOCK_REALTIME, &end); //Save time to end clock
 		dt = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9; //Calculate new dt
 		clock_gettime(CLOCK_REALTIME, &start); //Save time to start clock
+
+		// Fixed rate; if a cycle overran, restart the schedule instead of running back-to-back
+		next_wake += kUpdatePeriod;
+		const auto now = std::chrono::steady_clock::now();
+		if (next_wake < now) {
+			next_wake = now;
+		}
+		std::this_thread::sleep_until(next_wake);
 	}
 }
 
