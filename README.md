@@ -50,19 +50,46 @@ ros2 launch d_hospital_slam online_async_launch.py use_sim_time:=false
 - `online_async_launch.py` é o arquivo de launch instalado pelo pacote.
 - `use_sim_time:=false` é um argumento aceito por esse launch e escolhe o relógio real.
 
-Para executar um programa instalado por um pacote, a estrutura é
+O pacote desse exemplo fica em `src/d_hospital_slam/`, e seu nome é declarado em `src/d_hospital_slam/package.xml`. Para consultar os argumentos aceitos pelo launch, use
+
+```bash
+ros2 launch d_hospital_slam online_async_launch.py --show-args
+```
+  
+<br>
+<br>
+
+Já para executar um programa instalado por um pacote, a estrutura é
 
 ```bash
 ros2 run <pacote> <executavel> [argumentos]
 ```
 
-Por exemplo, `ros2 run nav2_map_server map_saver_cli` executa o programa que salva mapas. O nome do executável é definido pela instalação do pacote e pode ser diferente do nome do arquivo de código. Os pacotes ficam disponíveis depois de compilar o workspace e carregar o ambiente com `source`.
-
-Os complementos dependem da ação. Launches aceitam argumentos como `use_sim_time:=true`, enquanto nós podem receber parâmetros como `--ros-args -p use_sim_time:=true`. Para ver os argumentos de um launch, use
+Por exemplo, com o mapeamento rodando e o tópico `/map` disponível, execute
 
 ```bash
-ros2 launch d_hospital_slam online_async_launch.py --show-args
+ros2 run nav2_map_server map_saver_cli -f ~/mapa_hospital
 ```
+
+Nesse comando, `nav2_map_server` é o pacote, `map_saver_cli` é o executável e `-f ~/mapa_hospital` define o caminho e o nome base dos arquivos do mapa. O resultado fica na sua pasta pessoal, com a imagem do mapa e o arquivo YAML.
+
+O nome do executável é definido pela instalação do pacote e pode ser diferente do nome do arquivo de código. Os pacotes ficam disponíveis depois de compilar o workspace e carregar o ambiente com `source`.
+
+O `nav2_map_server` é uma dependência externa do Nav2. Sua localização depende de como foi instalado no ambiente ROS 2. Para descobrir a pasta de instalação do pacote usado nesse exemplo, execute
+
+```bash
+ros2 pkg prefix nav2_map_server
+```
+
+Em uma instalação padrão do ROS 2 Humble no Linux, o resultado costuma ser `/opt/ros/humble`, e o executável fica em `/opt/ros/humble/lib/nav2_map_server/map_saver_cli`.
+
+Os pacotes desenvolvidos neste projeto ficam dentro de `src`. Por exemplo, o pacote `firmware_minihema` fica em `src/firmware_minihema/`, e o código do executável `motor_test` começa em `src/firmware_minihema/src/motor_test.cpp`. O arquivo `src/firmware_minihema/CMakeLists.txt` define como ele é compilado e instalado. Para listar os executáveis que o ROS 2 encontra nesse pacote, use
+
+```bash
+ros2 pkg executables firmware_minihema
+```
+
+Os complementos dependem da ação. Launches aceitam argumentos como `use_sim_time:=true`, enquanto nós podem receber parâmetros como `--ros-args -p use_sim_time:=true`.
 
 ## Como fazer o mapeamento
 
